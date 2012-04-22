@@ -1,0 +1,12 @@
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\obj\x86\Debug\MyhouseDomotique.MainControl.resources
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\obj\x86\Debug\MyhouseDomotique.Properties.Resources.resources
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\bin\Debug\normal.sdf
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\bin\Debug\simulation.sdf
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\bin\Debug\MyhouseDomotique.exe.config
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\bin\Debug\MyhouseDomotique.exe
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\bin\Debug\MyhouseDomotique.pdb
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\obj\x86\Debug\MyhouseDomotique.exe
+C:\Users\Pierre\Desktop\ECAM\prj domo\Merge\MyhouseDomotique\MyhouseDomotique\obj\x86\Debug\MyhouseDomotique.pdb
