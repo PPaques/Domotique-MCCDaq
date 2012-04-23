@@ -64,11 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TransparentPanel.cs">
+    <Compile Include="DesignElements\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CardFunctions.cs" />
-    <Compile Include="DrawingArea.cs">
+    <Compile Include="DesignElements\DrawingArea.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="House.cs" />
@@ -80,10 +80,10 @@
     </Compile>
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="VerticalProgressBar.cs">
+    <Compile Include="DesignElements\VerticalProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VerticalProgressBar.Designer.cs">
+    <Compile Include="DesignElements\VerticalProgressBar.Designer.cs">
       <DependentUpon>VerticalProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

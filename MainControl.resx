@@ -210,6 +210,9 @@
   <data name="BtWindowKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
+  <data name="BtWindowKitchen.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="BtWindowKitchen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -239,6 +242,9 @@
   </data>
   <data name="BtWindowBedroom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
+  </data>
+  <data name="BtWindowBedroom.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="BtWindowBedroom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -270,6 +276,9 @@
   <data name="BtWindowSaloonL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
+  <data name="BtWindowSaloonL.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="BtWindowSaloonL.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -299,6 +308,9 @@
   </data>
   <data name="BtWindowSaloonR.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
+  </data>
+  <data name="BtWindowSaloonR.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="BtWindowSaloonR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -330,6 +342,9 @@
   <data name="BtDoorKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
+  <data name="BtDoorKitchen.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="BtDoorKitchen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -359,6 +374,9 @@
   </data>
   <data name="BtDoorBedroom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
+  </data>
+  <data name="BtDoorBedroom.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="BtDoorBedroom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -390,6 +408,9 @@
   <data name="BtDoorEnter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
+  <data name="BtDoorEnter.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="BtDoorEnter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -416,6 +437,9 @@
   </data>
   <data name="&gt;&gt;BtDoorEnter.ZOrder" xml:space="preserve">
     <value>11</value>
+  </data>
+  <data name="tBKitchenTempAct.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="tBKitchenTempAct.Location" type="System.Drawing.Point, System.Drawing">
     <value>102, 28</value>
@@ -594,6 +618,9 @@
   <data name="&gt;&gt;labelKitchenSubtitleHot.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="BtKitchenHot.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="BtKitchenHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -686,6 +713,30 @@
   </data>
   <data name="&gt;&gt;labelKitchenSubtitleAct.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="ProgressBarKitchen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ProgressBarKitchen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 62</value>
+  </data>
+  <data name="ProgressBarKitchen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 131</value>
+  </data>
+  <data name="ProgressBarKitchen.TabIndex" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarKitchen.Name" xml:space="preserve">
+    <value>ProgressBarKitchen</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarKitchen.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarKitchen.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarKitchen.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="GroupBedroom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -801,6 +852,30 @@
   <data name="&gt;&gt;GroupBedroom.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="ProgressBarBedRoom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ProgressBarBedRoom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 63</value>
+  </data>
+  <data name="ProgressBarBedRoom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 130</value>
+  </data>
+  <data name="ProgressBarBedRoom.TabIndex" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Name" xml:space="preserve">
+    <value>ProgressBarBedRoom</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="labelBedRoomSubtitleHot.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -833,6 +908,9 @@
   </data>
   <data name="&gt;&gt;labelBedRoomSubtitleHot.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="BtBedRoomHot.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="BtBedRoomHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -926,6 +1004,9 @@
   </data>
   <data name="&gt;&gt;labelBedRoomSubtitleAct.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="tBBedRoomTempAct.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="tBBedRoomTempAct.Location" type="System.Drawing.Point, System.Drawing">
     <value>102, 28</value>
@@ -1095,6 +1176,30 @@
   <data name="&gt;&gt;GroupSaloon.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="ProgressBarSaloon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ProgressBarSaloon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 61</value>
+  </data>
+  <data name="ProgressBarSaloon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 130</value>
+  </data>
+  <data name="ProgressBarSaloon.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarSaloon.Name" xml:space="preserve">
+    <value>ProgressBarSaloon</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarSaloon.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarSaloon.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarSaloon.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="labelSaloonSubtitleHot.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1127,6 +1232,9 @@
   </data>
   <data name="&gt;&gt;labelSaloonSubtitleHot.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="BtSaloonHot.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="BtSaloonHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1221,6 +1329,9 @@
   <data name="&gt;&gt;labelSaloonSubtitleAct.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="tBSaloonTempAct.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="tBSaloonTempAct.Location" type="System.Drawing.Point, System.Drawing">
     <value>102, 28</value>
   </data>
@@ -1311,31 +1422,34 @@
   <data name="&gt;&gt;labelOutdoorLamp.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="BtOutdoorLight.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="BtOutdoorLight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="BtOutdoorLight.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 71</value>
   </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="BtOutdoorLight.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 30</value>
   </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+  <data name="BtOutdoorLight.TabIndex" type="System.Int32, mscorlib">
     <value>97</value>
   </data>
-  <data name="button1.Text" xml:space="preserve">
+  <data name="BtOutdoorLight.Text" xml:space="preserve">
     <value>Off</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
+  <data name="&gt;&gt;BtOutdoorLight.Name" xml:space="preserve">
+    <value>BtOutdoorLight</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+  <data name="&gt;&gt;BtOutdoorLight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;BtOutdoorLight.Parent" xml:space="preserve">
     <value>GroupOutdoor</value>
   </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;BtOutdoorLight.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="labelOutdoorSubtitleAct.AutoSize" type="System.Boolean, mscorlib">
@@ -1370,6 +1484,9 @@
   </data>
   <data name="&gt;&gt;labelOutdoorSubtitleAct.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="tBOutdoorTempAct.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="tBOutdoorTempAct.Location" type="System.Drawing.Point, System.Drawing">
     <value>140, 73</value>
@@ -1451,6 +1568,9 @@
   </data>
   <data name="PictureFont.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="PictureFont.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="PictureFont.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1539,54 +1659,6 @@
   <data name="&gt;&gt;lighActivePanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ProgressBarSaloon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ProgressBarSaloon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 61</value>
-  </data>
-  <data name="ProgressBarSaloon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 130</value>
-  </data>
-  <data name="ProgressBarSaloon.TabIndex" type="System.Int32, mscorlib">
-    <value>94</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarSaloon.Name" xml:space="preserve">
-    <value>ProgressBarSaloon</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarSaloon.Type" xml:space="preserve">
-    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarSaloon.Parent" xml:space="preserve">
-    <value>GroupSaloon</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarSaloon.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ProgressBarBedRoom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ProgressBarBedRoom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 63</value>
-  </data>
-  <data name="ProgressBarBedRoom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 130</value>
-  </data>
-  <data name="ProgressBarBedRoom.TabIndex" type="System.Int32, mscorlib">
-    <value>92</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarBedRoom.Name" xml:space="preserve">
-    <value>ProgressBarBedRoom</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarBedRoom.Type" xml:space="preserve">
-    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarBedRoom.Parent" xml:space="preserve">
-    <value>GroupBedroom</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarBedRoom.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="fireHotBedRoom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -1626,6 +1698,9 @@
   <data name="fireHotKitchen.TabIndex" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
+  <data name="fireHotKitchen.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;fireHotKitchen.Name" xml:space="preserve">
     <value>fireHotKitchen</value>
   </data>
@@ -1638,30 +1713,6 @@
   <data name="&gt;&gt;fireHotKitchen.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="ProgressBarKitchen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ProgressBarKitchen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 62</value>
-  </data>
-  <data name="ProgressBarKitchen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 131</value>
-  </data>
-  <data name="ProgressBarKitchen.TabIndex" type="System.Int32, mscorlib">
-    <value>93</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarKitchen.Name" xml:space="preserve">
-    <value>ProgressBarKitchen</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarKitchen.Type" xml:space="preserve">
-    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarKitchen.Parent" xml:space="preserve">
-    <value>GroupKitchen</value>
-  </data>
-  <data name="&gt;&gt;ProgressBarKitchen.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="fireHotSaloon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -1673,6 +1724,9 @@
   </data>
   <data name="fireHotSaloon.TabIndex" type="System.Int32, mscorlib">
     <value>100</value>
+  </data>
+  <data name="fireHotSaloon.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;fireHotSaloon.Name" xml:space="preserve">
     <value>fireHotSaloon</value>
@@ -1769,9 +1823,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1000, 914</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Controle Principaux </value>

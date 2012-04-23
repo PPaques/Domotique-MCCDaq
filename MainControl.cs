@@ -37,11 +37,13 @@ namespace MyhouseDomotique
         {
             // verifying and setting the card
             MyCard = new Card();
-            MessageBox.Show("wooo");
             StatusBarMode.Text = "Mode "+ GlobalVariables.mode;
             
             // creating the house
             myHouse = new House();
+
+            // setting the view
+            this.SetView();
 
             // connection to the db
             if (GlobalVariables.mode == "normal")
@@ -53,6 +55,8 @@ namespace MyhouseDomotique
                 GlobalVariables.conn = new SqlCeConnection("Data Source = |DataDirectory|simulation.sdf");        
             }
             GlobalVariables.conn.Open();
+
+
         }
 
         /// <summary>
@@ -86,6 +90,41 @@ namespace MyhouseDomotique
             {
                 myHouse.Walls[WallId].Openings[OpenId].isOpen = true;
                 (sender as Button).BackColor = System.Drawing.Color.Maroon;
+            }
+        }
+
+        /// <summary>
+        /// In simulation mode we have to enable all textboxes
+        /// </summary>
+        private void SetView() 
+        {
+            if (GlobalVariables.mode == "simulation")
+            {
+                // all the opening
+                this.BtWindowKitchen.Enabled = true;
+                this.BtWindowBedroom.Enabled = true;
+                this.BtWindowSaloonL.Enabled = true;
+                this.BtWindowSaloonR.Enabled = true;
+
+                this.BtDoorKitchen.Enabled = true;
+                this.BtDoorBedroom.Enabled = true;
+                this.BtDoorEnter.Enabled = true;
+
+                // kitchen
+                this.BtKitchenHot.Enabled = true;
+                this.tBKitchenTempAct.Enabled = true;
+
+                // bedroom
+                this.BtBedRoomHot.Enabled = true;
+                this.tBBedRoomTempAct.Enabled = true;
+
+                // saloon
+                this.BtSaloonHot.Enabled = true;
+                this.tBSaloonTempAct.Enabled = true;
+
+                // exterior
+                this.tBOutdoorTempAct.Enabled = true;
+                this.BtOutdoorLight.Enabled = true;
             }
         }
 
