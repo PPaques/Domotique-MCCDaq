@@ -80,5 +80,19 @@ namespace MyhouseDomotique.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap light_active {
+            get {
+                object obj = ResourceManager.GetObject("light_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap light_inactive {
+            get {
+                object obj = ResourceManager.GetObject("light_inactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

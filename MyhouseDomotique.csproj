@@ -64,7 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirePanel.cs">
+    <Compile Include="TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CardFunctions.cs" />
@@ -117,6 +117,8 @@
     </Content>
     <None Include="Resources\FireCold.png" />
     <None Include="Resources\FireHot.png" />
+    <None Include="Resources\light_active.png" />
+    <None Include="Resources\light_inactive.png" />
     <Content Include="simulation.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

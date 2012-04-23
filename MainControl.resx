@@ -121,12 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="StatusBarMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
-  </data>
-  <data name="StatusBarMode.Text" xml:space="preserve">
-    <value>Mode</value>
-  </data>
   <data name="StatusBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 889</value>
   </data>
@@ -150,35 +144,17 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StatusBar.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>20</value>
+  </data>
+  <data name="StatusBarMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 20</value>
+  </data>
+  <data name="StatusBarMode.Text" xml:space="preserve">
+    <value>Mode</value>
   </data>
   <metadata name="MenuBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>235, 17</value>
   </metadata>
-  <data name="MenuBarClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 24</value>
-  </data>
-  <data name="MenuBarClose.Text" xml:space="preserve">
-    <value>Fermer</value>
-  </data>
-  <data name="MenuBarTitleProgramme.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 24</value>
-  </data>
-  <data name="MenuBarTitleProgramme.Text" xml:space="preserve">
-    <value>Programme</value>
-  </data>
-  <data name="MenuBarCredit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 24</value>
-  </data>
-  <data name="MenuBarCredit.Text" xml:space="preserve">
-    <value>Crédits</value>
-  </data>
-  <data name="MenuBarTitleInt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 24</value>
-  </data>
-  <data name="MenuBarTitleInt.Text" xml:space="preserve">
-    <value>?</value>
-  </data>
   <data name="MenuBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -205,37 +181,31 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MenuBar.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>19</value>
   </data>
-  <data name="PictureFont.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="MenuBarTitleProgramme.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 24</value>
   </data>
-  <data name="PictureFont.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="MenuBarTitleProgramme.Text" xml:space="preserve">
+    <value>Programme</value>
   </data>
-  <data name="PictureFont.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 28</value>
+  <data name="MenuBarClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 24</value>
   </data>
-  <data name="PictureFont.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1000, 861</value>
+  <data name="MenuBarClose.Text" xml:space="preserve">
+    <value>Fermer</value>
   </data>
-  <data name="PictureFont.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
+  <data name="MenuBarTitleInt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 24</value>
   </data>
-  <data name="PictureFont.TabIndex" type="System.Int32, mscorlib">
-    <value>84</value>
+  <data name="MenuBarTitleInt.Text" xml:space="preserve">
+    <value>?</value>
   </data>
-  <data name="&gt;&gt;PictureFont.Name" xml:space="preserve">
-    <value>PictureFont</value>
+  <data name="MenuBarCredit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 24</value>
   </data>
-  <data name="&gt;&gt;PictureFont.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PictureFont.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PictureFont.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="MenuBarCredit.Text" xml:space="preserve">
+    <value>Crédits</value>
   </data>
   <data name="BtWindowKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -265,7 +235,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtWindowKitchen.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>17</value>
   </data>
   <data name="BtWindowBedroom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -295,7 +265,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtWindowBedroom.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>16</value>
   </data>
   <data name="BtWindowSaloonL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -325,7 +295,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtWindowSaloonL.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>15</value>
   </data>
   <data name="BtWindowSaloonR.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -355,7 +325,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtWindowSaloonR.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="BtDoorKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -385,7 +355,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtDoorKitchen.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="BtDoorBedroom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -415,7 +385,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtDoorBedroom.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="BtDoorEnter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -445,49 +415,112 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtDoorEnter.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
-  <data name="ProgressBarBedRoom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="tBKitchenTempAct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 28</value>
+  </data>
+  <data name="tBKitchenTempAct.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tBKitchenTempAct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 27</value>
+  </data>
+  <data name="tBKitchenTempAct.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="tBKitchenTempAct.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;tBKitchenTempAct.Name" xml:space="preserve">
+    <value>tBKitchenTempAct</value>
+  </data>
+  <data name="&gt;&gt;tBKitchenTempAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBKitchenTempAct.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;tBKitchenTempAct.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tBKitchenTempRef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 85</value>
+  </data>
+  <data name="tBKitchenTempRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tBKitchenTempRef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 27</value>
+  </data>
+  <data name="tBKitchenTempRef.TabIndex" type="System.Int32, mscorlib">
+    <value>77</value>
+  </data>
+  <data name="tBKitchenTempRef.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;tBKitchenTempRef.Name" xml:space="preserve">
+    <value>tBKitchenTempRef</value>
+  </data>
+  <data name="&gt;&gt;tBKitchenTempRef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBKitchenTempRef.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;tBKitchenTempRef.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="GroupKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="ProgressBarBedRoom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;labelKitchenSubtitleHot.Name" xml:space="preserve">
+    <value>labelKitchenSubtitleHot</value>
   </data>
-  <data name="ProgressBarBedRoom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>900, 223</value>
+  <data name="&gt;&gt;labelKitchenSubtitleHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ProgressBarBedRoom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 141</value>
+  <data name="&gt;&gt;labelKitchenSubtitleHot.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
   </data>
-  <data name="ProgressBarBedRoom.TabIndex" type="System.Int32, mscorlib">
-    <value>92</value>
+  <data name="&gt;&gt;labelKitchenSubtitleHot.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;ProgressBarBedRoom.Name" xml:space="preserve">
-    <value>ProgressBarBedRoom</value>
+  <data name="&gt;&gt;BtKitchenHot.Name" xml:space="preserve">
+    <value>BtKitchenHot</value>
   </data>
-  <data name="&gt;&gt;ProgressBarBedRoom.Type" xml:space="preserve">
-    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;BtKitchenHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ProgressBarBedRoom.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;BtKitchenHot.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
   </data>
-  <data name="&gt;&gt;ProgressBarBedRoom.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;BtKitchenHot.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="ProgressBarKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+  <data name="&gt;&gt;labelKitchenSubtitleAsk.Name" xml:space="preserve">
+    <value>labelKitchenSubtitleAsk</value>
   </data>
-  <data name="ProgressBarKitchen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;labelKitchenSubtitleAsk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ProgressBarKitchen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>42, 223</value>
+  <data name="&gt;&gt;labelKitchenSubtitleAsk.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
   </data>
-  <data name="ProgressBarKitchen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 141</value>
+  <data name="&gt;&gt;labelKitchenSubtitleAsk.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="ProgressBarKitchen.TabIndex" type="System.Int32, mscorlib">
-    <value>93</value>
+  <data name="&gt;&gt;labelKitchenSubtitleAct.Name" xml:space="preserve">
+    <value>labelKitchenSubtitleAct</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAct.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAct.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;ProgressBarKitchen.Name" xml:space="preserve">
     <value>ProgressBarKitchen</value>
@@ -496,25 +529,460 @@
     <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ProgressBarKitchen.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>GroupKitchen</value>
   </data>
   <data name="&gt;&gt;ProgressBarKitchen.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="ProgressBarSaloon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+  <data name="GroupKitchen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
   </data>
-  <data name="ProgressBarSaloon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="GroupKitchen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 172</value>
+  </data>
+  <data name="GroupKitchen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 199</value>
+  </data>
+  <data name="GroupKitchen.TabIndex" type="System.Int32, mscorlib">
+    <value>102</value>
+  </data>
+  <data name="GroupKitchen.Text" xml:space="preserve">
+    <value>Cuisine</value>
+  </data>
+  <data name="&gt;&gt;GroupKitchen.Name" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;GroupKitchen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupKitchen.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupKitchen.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="labelKitchenSubtitleHot.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelKitchenSubtitleHot.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelKitchenSubtitleHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ProgressBarSaloon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>900, 529</value>
+  <data name="labelKitchenSubtitleHot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 129</value>
   </data>
-  <data name="ProgressBarSaloon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 141</value>
+  <data name="labelKitchenSubtitleHot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 18</value>
   </data>
-  <data name="ProgressBarSaloon.TabIndex" type="System.Int32, mscorlib">
+  <data name="labelKitchenSubtitleHot.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="labelKitchenSubtitleHot.Text" xml:space="preserve">
+    <value>Chauffage</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleHot.Name" xml:space="preserve">
+    <value>labelKitchenSubtitleHot</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleHot.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleHot.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BtKitchenHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtKitchenHot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 161</value>
+  </data>
+  <data name="BtKitchenHot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 30</value>
+  </data>
+  <data name="BtKitchenHot.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="BtKitchenHot.Text" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="&gt;&gt;BtKitchenHot.Name" xml:space="preserve">
+    <value>BtKitchenHot</value>
+  </data>
+  <data name="&gt;&gt;BtKitchenHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtKitchenHot.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;BtKitchenHot.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelKitchenSubtitleAsk.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelKitchenSubtitleAsk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelKitchenSubtitleAsk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelKitchenSubtitleAsk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 63</value>
+  </data>
+  <data name="labelKitchenSubtitleAsk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 18</value>
+  </data>
+  <data name="labelKitchenSubtitleAsk.TabIndex" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="labelKitchenSubtitleAsk.Text" xml:space="preserve">
+    <value>T. consigne</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAsk.Name" xml:space="preserve">
+    <value>labelKitchenSubtitleAsk</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAsk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAsk.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAsk.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelKitchenSubtitleAct.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelKitchenSubtitleAct.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelKitchenSubtitleAct.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelKitchenSubtitleAct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 32</value>
+  </data>
+  <data name="labelKitchenSubtitleAct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 18</value>
+  </data>
+  <data name="labelKitchenSubtitleAct.TabIndex" type="System.Int32, mscorlib">
     <value>94</value>
+  </data>
+  <data name="labelKitchenSubtitleAct.Text" xml:space="preserve">
+    <value>T. actuelle</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAct.Name" xml:space="preserve">
+    <value>labelKitchenSubtitleAct</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAct.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
+  </data>
+  <data name="&gt;&gt;labelKitchenSubtitleAct.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="GroupBedroom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Name" xml:space="preserve">
+    <value>ProgressBarBedRoom</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleHot.Name" xml:space="preserve">
+    <value>labelBedRoomSubtitleHot</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleHot.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleHot.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BtBedRoomHot.Name" xml:space="preserve">
+    <value>BtBedRoomHot</value>
+  </data>
+  <data name="&gt;&gt;BtBedRoomHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtBedRoomHot.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;BtBedRoomHot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAsk.Name" xml:space="preserve">
+    <value>labelBedRoomSubtitleAsk</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAsk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAsk.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAsk.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAct.Name" xml:space="preserve">
+    <value>labelBedRoomSubtitleAct</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAct.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAct.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempAct.Name" xml:space="preserve">
+    <value>tBBedRoomTempAct</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempAct.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempAct.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempRef.Name" xml:space="preserve">
+    <value>tBBedRoomTempRef</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempRef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempRef.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempRef.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="GroupBedroom.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
+  </data>
+  <data name="GroupBedroom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>811, 172</value>
+  </data>
+  <data name="GroupBedroom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 199</value>
+  </data>
+  <data name="GroupBedroom.TabIndex" type="System.Int32, mscorlib">
+    <value>103</value>
+  </data>
+  <data name="GroupBedroom.Text" xml:space="preserve">
+    <value>Chambre</value>
+  </data>
+  <data name="&gt;&gt;GroupBedroom.Name" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;GroupBedroom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBedroom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupBedroom.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labelBedRoomSubtitleHot.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelBedRoomSubtitleHot.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelBedRoomSubtitleHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelBedRoomSubtitleHot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 129</value>
+  </data>
+  <data name="labelBedRoomSubtitleHot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 18</value>
+  </data>
+  <data name="labelBedRoomSubtitleHot.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="labelBedRoomSubtitleHot.Text" xml:space="preserve">
+    <value>Chauffage</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleHot.Name" xml:space="preserve">
+    <value>labelBedRoomSubtitleHot</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleHot.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleHot.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtBedRoomHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtBedRoomHot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 161</value>
+  </data>
+  <data name="BtBedRoomHot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 30</value>
+  </data>
+  <data name="BtBedRoomHot.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="BtBedRoomHot.Text" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="&gt;&gt;BtBedRoomHot.Name" xml:space="preserve">
+    <value>BtBedRoomHot</value>
+  </data>
+  <data name="&gt;&gt;BtBedRoomHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtBedRoomHot.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;BtBedRoomHot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelBedRoomSubtitleAsk.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelBedRoomSubtitleAsk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelBedRoomSubtitleAsk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelBedRoomSubtitleAsk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 63</value>
+  </data>
+  <data name="labelBedRoomSubtitleAsk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 18</value>
+  </data>
+  <data name="labelBedRoomSubtitleAsk.TabIndex" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="labelBedRoomSubtitleAsk.Text" xml:space="preserve">
+    <value>T. consigne</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAsk.Name" xml:space="preserve">
+    <value>labelBedRoomSubtitleAsk</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAsk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAsk.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAsk.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labelBedRoomSubtitleAct.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelBedRoomSubtitleAct.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelBedRoomSubtitleAct.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelBedRoomSubtitleAct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 32</value>
+  </data>
+  <data name="labelBedRoomSubtitleAct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 18</value>
+  </data>
+  <data name="labelBedRoomSubtitleAct.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <data name="labelBedRoomSubtitleAct.Text" xml:space="preserve">
+    <value>T. actuelle</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAct.Name" xml:space="preserve">
+    <value>labelBedRoomSubtitleAct</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAct.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;labelBedRoomSubtitleAct.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tBBedRoomTempAct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 28</value>
+  </data>
+  <data name="tBBedRoomTempAct.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tBBedRoomTempAct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 27</value>
+  </data>
+  <data name="tBBedRoomTempAct.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="tBBedRoomTempAct.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempAct.Name" xml:space="preserve">
+    <value>tBBedRoomTempAct</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempAct.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempAct.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tBBedRoomTempRef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 85</value>
+  </data>
+  <data name="tBBedRoomTempRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tBBedRoomTempRef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 27</value>
+  </data>
+  <data name="tBBedRoomTempRef.TabIndex" type="System.Int32, mscorlib">
+    <value>77</value>
+  </data>
+  <data name="tBBedRoomTempRef.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempRef.Name" xml:space="preserve">
+    <value>tBBedRoomTempRef</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempRef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempRef.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;tBBedRoomTempRef.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="GroupSaloon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="&gt;&gt;ProgressBarSaloon.Name" xml:space="preserve">
     <value>ProgressBarSaloon</value>
@@ -523,22 +991,421 @@
     <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ProgressBarSaloon.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>GroupSaloon</value>
   </data>
   <data name="&gt;&gt;ProgressBarSaloon.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleHot.Name" xml:space="preserve">
+    <value>labelSaloonSubtitleHot</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleHot.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleHot.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BtSaloonHot.Name" xml:space="preserve">
+    <value>BtSaloonHot</value>
+  </data>
+  <data name="&gt;&gt;BtSaloonHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtSaloonHot.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;BtSaloonHot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAsk.Name" xml:space="preserve">
+    <value>labelSaloonSubtitleAsk</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAsk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAsk.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAsk.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAct.Name" xml:space="preserve">
+    <value>labelSaloonSubtitleAct</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAct.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAct.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempAct.Name" xml:space="preserve">
+    <value>tBSaloonTempAct</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempAct.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempAct.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="ProgressBarOutdoor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="&gt;&gt;tBSaloonTempRef.Name" xml:space="preserve">
+    <value>tBSaloonTempRef</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempRef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempRef.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempRef.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="GroupSaloon.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
+  </data>
+  <data name="GroupSaloon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>811, 459</value>
+  </data>
+  <data name="GroupSaloon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 199</value>
+  </data>
+  <data name="GroupSaloon.TabIndex" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="GroupSaloon.Text" xml:space="preserve">
+    <value>Salon</value>
+  </data>
+  <data name="&gt;&gt;GroupSaloon.Name" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;GroupSaloon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupSaloon.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupSaloon.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelSaloonSubtitleHot.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelSaloonSubtitleHot.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelSaloonSubtitleHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelSaloonSubtitleHot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 129</value>
+  </data>
+  <data name="labelSaloonSubtitleHot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 18</value>
+  </data>
+  <data name="labelSaloonSubtitleHot.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="labelSaloonSubtitleHot.Text" xml:space="preserve">
+    <value>Chauffage</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleHot.Name" xml:space="preserve">
+    <value>labelSaloonSubtitleHot</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleHot.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleHot.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtSaloonHot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtSaloonHot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 161</value>
+  </data>
+  <data name="BtSaloonHot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 30</value>
+  </data>
+  <data name="BtSaloonHot.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="BtSaloonHot.Text" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="&gt;&gt;BtSaloonHot.Name" xml:space="preserve">
+    <value>BtSaloonHot</value>
+  </data>
+  <data name="&gt;&gt;BtSaloonHot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtSaloonHot.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;BtSaloonHot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelSaloonSubtitleAsk.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelSaloonSubtitleAsk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelSaloonSubtitleAsk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelSaloonSubtitleAsk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 63</value>
+  </data>
+  <data name="labelSaloonSubtitleAsk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 18</value>
+  </data>
+  <data name="labelSaloonSubtitleAsk.TabIndex" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="labelSaloonSubtitleAsk.Text" xml:space="preserve">
+    <value>T. consigne</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAsk.Name" xml:space="preserve">
+    <value>labelSaloonSubtitleAsk</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAsk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAsk.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAsk.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labelSaloonSubtitleAct.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelSaloonSubtitleAct.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelSaloonSubtitleAct.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelSaloonSubtitleAct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 32</value>
+  </data>
+  <data name="labelSaloonSubtitleAct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 18</value>
+  </data>
+  <data name="labelSaloonSubtitleAct.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <data name="labelSaloonSubtitleAct.Text" xml:space="preserve">
+    <value>T. actuelle</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAct.Name" xml:space="preserve">
+    <value>labelSaloonSubtitleAct</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAct.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;labelSaloonSubtitleAct.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tBSaloonTempAct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 28</value>
+  </data>
+  <data name="tBSaloonTempAct.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tBSaloonTempAct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 27</value>
+  </data>
+  <data name="tBSaloonTempAct.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="tBSaloonTempAct.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempAct.Name" xml:space="preserve">
+    <value>tBSaloonTempAct</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempAct.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempAct.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tBSaloonTempRef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 85</value>
+  </data>
+  <data name="tBSaloonTempRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tBSaloonTempRef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 27</value>
+  </data>
+  <data name="tBSaloonTempRef.TabIndex" type="System.Int32, mscorlib">
+    <value>77</value>
+  </data>
+  <data name="tBSaloonTempRef.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempRef.Name" xml:space="preserve">
+    <value>tBSaloonTempRef</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempRef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempRef.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;tBSaloonTempRef.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="GroupOutdoor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
+  </data>
+  <data name="labelOutdoorLamp.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelOutdoorLamp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelOutdoorLamp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelOutdoorLamp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 41</value>
+  </data>
+  <data name="labelOutdoorLamp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 18</value>
+  </data>
+  <data name="labelOutdoorLamp.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="labelOutdoorLamp.Text" xml:space="preserve">
+    <value>Lumière</value>
+  </data>
+  <data name="&gt;&gt;labelOutdoorLamp.Name" xml:space="preserve">
+    <value>labelOutdoorLamp</value>
+  </data>
+  <data name="&gt;&gt;labelOutdoorLamp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelOutdoorLamp.Parent" xml:space="preserve">
+    <value>GroupOutdoor</value>
+  </data>
+  <data name="&gt;&gt;labelOutdoorLamp.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 71</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 30</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>GroupOutdoor</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelOutdoorSubtitleAct.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelOutdoorSubtitleAct.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="labelOutdoorSubtitleAct.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelOutdoorSubtitleAct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 41</value>
+  </data>
+  <data name="labelOutdoorSubtitleAct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 18</value>
+  </data>
+  <data name="labelOutdoorSubtitleAct.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <data name="labelOutdoorSubtitleAct.Text" xml:space="preserve">
+    <value>T. actuelle</value>
+  </data>
+  <data name="&gt;&gt;labelOutdoorSubtitleAct.Name" xml:space="preserve">
+    <value>labelOutdoorSubtitleAct</value>
+  </data>
+  <data name="&gt;&gt;labelOutdoorSubtitleAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelOutdoorSubtitleAct.Parent" xml:space="preserve">
+    <value>GroupOutdoor</value>
+  </data>
+  <data name="&gt;&gt;labelOutdoorSubtitleAct.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tBOutdoorTempAct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 73</value>
+  </data>
+  <data name="tBOutdoorTempAct.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tBOutdoorTempAct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 27</value>
+  </data>
+  <data name="tBOutdoorTempAct.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="tBOutdoorTempAct.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;tBOutdoorTempAct.Name" xml:space="preserve">
+    <value>tBOutdoorTempAct</value>
+  </data>
+  <data name="&gt;&gt;tBOutdoorTempAct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tBOutdoorTempAct.Parent" xml:space="preserve">
+    <value>GroupOutdoor</value>
+  </data>
+  <data name="&gt;&gt;tBOutdoorTempAct.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="ProgressBarOutdoor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ProgressBarOutdoor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>900, 745</value>
+    <value>202, 13</value>
   </data>
   <data name="ProgressBarOutdoor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 141</value>
+    <value>37, 128</value>
   </data>
   <data name="ProgressBarOutdoor.TabIndex" type="System.Int32, mscorlib">
     <value>95</value>
@@ -550,19 +1417,181 @@
     <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ProgressBarOutdoor.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>GroupOutdoor</value>
   </data>
   <data name="&gt;&gt;ProgressBarOutdoor.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="fireColdPannelBedRoom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="GroupOutdoor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
+  </data>
+  <data name="GroupOutdoor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>743, 734</value>
+  </data>
+  <data name="GroupOutdoor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 141</value>
+  </data>
+  <data name="GroupOutdoor.TabIndex" type="System.Int32, mscorlib">
+    <value>105</value>
+  </data>
+  <data name="GroupOutdoor.Text" xml:space="preserve">
+    <value>Extérieur</value>
+  </data>
+  <data name="&gt;&gt;GroupOutdoor.Name" xml:space="preserve">
+    <value>GroupOutdoor</value>
+  </data>
+  <data name="&gt;&gt;GroupOutdoor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupOutdoor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupOutdoor.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PictureFont.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PictureFont.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureFont.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 28</value>
+  </data>
+  <data name="PictureFont.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 861</value>
+  </data>
+  <data name="PictureFont.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="PictureFont.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="&gt;&gt;PictureFont.Name" xml:space="preserve">
+    <value>PictureFont</value>
+  </data>
+  <data name="&gt;&gt;PictureFont.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureFont.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PictureFont.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="lighInactivePanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
+  </data>
+  <data name="&gt;&gt;lighActivePanel.Name" xml:space="preserve">
+    <value>lighActivePanel</value>
+  </data>
+  <data name="&gt;&gt;lighActivePanel.Type" xml:space="preserve">
+    <value>LighActivePannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lighActivePanel.Parent" xml:space="preserve">
+    <value>lighInactivePanel</value>
+  </data>
+  <data name="&gt;&gt;lighActivePanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lighInactivePanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>572, 731</value>
+  </data>
+  <data name="lighInactivePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 130</value>
+  </data>
+  <data name="lighInactivePanel.TabIndex" type="System.Int32, mscorlib">
+    <value>106</value>
+  </data>
+  <data name="&gt;&gt;lighInactivePanel.Name" xml:space="preserve">
+    <value>lighInactivePanel</value>
+  </data>
+  <data name="&gt;&gt;lighInactivePanel.Type" xml:space="preserve">
+    <value>LighInactivePannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lighInactivePanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lighInactivePanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lighActivePanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="lighActivePanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lighActivePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 128</value>
+  </data>
+  <data name="lighActivePanel.TabIndex" type="System.Int32, mscorlib">
+    <value>107</value>
+  </data>
+  <data name="&gt;&gt;lighActivePanel.Name" xml:space="preserve">
+    <value>lighActivePanel</value>
+  </data>
+  <data name="&gt;&gt;lighActivePanel.Type" xml:space="preserve">
+    <value>LighActivePannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lighActivePanel.Parent" xml:space="preserve">
+    <value>lighInactivePanel</value>
+  </data>
+  <data name="&gt;&gt;lighActivePanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ProgressBarSaloon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ProgressBarSaloon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 61</value>
+  </data>
+  <data name="ProgressBarSaloon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 130</value>
+  </data>
+  <data name="ProgressBarSaloon.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarSaloon.Name" xml:space="preserve">
+    <value>ProgressBarSaloon</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarSaloon.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarSaloon.Parent" xml:space="preserve">
+    <value>GroupSaloon</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarSaloon.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ProgressBarBedRoom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ProgressBarBedRoom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 63</value>
+  </data>
+  <data name="ProgressBarBedRoom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 130</value>
+  </data>
+  <data name="ProgressBarBedRoom.TabIndex" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Name" xml:space="preserve">
+    <value>ProgressBarBedRoom</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.Parent" xml:space="preserve">
+    <value>GroupBedroom</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarBedRoom.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="fireHotBedRoom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="fireHotBedRoom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>640, 242</value>
   </data>
   <data name="fireHotBedRoom.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 129</value>
@@ -580,40 +1609,16 @@
     <value>FireHotPannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fireHotBedRoom.Parent" xml:space="preserve">
-    <value>fireColdPannelBedRoom</value>
-  </data>
-  <data name="&gt;&gt;fireHotBedRoom.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="fireColdPannelBedRoom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>638, 197</value>
-  </data>
-  <data name="fireColdPannelBedRoom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 129</value>
-  </data>
-  <data name="fireColdPannelBedRoom.TabIndex" type="System.Int32, mscorlib">
-    <value>96</value>
-  </data>
-  <data name="&gt;&gt;fireColdPannelBedRoom.Name" xml:space="preserve">
-    <value>fireColdPannelBedRoom</value>
-  </data>
-  <data name="&gt;&gt;fireColdPannelBedRoom.Type" xml:space="preserve">
-    <value>FireColdPannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fireColdPannelBedRoom.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;fireColdPannelBedRoom.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="fireColdKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+  <data name="&gt;&gt;fireHotBedRoom.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="fireHotKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="fireHotKitchen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>200, 242</value>
   </data>
   <data name="fireHotKitchen.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 129</value>
@@ -628,55 +1633,34 @@
     <value>FireHotPannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fireHotKitchen.Parent" xml:space="preserve">
-    <value>fireColdKitchen</value>
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;fireHotKitchen.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>5</value>
   </data>
-  <data name="fireColdKitchen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 197</value>
+  <data name="ProgressBarKitchen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="fireColdKitchen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 129</value>
+  <data name="ProgressBarKitchen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 62</value>
   </data>
-  <data name="fireColdKitchen.TabIndex" type="System.Int32, mscorlib">
-    <value>97</value>
+  <data name="ProgressBarKitchen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 131</value>
   </data>
-  <data name="&gt;&gt;fireColdKitchen.Name" xml:space="preserve">
-    <value>fireColdKitchen</value>
+  <data name="ProgressBarKitchen.TabIndex" type="System.Int32, mscorlib">
+    <value>93</value>
   </data>
-  <data name="&gt;&gt;fireColdKitchen.Type" xml:space="preserve">
-    <value>FireColdPannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;ProgressBarKitchen.Name" xml:space="preserve">
+    <value>ProgressBarKitchen</value>
   </data>
-  <data name="&gt;&gt;fireColdKitchen.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;ProgressBarKitchen.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;fireColdKitchen.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;ProgressBarKitchen.Parent" xml:space="preserve">
+    <value>GroupKitchen</value>
   </data>
-  <data name="fireColdSaloon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="fireColdSaloon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>423, 529</value>
-  </data>
-  <data name="fireColdSaloon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 129</value>
-  </data>
-  <data name="fireColdSaloon.TabIndex" type="System.Int32, mscorlib">
-    <value>98</value>
-  </data>
-  <data name="&gt;&gt;fireColdSaloon.Name" xml:space="preserve">
-    <value>fireColdSaloon</value>
-  </data>
-  <data name="&gt;&gt;fireColdSaloon.Type" xml:space="preserve">
-    <value>FireColdPannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fireColdSaloon.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fireColdSaloon.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;ProgressBarKitchen.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="fireHotSaloon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -700,7 +1684,79 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fireHotSaloon.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>7</value>
+  </data>
+  <data name="fireColdSaloon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="fireColdSaloon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>423, 529</value>
+  </data>
+  <data name="fireColdSaloon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 129</value>
+  </data>
+  <data name="fireColdSaloon.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="&gt;&gt;fireColdSaloon.Name" xml:space="preserve">
+    <value>fireColdSaloon</value>
+  </data>
+  <data name="&gt;&gt;fireColdSaloon.Type" xml:space="preserve">
+    <value>FireColdPannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fireColdSaloon.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fireColdSaloon.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="fireColdKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="fireColdKitchen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 243</value>
+  </data>
+  <data name="fireColdKitchen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 129</value>
+  </data>
+  <data name="fireColdKitchen.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="&gt;&gt;fireColdKitchen.Name" xml:space="preserve">
+    <value>fireColdKitchen</value>
+  </data>
+  <data name="&gt;&gt;fireColdKitchen.Type" xml:space="preserve">
+    <value>FireColdPannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fireColdKitchen.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fireColdKitchen.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="fireColdPannelBedRoom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="fireColdPannelBedRoom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>640, 243</value>
+  </data>
+  <data name="fireColdPannelBedRoom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 129</value>
+  </data>
+  <data name="fireColdPannelBedRoom.TabIndex" type="System.Int32, mscorlib">
+    <value>96</value>
+  </data>
+  <data name="&gt;&gt;fireColdPannelBedRoom.Name" xml:space="preserve">
+    <value>fireColdPannelBedRoom</value>
+  </data>
+  <data name="&gt;&gt;fireColdPannelBedRoom.Type" xml:space="preserve">
+    <value>FireColdPannel, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fireColdPannelBedRoom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fireColdPannelBedRoom.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -713,6 +1769,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1000, 914</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Controle Principaux </value>

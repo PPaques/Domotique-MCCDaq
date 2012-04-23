@@ -36,7 +36,6 @@
             this.MenuBarClose = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuBarTitleInt = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuBarCredit = new System.Windows.Forms.ToolStripMenuItem();
-            this.PictureFont = new System.Windows.Forms.PictureBox();
             this.BtWindowKitchen = new System.Windows.Forms.Button();
             this.BtWindowBedroom = new System.Windows.Forms.Button();
             this.BtWindowSaloonL = new System.Windows.Forms.Button();
@@ -44,21 +43,53 @@
             this.BtDoorKitchen = new System.Windows.Forms.Button();
             this.BtDoorBedroom = new System.Windows.Forms.Button();
             this.BtDoorEnter = new System.Windows.Forms.Button();
-            this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
-            this.ProgressBarKitchen = new MyhouseDomotique.VertcicalProgressBar();
-            this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
+            this.tBKitchenTempAct = new System.Windows.Forms.TextBox();
+            this.tBKitchenTempRef = new System.Windows.Forms.TextBox();
+            this.GroupKitchen = new System.Windows.Forms.GroupBox();
+            this.labelKitchenSubtitleHot = new System.Windows.Forms.Label();
+            this.BtKitchenHot = new System.Windows.Forms.Button();
+            this.labelKitchenSubtitleAsk = new System.Windows.Forms.Label();
+            this.labelKitchenSubtitleAct = new System.Windows.Forms.Label();
+            this.GroupBedroom = new System.Windows.Forms.GroupBox();
+            this.labelBedRoomSubtitleHot = new System.Windows.Forms.Label();
+            this.BtBedRoomHot = new System.Windows.Forms.Button();
+            this.labelBedRoomSubtitleAsk = new System.Windows.Forms.Label();
+            this.labelBedRoomSubtitleAct = new System.Windows.Forms.Label();
+            this.tBBedRoomTempAct = new System.Windows.Forms.TextBox();
+            this.tBBedRoomTempRef = new System.Windows.Forms.TextBox();
+            this.GroupSaloon = new System.Windows.Forms.GroupBox();
+            this.labelSaloonSubtitleHot = new System.Windows.Forms.Label();
+            this.BtSaloonHot = new System.Windows.Forms.Button();
+            this.labelSaloonSubtitleAsk = new System.Windows.Forms.Label();
+            this.labelSaloonSubtitleAct = new System.Windows.Forms.Label();
+            this.tBSaloonTempAct = new System.Windows.Forms.TextBox();
+            this.tBSaloonTempRef = new System.Windows.Forms.TextBox();
+            this.GroupOutdoor = new System.Windows.Forms.GroupBox();
+            this.labelOutdoorLamp = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.labelOutdoorSubtitleAct = new System.Windows.Forms.Label();
+            this.tBOutdoorTempAct = new System.Windows.Forms.TextBox();
+            this.PictureFont = new System.Windows.Forms.PictureBox();
+            this.lighInactivePanel = new LighInactivePannel();
+            this.lighActivePanel = new LighActivePannel();
             this.ProgressBarOutdoor = new MyhouseDomotique.VertcicalProgressBar();
-            this.fireColdPannelBedRoom = new FireColdPannel();
+            this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
+            this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
             this.fireHotBedRoom = new FireHotPannel();
-            this.fireColdKitchen = new FireColdPannel();
             this.fireHotKitchen = new FireHotPannel();
-            this.fireColdSaloon = new FireColdPannel();
+            this.ProgressBarKitchen = new MyhouseDomotique.VertcicalProgressBar();
             this.fireHotSaloon = new FireHotPannel();
+            this.fireColdSaloon = new FireColdPannel();
+            this.fireColdKitchen = new FireColdPannel();
+            this.fireColdPannelBedRoom = new FireColdPannel();
             this.StatusBar.SuspendLayout();
             this.MenuBar.SuspendLayout();
+            this.GroupKitchen.SuspendLayout();
+            this.GroupBedroom.SuspendLayout();
+            this.GroupSaloon.SuspendLayout();
+            this.GroupOutdoor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureFont)).BeginInit();
-            this.fireColdPannelBedRoom.SuspendLayout();
-            this.fireColdKitchen.SuspendLayout();
+            this.lighInactivePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StatusBar
@@ -107,13 +138,6 @@
             // 
             this.MenuBarCredit.Name = "MenuBarCredit";
             resources.ApplyResources(this.MenuBarCredit, "MenuBarCredit");
-            // 
-            // PictureFont
-            // 
-            resources.ApplyResources(this.PictureFont, "PictureFont");
-            this.PictureFont.Image = global::MyhouseDomotique.Properties.Resources.ImageMaison1;
-            this.PictureFont.Name = "PictureFont";
-            this.PictureFont.TabStop = false;
             // 
             // BtWindowKitchen
             // 
@@ -185,78 +209,262 @@
             this.BtDoorEnter.UseVisualStyleBackColor = false;
             this.BtDoorEnter.Click += new System.EventHandler(this.ChangeOpeningState);
             // 
-            // ProgressBarBedRoom
+            // tBKitchenTempAct
             // 
-            resources.ApplyResources(this.ProgressBarBedRoom, "ProgressBarBedRoom");
-            this.ProgressBarBedRoom.BackColor = System.Drawing.Color.LightGray;
-            this.ProgressBarBedRoom.Name = "ProgressBarBedRoom";
-            this.ProgressBarBedRoom.Value = 50;
+            resources.ApplyResources(this.tBKitchenTempAct, "tBKitchenTempAct");
+            this.tBKitchenTempAct.Name = "tBKitchenTempAct";
             // 
-            // ProgressBarKitchen
+            // tBKitchenTempRef
             // 
-            resources.ApplyResources(this.ProgressBarKitchen, "ProgressBarKitchen");
-            this.ProgressBarKitchen.BackColor = System.Drawing.Color.LightGray;
-            this.ProgressBarKitchen.Name = "ProgressBarKitchen";
-            this.ProgressBarKitchen.Value = 50;
+            resources.ApplyResources(this.tBKitchenTempRef, "tBKitchenTempRef");
+            this.tBKitchenTempRef.Name = "tBKitchenTempRef";
             // 
-            // ProgressBarSaloon
+            // GroupKitchen
             // 
-            resources.ApplyResources(this.ProgressBarSaloon, "ProgressBarSaloon");
-            this.ProgressBarSaloon.BackColor = System.Drawing.Color.LightGray;
-            this.ProgressBarSaloon.Name = "ProgressBarSaloon";
-            this.ProgressBarSaloon.Value = 50;
+            resources.ApplyResources(this.GroupKitchen, "GroupKitchen");
+            this.GroupKitchen.Controls.Add(this.labelKitchenSubtitleHot);
+            this.GroupKitchen.Controls.Add(this.BtKitchenHot);
+            this.GroupKitchen.Controls.Add(this.labelKitchenSubtitleAsk);
+            this.GroupKitchen.Controls.Add(this.labelKitchenSubtitleAct);
+            this.GroupKitchen.Controls.Add(this.tBKitchenTempAct);
+            this.GroupKitchen.Controls.Add(this.tBKitchenTempRef);
+            this.GroupKitchen.Controls.Add(this.ProgressBarKitchen);
+            this.GroupKitchen.Name = "GroupKitchen";
+            this.GroupKitchen.TabStop = false;
+            // 
+            // labelKitchenSubtitleHot
+            // 
+            resources.ApplyResources(this.labelKitchenSubtitleHot, "labelKitchenSubtitleHot");
+            this.labelKitchenSubtitleHot.Name = "labelKitchenSubtitleHot";
+            // 
+            // BtKitchenHot
+            // 
+            resources.ApplyResources(this.BtKitchenHot, "BtKitchenHot");
+            this.BtKitchenHot.Name = "BtKitchenHot";
+            this.BtKitchenHot.UseVisualStyleBackColor = true;
+            // 
+            // labelKitchenSubtitleAsk
+            // 
+            resources.ApplyResources(this.labelKitchenSubtitleAsk, "labelKitchenSubtitleAsk");
+            this.labelKitchenSubtitleAsk.Name = "labelKitchenSubtitleAsk";
+            // 
+            // labelKitchenSubtitleAct
+            // 
+            resources.ApplyResources(this.labelKitchenSubtitleAct, "labelKitchenSubtitleAct");
+            this.labelKitchenSubtitleAct.Name = "labelKitchenSubtitleAct";
+            // 
+            // GroupBedroom
+            // 
+            resources.ApplyResources(this.GroupBedroom, "GroupBedroom");
+            this.GroupBedroom.Controls.Add(this.ProgressBarBedRoom);
+            this.GroupBedroom.Controls.Add(this.labelBedRoomSubtitleHot);
+            this.GroupBedroom.Controls.Add(this.BtBedRoomHot);
+            this.GroupBedroom.Controls.Add(this.labelBedRoomSubtitleAsk);
+            this.GroupBedroom.Controls.Add(this.labelBedRoomSubtitleAct);
+            this.GroupBedroom.Controls.Add(this.tBBedRoomTempAct);
+            this.GroupBedroom.Controls.Add(this.tBBedRoomTempRef);
+            this.GroupBedroom.Name = "GroupBedroom";
+            this.GroupBedroom.TabStop = false;
+            // 
+            // labelBedRoomSubtitleHot
+            // 
+            resources.ApplyResources(this.labelBedRoomSubtitleHot, "labelBedRoomSubtitleHot");
+            this.labelBedRoomSubtitleHot.Name = "labelBedRoomSubtitleHot";
+            // 
+            // BtBedRoomHot
+            // 
+            resources.ApplyResources(this.BtBedRoomHot, "BtBedRoomHot");
+            this.BtBedRoomHot.Name = "BtBedRoomHot";
+            this.BtBedRoomHot.UseVisualStyleBackColor = true;
+            // 
+            // labelBedRoomSubtitleAsk
+            // 
+            resources.ApplyResources(this.labelBedRoomSubtitleAsk, "labelBedRoomSubtitleAsk");
+            this.labelBedRoomSubtitleAsk.Name = "labelBedRoomSubtitleAsk";
+            // 
+            // labelBedRoomSubtitleAct
+            // 
+            resources.ApplyResources(this.labelBedRoomSubtitleAct, "labelBedRoomSubtitleAct");
+            this.labelBedRoomSubtitleAct.Name = "labelBedRoomSubtitleAct";
+            // 
+            // tBBedRoomTempAct
+            // 
+            resources.ApplyResources(this.tBBedRoomTempAct, "tBBedRoomTempAct");
+            this.tBBedRoomTempAct.Name = "tBBedRoomTempAct";
+            // 
+            // tBBedRoomTempRef
+            // 
+            resources.ApplyResources(this.tBBedRoomTempRef, "tBBedRoomTempRef");
+            this.tBBedRoomTempRef.Name = "tBBedRoomTempRef";
+            // 
+            // GroupSaloon
+            // 
+            resources.ApplyResources(this.GroupSaloon, "GroupSaloon");
+            this.GroupSaloon.Controls.Add(this.ProgressBarSaloon);
+            this.GroupSaloon.Controls.Add(this.labelSaloonSubtitleHot);
+            this.GroupSaloon.Controls.Add(this.BtSaloonHot);
+            this.GroupSaloon.Controls.Add(this.labelSaloonSubtitleAsk);
+            this.GroupSaloon.Controls.Add(this.labelSaloonSubtitleAct);
+            this.GroupSaloon.Controls.Add(this.tBSaloonTempAct);
+            this.GroupSaloon.Controls.Add(this.tBSaloonTempRef);
+            this.GroupSaloon.Name = "GroupSaloon";
+            this.GroupSaloon.TabStop = false;
+            // 
+            // labelSaloonSubtitleHot
+            // 
+            resources.ApplyResources(this.labelSaloonSubtitleHot, "labelSaloonSubtitleHot");
+            this.labelSaloonSubtitleHot.Name = "labelSaloonSubtitleHot";
+            // 
+            // BtSaloonHot
+            // 
+            resources.ApplyResources(this.BtSaloonHot, "BtSaloonHot");
+            this.BtSaloonHot.Name = "BtSaloonHot";
+            this.BtSaloonHot.UseVisualStyleBackColor = true;
+            // 
+            // labelSaloonSubtitleAsk
+            // 
+            resources.ApplyResources(this.labelSaloonSubtitleAsk, "labelSaloonSubtitleAsk");
+            this.labelSaloonSubtitleAsk.Name = "labelSaloonSubtitleAsk";
+            // 
+            // labelSaloonSubtitleAct
+            // 
+            resources.ApplyResources(this.labelSaloonSubtitleAct, "labelSaloonSubtitleAct");
+            this.labelSaloonSubtitleAct.Name = "labelSaloonSubtitleAct";
+            // 
+            // tBSaloonTempAct
+            // 
+            resources.ApplyResources(this.tBSaloonTempAct, "tBSaloonTempAct");
+            this.tBSaloonTempAct.Name = "tBSaloonTempAct";
+            // 
+            // tBSaloonTempRef
+            // 
+            resources.ApplyResources(this.tBSaloonTempRef, "tBSaloonTempRef");
+            this.tBSaloonTempRef.Name = "tBSaloonTempRef";
+            // 
+            // GroupOutdoor
+            // 
+            resources.ApplyResources(this.GroupOutdoor, "GroupOutdoor");
+            this.GroupOutdoor.Controls.Add(this.labelOutdoorLamp);
+            this.GroupOutdoor.Controls.Add(this.button1);
+            this.GroupOutdoor.Controls.Add(this.labelOutdoorSubtitleAct);
+            this.GroupOutdoor.Controls.Add(this.tBOutdoorTempAct);
+            this.GroupOutdoor.Controls.Add(this.ProgressBarOutdoor);
+            this.GroupOutdoor.Name = "GroupOutdoor";
+            this.GroupOutdoor.TabStop = false;
+            // 
+            // labelOutdoorLamp
+            // 
+            resources.ApplyResources(this.labelOutdoorLamp, "labelOutdoorLamp");
+            this.labelOutdoorLamp.Name = "labelOutdoorLamp";
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // labelOutdoorSubtitleAct
+            // 
+            resources.ApplyResources(this.labelOutdoorSubtitleAct, "labelOutdoorSubtitleAct");
+            this.labelOutdoorSubtitleAct.Name = "labelOutdoorSubtitleAct";
+            // 
+            // tBOutdoorTempAct
+            // 
+            resources.ApplyResources(this.tBOutdoorTempAct, "tBOutdoorTempAct");
+            this.tBOutdoorTempAct.Name = "tBOutdoorTempAct";
+            // 
+            // PictureFont
+            // 
+            this.PictureFont.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.PictureFont, "PictureFont");
+            this.PictureFont.Image = global::MyhouseDomotique.Properties.Resources.ImageMaison1;
+            this.PictureFont.Name = "PictureFont";
+            this.PictureFont.TabStop = false;
+            // 
+            // lighInactivePanel
+            // 
+            resources.ApplyResources(this.lighInactivePanel, "lighInactivePanel");
+            this.lighInactivePanel.Controls.Add(this.lighActivePanel);
+            this.lighInactivePanel.Name = "lighInactivePanel";
+            // 
+            // lighActivePanel
+            // 
+            resources.ApplyResources(this.lighActivePanel, "lighActivePanel");
+            this.lighActivePanel.Name = "lighActivePanel";
             // 
             // ProgressBarOutdoor
             // 
-            resources.ApplyResources(this.ProgressBarOutdoor, "ProgressBarOutdoor");
             this.ProgressBarOutdoor.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.ProgressBarOutdoor, "ProgressBarOutdoor");
             this.ProgressBarOutdoor.Name = "ProgressBarOutdoor";
             this.ProgressBarOutdoor.Value = 50;
             // 
-            // fireColdPannelBedRoom
+            // ProgressBarSaloon
             // 
-            resources.ApplyResources(this.fireColdPannelBedRoom, "fireColdPannelBedRoom");
-            this.fireColdPannelBedRoom.Controls.Add(this.fireHotBedRoom);
-            this.fireColdPannelBedRoom.Name = "fireColdPannelBedRoom";
+            this.ProgressBarSaloon.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.ProgressBarSaloon, "ProgressBarSaloon");
+            this.ProgressBarSaloon.Name = "ProgressBarSaloon";
+            this.ProgressBarSaloon.Value = 50;
+            // 
+            // ProgressBarBedRoom
+            // 
+            this.ProgressBarBedRoom.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.ProgressBarBedRoom, "ProgressBarBedRoom");
+            this.ProgressBarBedRoom.Name = "ProgressBarBedRoom";
+            this.ProgressBarBedRoom.Value = 50;
             // 
             // fireHotBedRoom
             // 
             resources.ApplyResources(this.fireHotBedRoom, "fireHotBedRoom");
             this.fireHotBedRoom.Name = "fireHotBedRoom";
             // 
-            // fireColdKitchen
-            // 
-            resources.ApplyResources(this.fireColdKitchen, "fireColdKitchen");
-            this.fireColdKitchen.Controls.Add(this.fireHotKitchen);
-            this.fireColdKitchen.Name = "fireColdKitchen";
-            // 
             // fireHotKitchen
             // 
             resources.ApplyResources(this.fireHotKitchen, "fireHotKitchen");
             this.fireHotKitchen.Name = "fireHotKitchen";
             // 
-            // fireColdSaloon
+            // ProgressBarKitchen
             // 
-            resources.ApplyResources(this.fireColdSaloon, "fireColdSaloon");
-            this.fireColdSaloon.Name = "fireColdSaloon";
+            this.ProgressBarKitchen.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.ProgressBarKitchen, "ProgressBarKitchen");
+            this.ProgressBarKitchen.Name = "ProgressBarKitchen";
+            this.ProgressBarKitchen.Value = 50;
             // 
             // fireHotSaloon
             // 
             resources.ApplyResources(this.fireHotSaloon, "fireHotSaloon");
             this.fireHotSaloon.Name = "fireHotSaloon";
             // 
+            // fireColdSaloon
+            // 
+            resources.ApplyResources(this.fireColdSaloon, "fireColdSaloon");
+            this.fireColdSaloon.Name = "fireColdSaloon";
+            // 
+            // fireColdKitchen
+            // 
+            resources.ApplyResources(this.fireColdKitchen, "fireColdKitchen");
+            this.fireColdKitchen.Name = "fireColdKitchen";
+            // 
+            // fireColdPannelBedRoom
+            // 
+            resources.ApplyResources(this.fireColdPannelBedRoom, "fireColdPannelBedRoom");
+            this.fireColdPannelBedRoom.Name = "fireColdPannelBedRoom";
+            // 
             // MainControl
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lighInactivePanel);
+            this.Controls.Add(this.GroupOutdoor);
+            this.Controls.Add(this.GroupSaloon);
+            this.Controls.Add(this.GroupBedroom);
+            this.Controls.Add(this.fireHotBedRoom);
+            this.Controls.Add(this.fireHotKitchen);
+            this.Controls.Add(this.GroupKitchen);
             this.Controls.Add(this.fireHotSaloon);
             this.Controls.Add(this.fireColdSaloon);
             this.Controls.Add(this.fireColdKitchen);
             this.Controls.Add(this.fireColdPannelBedRoom);
-            this.Controls.Add(this.ProgressBarOutdoor);
-            this.Controls.Add(this.ProgressBarSaloon);
-            this.Controls.Add(this.ProgressBarKitchen);
-            this.Controls.Add(this.ProgressBarBedRoom);
             this.Controls.Add(this.BtDoorEnter);
             this.Controls.Add(this.BtDoorBedroom);
             this.Controls.Add(this.BtDoorKitchen);
@@ -276,9 +484,16 @@
             this.StatusBar.PerformLayout();
             this.MenuBar.ResumeLayout(false);
             this.MenuBar.PerformLayout();
+            this.GroupKitchen.ResumeLayout(false);
+            this.GroupKitchen.PerformLayout();
+            this.GroupBedroom.ResumeLayout(false);
+            this.GroupBedroom.PerformLayout();
+            this.GroupSaloon.ResumeLayout(false);
+            this.GroupSaloon.PerformLayout();
+            this.GroupOutdoor.ResumeLayout(false);
+            this.GroupOutdoor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureFont)).EndInit();
-            this.fireColdPannelBedRoom.ResumeLayout(false);
-            this.fireColdKitchen.ResumeLayout(false);
+            this.lighInactivePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,6 +526,34 @@
         private FireHotPannel fireHotKitchen;
         private FireColdPannel fireColdSaloon;
         private FireHotPannel fireHotSaloon;
+        public System.Windows.Forms.TextBox tBKitchenTempAct;
+        public System.Windows.Forms.TextBox tBKitchenTempRef;
+        private System.Windows.Forms.GroupBox GroupKitchen;
+        private System.Windows.Forms.Label labelKitchenSubtitleAct;
+        private System.Windows.Forms.Label labelKitchenSubtitleHot;
+        private System.Windows.Forms.Button BtKitchenHot;
+        private System.Windows.Forms.Label labelKitchenSubtitleAsk;
+        private System.Windows.Forms.GroupBox GroupBedroom;
+        private System.Windows.Forms.Label labelBedRoomSubtitleHot;
+        private System.Windows.Forms.Button BtBedRoomHot;
+        private System.Windows.Forms.Label labelBedRoomSubtitleAsk;
+        private System.Windows.Forms.Label labelBedRoomSubtitleAct;
+        public System.Windows.Forms.TextBox tBBedRoomTempAct;
+        public System.Windows.Forms.TextBox tBBedRoomTempRef;
+        private System.Windows.Forms.GroupBox GroupSaloon;
+        private System.Windows.Forms.Label labelSaloonSubtitleHot;
+        private System.Windows.Forms.Button BtSaloonHot;
+        private System.Windows.Forms.Label labelSaloonSubtitleAsk;
+        private System.Windows.Forms.Label labelSaloonSubtitleAct;
+        public System.Windows.Forms.TextBox tBSaloonTempAct;
+        public System.Windows.Forms.TextBox tBSaloonTempRef;
+        private System.Windows.Forms.GroupBox GroupOutdoor;
+        private System.Windows.Forms.Label labelOutdoorLamp;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelOutdoorSubtitleAct;
+        public System.Windows.Forms.TextBox tBOutdoorTempAct;
+        private LighInactivePannel lighInactivePanel;
+        private LighActivePannel lighActivePanel;
 
     }
 }
