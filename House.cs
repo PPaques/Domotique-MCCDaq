@@ -68,11 +68,13 @@ namespace MyhouseDomotique
         // room data
         public string name { get; set; }
         public Boolean hot_is_active { get; set; }
+        public Boolean light_is_active { get; set; }
         public double default_temp { get; set; }
 
         public Room()
         {
             this.hot_is_active = false;
+            this.light_is_active = false;
         }
     }
 

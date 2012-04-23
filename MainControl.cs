@@ -121,18 +121,37 @@ namespace MyhouseDomotique
             }
 
             myHouse.Rooms[RoomId].hot_is_active = !myHouse.Rooms[RoomId].hot_is_active;
+            Fire_panel.Visible = myHouse.Rooms[RoomId].hot_is_active;
             if (myHouse.Rooms[RoomId].hot_is_active)
             {
                 (sender as Button).Text = "On";
-                Fire_panel.Visible = true;
             }
             else
             {
                 (sender as Button).Text = "Off";
-                Fire_panel.Visible = false;
             }
 
         }
+
+        /// <summary>
+        /// Change the light state
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeLightState(object sender, EventArgs e)
+        {
+            myHouse.Rooms[0].light_is_active = !myHouse.Rooms[0].light_is_active;
+            lighActivePanel.Visible = myHouse.Rooms[0].light_is_active;
+            if (myHouse.Rooms[0].light_is_active)
+            {
+                (sender as Button).Text = "On";
+            }
+            else
+            {
+                (sender as Button).Text = "Off";
+            }
+        }
+
         /// <summary>
         /// In simulation mode we have to enable all textboxes
         /// </summary>
@@ -167,6 +186,8 @@ namespace MyhouseDomotique
                 this.BtOutdoorLight.Enabled = true;
             }
         }
+
+
 
 
 

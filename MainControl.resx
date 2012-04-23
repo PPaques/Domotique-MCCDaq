@@ -1386,6 +1386,9 @@
   <data name="lighActivePanel.TabIndex" type="System.Int32, mscorlib">
     <value>107</value>
   </data>
+  <data name="lighActivePanel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;lighActivePanel.Name" xml:space="preserve">
     <value>lighActivePanel</value>
   </data>
@@ -1583,6 +1586,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1000, 914</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Controle Principaux </value>

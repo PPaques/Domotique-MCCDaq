@@ -368,6 +368,7 @@
             resources.ApplyResources(this.BtOutdoorLight, "BtOutdoorLight");
             this.BtOutdoorLight.Name = "BtOutdoorLight";
             this.BtOutdoorLight.UseVisualStyleBackColor = true;
+            this.BtOutdoorLight.Click += new System.EventHandler(this.ChangeLightState);
             // 
             // labelOutdoorSubtitleAct
             // 
