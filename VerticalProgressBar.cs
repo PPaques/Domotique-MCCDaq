@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace MyhouseDomotique
 {
+    /// <summary>
+    /// use this to create vertical progressbar
+    /// </summary>
     public class VertcicalProgressBar : ProgressBar
     {
         protected override CreateParams CreateParams

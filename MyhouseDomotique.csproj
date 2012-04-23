@@ -64,7 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FirePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CardFunctions.cs" />
+    <Compile Include="DrawingArea.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="House.cs" />
     <Compile Include="MainControl.cs">
       <SubType>Form</SubType>
@@ -109,6 +115,8 @@
     <Content Include="normal.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\FireCold.png" />
+    <None Include="Resources\FireHot.png" />
     <Content Include="simulation.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -140,9 +148,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

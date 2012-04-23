@@ -60,6 +60,20 @@ namespace MyhouseDomotique.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap FireCold {
+            get {
+                object obj = ResourceManager.GetObject("FireCold", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap FireHot {
+            get {
+                object obj = ResourceManager.GetObject("FireHot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap ImageMaison1 {
             get {
                 object obj = ResourceManager.GetObject("ImageMaison1", resourceCulture);

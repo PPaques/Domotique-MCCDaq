@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+
 
 namespace MyhouseDomotique
 {
@@ -35,6 +37,7 @@ namespace MyhouseDomotique
         {
             // verifying and setting the card
             MyCard = new Card();
+            MessageBox.Show("wooo");
             StatusBarMode.Text = "Mode "+ GlobalVariables.mode;
             
             // creating the house
@@ -84,11 +87,6 @@ namespace MyhouseDomotique
                 myHouse.Walls[WallId].Openings[OpenId].isOpen = true;
                 (sender as Button).BackColor = System.Drawing.Color.Maroon;
             }
-        }
-
-        private void vertcicalProgressBar3_Click(object sender, EventArgs e)
-        {
-
         }
 
     }

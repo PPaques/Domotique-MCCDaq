@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
             this.StatusBar = new System.Windows.Forms.StatusStrip();
-            this.StatusMode = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusBarMode = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuBar = new System.Windows.Forms.MenuStrip();
             this.MenuBarTitleProgramme = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,28 +44,30 @@
             this.BtDoorKitchen = new System.Windows.Forms.Button();
             this.BtDoorBedroom = new System.Windows.Forms.Button();
             this.BtDoorEnter = new System.Windows.Forms.Button();
-            this.vertcicalProgressBar1 = new MyhouseDomotique.VertcicalProgressBar();
-            this.vertcicalProgressBar2 = new MyhouseDomotique.VertcicalProgressBar();
-            this.vertcicalProgressBar3 = new MyhouseDomotique.VertcicalProgressBar();
-            this.vertcicalProgressBar4 = new MyhouseDomotique.VertcicalProgressBar();
+            this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
+            this.ProgressBarKitchen = new MyhouseDomotique.VertcicalProgressBar();
+            this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
+            this.ProgressBarOutdoor = new MyhouseDomotique.VertcicalProgressBar();
+            this.fireColdPannelBedRoom = new FireColdPannel();
+            this.fireHotBedRoom = new FireHotPannel();
+            this.fireColdKitchen = new FireColdPannel();
+            this.fireHotKitchen = new FireHotPannel();
+            this.fireColdSaloon = new FireColdPannel();
+            this.fireHotSaloon = new FireHotPannel();
             this.StatusBar.SuspendLayout();
             this.MenuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureFont)).BeginInit();
+            this.fireColdPannelBedRoom.SuspendLayout();
+            this.fireColdKitchen.SuspendLayout();
             this.SuspendLayout();
             // 
             // StatusBar
             // 
             this.StatusBar.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatusMode,
             this.StatusBarMode});
             resources.ApplyResources(this.StatusBar, "StatusBar");
             this.StatusBar.Name = "StatusBar";
-            // 
-            // StatusMode
-            // 
-            this.StatusMode.Name = "StatusMode";
-            resources.ApplyResources(this.StatusMode, "StatusMode");
             // 
             // StatusBarMode
             // 
@@ -184,43 +185,78 @@
             this.BtDoorEnter.UseVisualStyleBackColor = false;
             this.BtDoorEnter.Click += new System.EventHandler(this.ChangeOpeningState);
             // 
-            // vertcicalProgressBar1
+            // ProgressBarBedRoom
             // 
-            resources.ApplyResources(this.vertcicalProgressBar1, "vertcicalProgressBar1");
-            this.vertcicalProgressBar1.BackColor = System.Drawing.Color.LightGray;
-            this.vertcicalProgressBar1.Name = "vertcicalProgressBar1";
-            this.vertcicalProgressBar1.Value = 50;
+            resources.ApplyResources(this.ProgressBarBedRoom, "ProgressBarBedRoom");
+            this.ProgressBarBedRoom.BackColor = System.Drawing.Color.LightGray;
+            this.ProgressBarBedRoom.Name = "ProgressBarBedRoom";
+            this.ProgressBarBedRoom.Value = 50;
             // 
-            // vertcicalProgressBar2
+            // ProgressBarKitchen
             // 
-            resources.ApplyResources(this.vertcicalProgressBar2, "vertcicalProgressBar2");
-            this.vertcicalProgressBar2.BackColor = System.Drawing.Color.LightGray;
-            this.vertcicalProgressBar2.Name = "vertcicalProgressBar2";
-            this.vertcicalProgressBar2.Value = 50;
+            resources.ApplyResources(this.ProgressBarKitchen, "ProgressBarKitchen");
+            this.ProgressBarKitchen.BackColor = System.Drawing.Color.LightGray;
+            this.ProgressBarKitchen.Name = "ProgressBarKitchen";
+            this.ProgressBarKitchen.Value = 50;
             // 
-            // vertcicalProgressBar3
+            // ProgressBarSaloon
             // 
-            resources.ApplyResources(this.vertcicalProgressBar3, "vertcicalProgressBar3");
-            this.vertcicalProgressBar3.BackColor = System.Drawing.Color.LightGray;
-            this.vertcicalProgressBar3.Name = "vertcicalProgressBar3";
-            this.vertcicalProgressBar3.Value = 50;
-            this.vertcicalProgressBar3.Click += new System.EventHandler(this.vertcicalProgressBar3_Click);
+            resources.ApplyResources(this.ProgressBarSaloon, "ProgressBarSaloon");
+            this.ProgressBarSaloon.BackColor = System.Drawing.Color.LightGray;
+            this.ProgressBarSaloon.Name = "ProgressBarSaloon";
+            this.ProgressBarSaloon.Value = 50;
             // 
-            // vertcicalProgressBar4
+            // ProgressBarOutdoor
             // 
-            resources.ApplyResources(this.vertcicalProgressBar4, "vertcicalProgressBar4");
-            this.vertcicalProgressBar4.BackColor = System.Drawing.Color.LightGray;
-            this.vertcicalProgressBar4.Name = "vertcicalProgressBar4";
-            this.vertcicalProgressBar4.Value = 50;
+            resources.ApplyResources(this.ProgressBarOutdoor, "ProgressBarOutdoor");
+            this.ProgressBarOutdoor.BackColor = System.Drawing.Color.LightGray;
+            this.ProgressBarOutdoor.Name = "ProgressBarOutdoor";
+            this.ProgressBarOutdoor.Value = 50;
+            // 
+            // fireColdPannelBedRoom
+            // 
+            resources.ApplyResources(this.fireColdPannelBedRoom, "fireColdPannelBedRoom");
+            this.fireColdPannelBedRoom.Controls.Add(this.fireHotBedRoom);
+            this.fireColdPannelBedRoom.Name = "fireColdPannelBedRoom";
+            // 
+            // fireHotBedRoom
+            // 
+            resources.ApplyResources(this.fireHotBedRoom, "fireHotBedRoom");
+            this.fireHotBedRoom.Name = "fireHotBedRoom";
+            // 
+            // fireColdKitchen
+            // 
+            resources.ApplyResources(this.fireColdKitchen, "fireColdKitchen");
+            this.fireColdKitchen.Controls.Add(this.fireHotKitchen);
+            this.fireColdKitchen.Name = "fireColdKitchen";
+            // 
+            // fireHotKitchen
+            // 
+            resources.ApplyResources(this.fireHotKitchen, "fireHotKitchen");
+            this.fireHotKitchen.Name = "fireHotKitchen";
+            // 
+            // fireColdSaloon
+            // 
+            resources.ApplyResources(this.fireColdSaloon, "fireColdSaloon");
+            this.fireColdSaloon.Name = "fireColdSaloon";
+            // 
+            // fireHotSaloon
+            // 
+            resources.ApplyResources(this.fireHotSaloon, "fireHotSaloon");
+            this.fireHotSaloon.Name = "fireHotSaloon";
             // 
             // MainControl
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.vertcicalProgressBar4);
-            this.Controls.Add(this.vertcicalProgressBar3);
-            this.Controls.Add(this.vertcicalProgressBar2);
-            this.Controls.Add(this.vertcicalProgressBar1);
+            this.Controls.Add(this.fireHotSaloon);
+            this.Controls.Add(this.fireColdSaloon);
+            this.Controls.Add(this.fireColdKitchen);
+            this.Controls.Add(this.fireColdPannelBedRoom);
+            this.Controls.Add(this.ProgressBarOutdoor);
+            this.Controls.Add(this.ProgressBarSaloon);
+            this.Controls.Add(this.ProgressBarKitchen);
+            this.Controls.Add(this.ProgressBarBedRoom);
             this.Controls.Add(this.BtDoorEnter);
             this.Controls.Add(this.BtDoorBedroom);
             this.Controls.Add(this.BtDoorKitchen);
@@ -241,6 +277,8 @@
             this.MenuBar.ResumeLayout(false);
             this.MenuBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureFont)).EndInit();
+            this.fireColdPannelBedRoom.ResumeLayout(false);
+            this.fireColdKitchen.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,7 +287,6 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip StatusBar;
-        private System.Windows.Forms.ToolStripStatusLabel StatusMode;
         private System.Windows.Forms.ToolStripStatusLabel StatusBarMode;
         private System.Windows.Forms.MenuStrip MenuBar;
         private System.Windows.Forms.ToolStripMenuItem MenuBarTitleProgramme;
@@ -264,11 +301,17 @@
         private System.Windows.Forms.Button BtDoorKitchen;
         private System.Windows.Forms.Button BtDoorBedroom;
         private System.Windows.Forms.Button BtDoorEnter;
-        private VertcicalProgressBar vertcicalProgressBar1;
-        private VertcicalProgressBar vertcicalProgressBar2;
-        private VertcicalProgressBar vertcicalProgressBar3;
-        private VertcicalProgressBar vertcicalProgressBar4;
-        
+        private VertcicalProgressBar ProgressBarBedRoom;
+        private VertcicalProgressBar ProgressBarKitchen;
+        private VertcicalProgressBar ProgressBarSaloon;
+        private VertcicalProgressBar ProgressBarOutdoor;
+        private FireColdPannel fireColdPannelBedRoom;
+        private FireHotPannel fireHotBedRoom;
+        private FireColdPannel fireColdKitchen;
+        private FireHotPannel fireHotKitchen;
+        private FireColdPannel fireColdSaloon;
+        private FireHotPannel fireHotSaloon;
+
     }
 }
 
