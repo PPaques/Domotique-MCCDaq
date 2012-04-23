@@ -120,4 +120,490 @@
   <metadata name="StatusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="StatusMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 20</value>
+  </data>
+  <data name="StatusBarMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 20</value>
+  </data>
+  <data name="StatusBarMode.Text" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="StatusBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 889</value>
+  </data>
+  <data name="StatusBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 25</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="StatusBar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="StatusBar.Text" xml:space="preserve">
+    <value>StatusBar</value>
+  </data>
+  <data name="&gt;&gt;StatusBar.Name" xml:space="preserve">
+    <value>StatusBar</value>
+  </data>
+  <data name="&gt;&gt;StatusBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;StatusBar.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <metadata name="MenuBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>235, 17</value>
+  </metadata>
+  <data name="MenuBarClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 24</value>
+  </data>
+  <data name="MenuBarClose.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="MenuBarTitleProgramme.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 24</value>
+  </data>
+  <data name="MenuBarTitleProgramme.Text" xml:space="preserve">
+    <value>Programme</value>
+  </data>
+  <data name="MenuBarCredit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 24</value>
+  </data>
+  <data name="MenuBarCredit.Text" xml:space="preserve">
+    <value>Crédits</value>
+  </data>
+  <data name="MenuBarTitleInt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 24</value>
+  </data>
+  <data name="MenuBarTitleInt.Text" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="MenuBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MenuBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 2, 0, 2</value>
+  </data>
+  <data name="MenuBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 28</value>
+  </data>
+  <data name="MenuBar.TabIndex" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
+  <data name="MenuBar.Text" xml:space="preserve">
+    <value>MenuBar</value>
+  </data>
+  <data name="&gt;&gt;MenuBar.Name" xml:space="preserve">
+    <value>MenuBar</value>
+  </data>
+  <data name="&gt;&gt;MenuBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MenuBar.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="PictureFont.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PictureFont.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 28</value>
+  </data>
+  <data name="PictureFont.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 861</value>
+  </data>
+  <data name="PictureFont.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="PictureFont.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="&gt;&gt;PictureFont.Name" xml:space="preserve">
+    <value>PictureFont</value>
+  </data>
+  <data name="&gt;&gt;PictureFont.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureFont.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PictureFont.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="BtWindowKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="BtWindowKitchen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 97</value>
+  </data>
+  <data name="BtWindowKitchen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 27</value>
+  </data>
+  <data name="BtWindowKitchen.TabIndex" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="BtWindowKitchen.Text" xml:space="preserve">
+    <value>Fenêtre Cuisine</value>
+  </data>
+  <data name="&gt;&gt;BtWindowKitchen.Name" xml:space="preserve">
+    <value>BtWindowKitchen</value>
+  </data>
+  <data name="&gt;&gt;BtWindowKitchen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtWindowKitchen.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtWindowKitchen.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="BtWindowBedroom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="BtWindowBedroom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtWindowBedroom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>566, 97</value>
+  </data>
+  <data name="BtWindowBedroom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 27</value>
+  </data>
+  <data name="BtWindowBedroom.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="BtWindowBedroom.Text" xml:space="preserve">
+    <value>Fenêtre Chambre</value>
+  </data>
+  <data name="&gt;&gt;BtWindowBedroom.Name" xml:space="preserve">
+    <value>BtWindowBedroom</value>
+  </data>
+  <data name="&gt;&gt;BtWindowBedroom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtWindowBedroom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtWindowBedroom.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="BtWindowSaloonL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="BtWindowSaloonL.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtWindowSaloonL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 701</value>
+  </data>
+  <data name="BtWindowSaloonL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 27</value>
+  </data>
+  <data name="BtWindowSaloonL.TabIndex" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="BtWindowSaloonL.Text" xml:space="preserve">
+    <value>Fenêtre Salon</value>
+  </data>
+  <data name="&gt;&gt;BtWindowSaloonL.Name" xml:space="preserve">
+    <value>BtWindowSaloonL</value>
+  </data>
+  <data name="&gt;&gt;BtWindowSaloonL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtWindowSaloonL.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtWindowSaloonL.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="BtWindowSaloonR.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="BtWindowSaloonR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtWindowSaloonR.Location" type="System.Drawing.Point, System.Drawing">
+    <value>708, 701</value>
+  </data>
+  <data name="BtWindowSaloonR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 27</value>
+  </data>
+  <data name="BtWindowSaloonR.TabIndex" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="BtWindowSaloonR.Text" xml:space="preserve">
+    <value>Fenêtre Salon</value>
+  </data>
+  <data name="&gt;&gt;BtWindowSaloonR.Name" xml:space="preserve">
+    <value>BtWindowSaloonR</value>
+  </data>
+  <data name="&gt;&gt;BtWindowSaloonR.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtWindowSaloonR.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtWindowSaloonR.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="BtDoorKitchen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="BtDoorKitchen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtDoorKitchen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 397</value>
+  </data>
+  <data name="BtDoorKitchen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 27</value>
+  </data>
+  <data name="BtDoorKitchen.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="BtDoorKitchen.Text" xml:space="preserve">
+    <value>Porte Cuisine</value>
+  </data>
+  <data name="&gt;&gt;BtDoorKitchen.Name" xml:space="preserve">
+    <value>BtDoorKitchen</value>
+  </data>
+  <data name="&gt;&gt;BtDoorKitchen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtDoorKitchen.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtDoorKitchen.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="BtDoorBedroom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="BtDoorBedroom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtDoorBedroom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>723, 397</value>
+  </data>
+  <data name="BtDoorBedroom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 27</value>
+  </data>
+  <data name="BtDoorBedroom.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="BtDoorBedroom.Text" xml:space="preserve">
+    <value>Porte Chambre</value>
+  </data>
+  <data name="&gt;&gt;BtDoorBedroom.Name" xml:space="preserve">
+    <value>BtDoorBedroom</value>
+  </data>
+  <data name="&gt;&gt;BtDoorBedroom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtDoorBedroom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtDoorBedroom.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="BtDoorEnter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="BtDoorEnter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtDoorEnter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>423, 701</value>
+  </data>
+  <data name="BtDoorEnter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 27</value>
+  </data>
+  <data name="BtDoorEnter.TabIndex" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="BtDoorEnter.Text" xml:space="preserve">
+    <value>Porte Entrée</value>
+  </data>
+  <data name="&gt;&gt;BtDoorEnter.Name" xml:space="preserve">
+    <value>BtDoorEnter</value>
+  </data>
+  <data name="&gt;&gt;BtDoorEnter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtDoorEnter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtDoorEnter.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="vertcicalProgressBar1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="vertcicalProgressBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>886, 206</value>
+  </data>
+  <data name="vertcicalProgressBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 141</value>
+  </data>
+  <data name="vertcicalProgressBar1.TabIndex" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar1.Name" xml:space="preserve">
+    <value>vertcicalProgressBar1</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar1.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="vertcicalProgressBar2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="vertcicalProgressBar2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="vertcicalProgressBar2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>55, 206</value>
+  </data>
+  <data name="vertcicalProgressBar2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 141</value>
+  </data>
+  <data name="vertcicalProgressBar2.TabIndex" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar2.Name" xml:space="preserve">
+    <value>vertcicalProgressBar2</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar2.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="vertcicalProgressBar3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="vertcicalProgressBar3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="vertcicalProgressBar3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>886, 506</value>
+  </data>
+  <data name="vertcicalProgressBar3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 141</value>
+  </data>
+  <data name="vertcicalProgressBar3.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar3.Name" xml:space="preserve">
+    <value>vertcicalProgressBar3</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar3.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="vertcicalProgressBar4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="vertcicalProgressBar4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="vertcicalProgressBar4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>886, 734</value>
+  </data>
+  <data name="vertcicalProgressBar4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 141</value>
+  </data>
+  <data name="vertcicalProgressBar4.TabIndex" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar4.Name" xml:space="preserve">
+    <value>vertcicalProgressBar4</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar4.Type" xml:space="preserve">
+    <value>MyhouseDomotique.VertcicalProgressBar, MyhouseDomotique, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;vertcicalProgressBar4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>32</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 914</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Controle Principaux </value>
+  </data>
+  <data name="&gt;&gt;StatusMode.Name" xml:space="preserve">
+    <value>StatusMode</value>
+  </data>
+  <data name="&gt;&gt;StatusMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusBarMode.Name" xml:space="preserve">
+    <value>StatusBarMode</value>
+  </data>
+  <data name="&gt;&gt;StatusBarMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuBarTitleProgramme.Name" xml:space="preserve">
+    <value>MenuBarTitleProgramme</value>
+  </data>
+  <data name="&gt;&gt;MenuBarTitleProgramme.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuBarClose.Name" xml:space="preserve">
+    <value>MenuBarClose</value>
+  </data>
+  <data name="&gt;&gt;MenuBarClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuBarTitleInt.Name" xml:space="preserve">
+    <value>MenuBarTitleInt</value>
+  </data>
+  <data name="&gt;&gt;MenuBarTitleInt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuBarCredit.Name" xml:space="preserve">
+    <value>MenuBarCredit</value>
+  </data>
+  <data name="&gt;&gt;MenuBarCredit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainControl</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

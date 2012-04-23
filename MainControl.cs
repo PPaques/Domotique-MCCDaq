@@ -14,7 +14,6 @@ namespace MyhouseDomotique
     public partial class MainControl : Form
     {
         // global variables
-        SqlCeConnection conn = null;
         Card MyCard;
         House myHouse;
         private int routine_count = 0;
@@ -44,13 +43,13 @@ namespace MyhouseDomotique
             // connection to the db
             if (GlobalVariables.mode == "normal")
             {
-                conn = new SqlCeConnection("Data Source = |DataDirectory|normal.sdf");
+                GlobalVariables.conn = new SqlCeConnection("Data Source = |DataDirectory|normal.sdf");
             }
             else 
             {
-                conn = new SqlCeConnection("Data Source = |DataDirectory|simulation.sdf");        
+                GlobalVariables.conn = new SqlCeConnection("Data Source = |DataDirectory|simulation.sdf");        
             }
-            conn.Open();
+            GlobalVariables.conn.Open();
         }
 
         /// <summary>
@@ -61,8 +60,35 @@ namespace MyhouseDomotique
         private void exit(object sender, FormClosingEventArgs e)
         {
             // Closing connection
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
+            if (GlobalVariables.conn.State == ConnectionState.Open)
+                GlobalVariables.conn.Close();
+        }
+
+        private void MenuBarClose_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void ChangeOpeningState(object sender, EventArgs e)
+        {
+            int WallId = Convert.ToInt32(Convert.ToString((sender as Button).Tag).Substring(0,1));
+            int OpenId = Convert.ToInt32(Convert.ToString((sender as Button).Tag).Substring(1));
+
+            if (myHouse.Walls[WallId].Openings[OpenId].isOpen)
+            {
+                myHouse.Walls[WallId].Openings[OpenId].isOpen = false;
+                (sender as Button).BackColor = System.Drawing.Color.Black;
+            }
+            else 
+            {
+                myHouse.Walls[WallId].Openings[OpenId].isOpen = true;
+                (sender as Button).BackColor = System.Drawing.Color.Maroon;
+            }
+        }
+
+        private void vertcicalProgressBar3_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlServerCe;
 
 namespace MyhouseDomotique
 {
@@ -12,5 +13,6 @@ namespace MyhouseDomotique
     {
         // list of global variables
         public static string mode { get; set; }
+        public static SqlCeConnection conn { get; set; }
     }
 }

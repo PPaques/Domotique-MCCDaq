@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlServerCe;
 
 namespace MyhouseDomotique
 {
@@ -86,7 +87,7 @@ namespace MyhouseDomotique
 
         public void addOpening(string getName)
         {
-            Openings.Add(new Opening { name = getName, state = false });
+            Openings.Add(new Opening { name = getName, isOpen = false });
         }
     }
 
@@ -96,6 +97,19 @@ namespace MyhouseDomotique
     public class Opening
     {
         public string name { get; set; }
-        public Boolean state { get; set; }
+        public Boolean isOpen { get; set; }
+
+        /// <summary>
+        /// To change the state of an opening
+        /// </summary>
+        /// <param name="getIsOpen"></param>
+        public void ChangeState(Boolean getIsOpen)
+        {
+            if (this.isOpen != getIsOpen)
+            {
+                //need to place a sql resquest to add into the database
+                this.isOpen = getIsOpen;
+            }
+        }
     }
 }
