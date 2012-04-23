@@ -94,6 +94,46 @@ namespace MyhouseDomotique
         }
 
         /// <summary>
+        /// Function that change the hot state
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeHotState(object sender, EventArgs e)
+        {
+            int RoomId = Convert.ToInt32((sender as Button).Tag);
+            
+            // selecting the fire
+            FireHotPannel Fire_panel = null;
+            switch (RoomId)
+            {
+                case 1:
+                    Fire_panel = fireHotSaloon;
+                    break;
+                case 2:
+                    Fire_panel = fireHotKitchen;
+                    break;
+                case 3:
+                    Fire_panel = fireHotBedRoom;
+                    break;
+                default:
+                    MessageBox.Show("Error at Change Hot State (Room ID out of range)");
+                    break;
+            }
+
+            myHouse.Rooms[RoomId].hot_is_active = !myHouse.Rooms[RoomId].hot_is_active;
+            if (myHouse.Rooms[RoomId].hot_is_active)
+            {
+                (sender as Button).Text = "On";
+                Fire_panel.Visible = true;
+            }
+            else
+            {
+                (sender as Button).Text = "Off";
+                Fire_panel.Visible = false;
+            }
+
+        }
+        /// <summary>
         /// In simulation mode we have to enable all textboxes
         /// </summary>
         private void SetView() 
@@ -127,6 +167,8 @@ namespace MyhouseDomotique
                 this.BtOutdoorLight.Enabled = true;
             }
         }
+
+
 
 
     }

@@ -71,6 +71,7 @@
     <Compile Include="DesignElements\DrawingArea.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Functions.cs" />
     <Compile Include="House.cs" />
     <Compile Include="MainControl.cs">
       <SubType>Form</SubType>

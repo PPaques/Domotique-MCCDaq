@@ -67,7 +67,13 @@ namespace MyhouseDomotique
     {
         // room data
         public string name { get; set; }
+        public Boolean hot_is_active { get; set; }
         public double default_temp { get; set; }
+
+        public Room()
+        {
+            this.hot_is_active = false;
+        }
     }
 
     /// <summary>
@@ -87,7 +93,7 @@ namespace MyhouseDomotique
 
         public void addOpening(string getName)
         {
-            Openings.Add(new Opening { name = getName, isOpen = false });
+            Openings.Add(new Opening { name = getName});
         }
     }
 
@@ -99,6 +105,11 @@ namespace MyhouseDomotique
         public string name { get; set; }
         public Boolean isOpen { get; set; }
 
+        public Opening()
+        {
+            this.isOpen = false;
+        }
+    
         /// <summary>
         /// To change the state of an opening
         /// </summary>
