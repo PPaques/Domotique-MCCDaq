@@ -280,10 +280,73 @@ namespace MyhouseDomotique
         }
 
 
+        private void TMainRoutine_Tick(object sender, EventArgs e)
+        {
+            Boolean to_regul = false;
 
+            //taking system state (door and windows)
+            if (GlobalVariables.mode == "normal")
+            {
+                //checkstates by card
+            }
+            else
+            {
+                // check states on the view
+            }
 
+            // verification of change
+            // if change=> to_regul à true
 
+            // taking the temperature
+            // 300 * 1 sec = 5 min
+            if (routine_count >= 300)
+            {
+                if (GlobalVariables.mode == "normal")
+                {
+                    // check temp by card
+                }
+                else
+                {
+                    // check temp by calc
+                }
 
+                //if change => to_regul a true
+
+                // resetting the routine counter
+                routine_count = -1;
+            }
+
+            // regulation
+            if (to_regul == true)
+            {
+                //regulation routine
+
+                if (GlobalVariables.mode == "normal")
+                {
+                    // change to the card 
+                }
+                else
+                {
+                    // change into the view
+                }
+            }
+            routine_count++;
+        }
+
+        private void StartTimerMainRoutine(object sender, EventArgs e)
+        {
+            TimerMainRoutine.Enabled = !TimerMainRoutine.Enabled;
+
+            if (TimerMainRoutine.Enabled)
+            {
+                MenuBarRegulation.Text = "Arrêter la régulation";
+            }
+            else
+            {
+                MenuBarRegulation.Text = "Lancer la régulation";
+            }
+
+        }
 
     }
 }

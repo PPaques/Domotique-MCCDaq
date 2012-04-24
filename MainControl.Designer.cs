@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.StatusBarMode = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,7 +51,9 @@
             this.BtKitchenHot = new System.Windows.Forms.Button();
             this.labelKitchenSubtitleAsk = new System.Windows.Forms.Label();
             this.labelKitchenSubtitleAct = new System.Windows.Forms.Label();
+            this.ProgressBarKitchen = new MyhouseDomotique.VertcicalProgressBar();
             this.GroupBedroom = new System.Windows.Forms.GroupBox();
+            this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
             this.labelBedRoomSubtitleHot = new System.Windows.Forms.Label();
             this.BtBedRoomHot = new System.Windows.Forms.Button();
             this.labelBedRoomSubtitleAsk = new System.Windows.Forms.Label();
@@ -58,6 +61,7 @@
             this.tBBedRoomTempAct = new System.Windows.Forms.TextBox();
             this.tBBedRoomTempRef = new System.Windows.Forms.TextBox();
             this.GroupSaloon = new System.Windows.Forms.GroupBox();
+            this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
             this.labelSaloonSubtitleHot = new System.Windows.Forms.Label();
             this.BtSaloonHot = new System.Windows.Forms.Button();
             this.labelSaloonSubtitleAsk = new System.Windows.Forms.Label();
@@ -69,19 +73,18 @@
             this.BtOutdoorLight = new System.Windows.Forms.Button();
             this.labelOutdoorSubtitleAct = new System.Windows.Forms.Label();
             this.tBOutdoorTempAct = new System.Windows.Forms.TextBox();
+            this.ProgressBarOutdoor = new MyhouseDomotique.VertcicalProgressBar();
             this.PictureFont = new System.Windows.Forms.PictureBox();
             this.lighInactivePanel = new LighInactivePannel();
             this.lighActivePanel = new LighActivePannel();
-            this.ProgressBarOutdoor = new MyhouseDomotique.VertcicalProgressBar();
-            this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
-            this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
             this.fireHotBedRoom = new FireHotPannel();
             this.fireHotKitchen = new FireHotPannel();
-            this.ProgressBarKitchen = new MyhouseDomotique.VertcicalProgressBar();
             this.fireHotSaloon = new FireHotPannel();
             this.fireColdSaloon = new FireColdPannel();
             this.fireColdKitchen = new FireColdPannel();
             this.fireColdPannelBedRoom = new FireColdPannel();
+            this.TimerMainRoutine = new System.Windows.Forms.Timer(this.components);
+            this.MenuBarRegulation = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBar.SuspendLayout();
             this.MenuBar.SuspendLayout();
             this.GroupKitchen.SuspendLayout();
@@ -117,6 +120,7 @@
             // MenuBarTitleProgramme
             // 
             this.MenuBarTitleProgramme.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuBarRegulation,
             this.MenuBarClose});
             this.MenuBarTitleProgramme.Name = "MenuBarTitleProgramme";
             resources.ApplyResources(this.MenuBarTitleProgramme, "MenuBarTitleProgramme");
@@ -257,6 +261,13 @@
             resources.ApplyResources(this.labelKitchenSubtitleAct, "labelKitchenSubtitleAct");
             this.labelKitchenSubtitleAct.Name = "labelKitchenSubtitleAct";
             // 
+            // ProgressBarKitchen
+            // 
+            this.ProgressBarKitchen.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.ProgressBarKitchen, "ProgressBarKitchen");
+            this.ProgressBarKitchen.Name = "ProgressBarKitchen";
+            this.ProgressBarKitchen.Value = 50;
+            // 
             // GroupBedroom
             // 
             resources.ApplyResources(this.GroupBedroom, "GroupBedroom");
@@ -269,6 +280,13 @@
             this.GroupBedroom.Controls.Add(this.tBBedRoomTempRef);
             this.GroupBedroom.Name = "GroupBedroom";
             this.GroupBedroom.TabStop = false;
+            // 
+            // ProgressBarBedRoom
+            // 
+            this.ProgressBarBedRoom.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.ProgressBarBedRoom, "ProgressBarBedRoom");
+            this.ProgressBarBedRoom.Name = "ProgressBarBedRoom";
+            this.ProgressBarBedRoom.Value = 50;
             // 
             // labelBedRoomSubtitleHot
             // 
@@ -317,6 +335,13 @@
             this.GroupSaloon.Controls.Add(this.tBSaloonTempRef);
             this.GroupSaloon.Name = "GroupSaloon";
             this.GroupSaloon.TabStop = false;
+            // 
+            // ProgressBarSaloon
+            // 
+            this.ProgressBarSaloon.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.ProgressBarSaloon, "ProgressBarSaloon");
+            this.ProgressBarSaloon.Name = "ProgressBarSaloon";
+            this.ProgressBarSaloon.Value = 50;
             // 
             // labelSaloonSubtitleHot
             // 
@@ -388,6 +413,13 @@
             this.tBOutdoorTempAct.Tag = "0";
             this.tBOutdoorTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
+            // ProgressBarOutdoor
+            // 
+            this.ProgressBarOutdoor.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.ProgressBarOutdoor, "ProgressBarOutdoor");
+            this.ProgressBarOutdoor.Name = "ProgressBarOutdoor";
+            this.ProgressBarOutdoor.Value = 50;
+            // 
             // PictureFont
             // 
             this.PictureFont.BackColor = System.Drawing.SystemColors.Control;
@@ -407,27 +439,6 @@
             resources.ApplyResources(this.lighActivePanel, "lighActivePanel");
             this.lighActivePanel.Name = "lighActivePanel";
             // 
-            // ProgressBarOutdoor
-            // 
-            this.ProgressBarOutdoor.BackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.ProgressBarOutdoor, "ProgressBarOutdoor");
-            this.ProgressBarOutdoor.Name = "ProgressBarOutdoor";
-            this.ProgressBarOutdoor.Value = 50;
-            // 
-            // ProgressBarSaloon
-            // 
-            this.ProgressBarSaloon.BackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.ProgressBarSaloon, "ProgressBarSaloon");
-            this.ProgressBarSaloon.Name = "ProgressBarSaloon";
-            this.ProgressBarSaloon.Value = 50;
-            // 
-            // ProgressBarBedRoom
-            // 
-            this.ProgressBarBedRoom.BackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.ProgressBarBedRoom, "ProgressBarBedRoom");
-            this.ProgressBarBedRoom.Name = "ProgressBarBedRoom";
-            this.ProgressBarBedRoom.Value = 50;
-            // 
             // fireHotBedRoom
             // 
             resources.ApplyResources(this.fireHotBedRoom, "fireHotBedRoom");
@@ -437,13 +448,6 @@
             // 
             resources.ApplyResources(this.fireHotKitchen, "fireHotKitchen");
             this.fireHotKitchen.Name = "fireHotKitchen";
-            // 
-            // ProgressBarKitchen
-            // 
-            this.ProgressBarKitchen.BackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.ProgressBarKitchen, "ProgressBarKitchen");
-            this.ProgressBarKitchen.Name = "ProgressBarKitchen";
-            this.ProgressBarKitchen.Value = 50;
             // 
             // fireHotSaloon
             // 
@@ -464,6 +468,17 @@
             // 
             resources.ApplyResources(this.fireColdPannelBedRoom, "fireColdPannelBedRoom");
             this.fireColdPannelBedRoom.Name = "fireColdPannelBedRoom";
+            // 
+            // TimerMainRoutine
+            // 
+            this.TimerMainRoutine.Interval = 1000;
+            this.TimerMainRoutine.Tick += new System.EventHandler(this.TMainRoutine_Tick);
+            // 
+            // MenuBarRegulation
+            // 
+            this.MenuBarRegulation.Name = "MenuBarRegulation";
+            resources.ApplyResources(this.MenuBarRegulation, "MenuBarRegulation");
+            this.MenuBarRegulation.Click += new System.EventHandler(this.StartTimerMainRoutine);
             // 
             // MainControl
             // 
@@ -569,6 +584,8 @@
         public System.Windows.Forms.TextBox tBOutdoorTempAct;
         private LighInactivePannel lighInactivePanel;
         private LighActivePannel lighActivePanel;
+        private System.Windows.Forms.Timer TimerMainRoutine;
+        private System.Windows.Forms.ToolStripMenuItem MenuBarRegulation;
 
     }
 }
