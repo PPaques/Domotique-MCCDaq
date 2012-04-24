@@ -69,6 +69,7 @@ namespace MyhouseDomotique
         public string name { get; set; }
         public Boolean hot_is_active { get; set; }
         public Boolean light_is_active { get; set; }
+        public double temperature { get; set; }
         public double default_temp { get; set; }
 
         public Room()

@@ -213,6 +213,8 @@
             // 
             resources.ApplyResources(this.tBKitchenTempAct, "tBKitchenTempAct");
             this.tBKitchenTempAct.Name = "tBKitchenTempAct";
+            this.tBKitchenTempAct.Tag = "2";
+            this.tBKitchenTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
             // tBKitchenTempRef
             // 
@@ -295,6 +297,8 @@
             // 
             resources.ApplyResources(this.tBBedRoomTempAct, "tBBedRoomTempAct");
             this.tBBedRoomTempAct.Name = "tBBedRoomTempAct";
+            this.tBBedRoomTempAct.Tag = "3";
+            this.tBBedRoomTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
             // tBBedRoomTempRef
             // 
@@ -341,6 +345,8 @@
             // 
             resources.ApplyResources(this.tBSaloonTempAct, "tBSaloonTempAct");
             this.tBSaloonTempAct.Name = "tBSaloonTempAct";
+            this.tBSaloonTempAct.Tag = "1";
+            this.tBSaloonTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
             // tBSaloonTempRef
             // 
@@ -379,6 +385,8 @@
             // 
             resources.ApplyResources(this.tBOutdoorTempAct, "tBOutdoorTempAct");
             this.tBOutdoorTempAct.Name = "tBOutdoorTempAct";
+            this.tBOutdoorTempAct.Tag = "0";
+            this.tBOutdoorTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
             // PictureFont
             // 

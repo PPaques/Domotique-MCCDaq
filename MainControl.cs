@@ -29,6 +29,70 @@ namespace MyhouseDomotique
         }
 
         /// <summary>
+        /// changing the temperature with the textbox and progressbar
+        /// </summary>
+        /// <param name="RoomId"></param>
+        /// <param name="Value"></param>
+        public void changeTempView(int RoomId,string getValue)
+        {
+            VertcicalProgressBar ProgressBar = null;
+            TextBox Tbtemp = null;
+            double min = 10;
+            double max = 30;
+            double value = min;
+
+            if (getValue == "HI")
+            {
+                value = max;
+            }
+            else
+            {
+                value = Convert.ToDouble(getValue);
+            }
+
+
+            
+            switch (RoomId)
+            {
+                case 0:
+                    ProgressBar = ProgressBarOutdoor;
+                    Tbtemp = tBOutdoorTempAct;
+                    break;
+                case 1:
+                    ProgressBar = ProgressBarSaloon;
+                    Tbtemp = tBSaloonTempAct;
+                    break;
+                case 2:
+                    ProgressBar = ProgressBarKitchen;
+                    Tbtemp = tBKitchenTempAct;
+                    break;
+                case 3:
+                    ProgressBar = ProgressBarBedRoom;
+                    Tbtemp = tBBedRoomTempAct;
+                    break;
+                default:
+                    MessageBox.Show("Error at Change Hot State (Room ID out of range)");
+                    break;
+            }
+
+            if (value < min)
+            {
+                Tbtemp.Text  = "LO";
+                ProgressBar.Value = 0;
+            }
+            else if (value > max)
+            {
+                Tbtemp.Text = "HI";
+                ProgressBar.Value = 100;
+            }
+            else
+            {
+                Tbtemp.Text = Convert.ToString(getValue);
+                ProgressBar.Value = Convert.ToInt16(((value - min) / (max - min)) * 100);
+            }
+        }
+
+        /// <summary>
         /// Initialising the system
         /// </summary>
         /// <param name="sender"></param>
@@ -76,6 +140,11 @@ namespace MyhouseDomotique
             Dispose();
         }
 
+        /// <summary>
+        /// Changing the state of all the openings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeOpeningState(object sender, EventArgs e)
         {
             int WallId = Convert.ToInt32(Convert.ToString((sender as Button).Tag).Substring(0,1));
@@ -133,6 +202,7 @@ namespace MyhouseDomotique
 
         }
 
+       
         /// <summary>
         /// Change the light state
         /// </summary>
@@ -186,6 +256,29 @@ namespace MyhouseDomotique
                 this.BtOutdoorLight.Enabled = true;
             }
         }
+
+        /// <summary>
+        /// force the temperature change with the view 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ForceChangeTempSim(object sender, KeyPressEventArgs e)
+        {
+            // inf we press enter, we change the value
+            if (e.KeyChar == (char)13)
+            {
+                //verify the data
+                if (Functions.TemperatureRange((sender as TextBox).Text,-50,50))
+                { 
+                    // change in model
+                    myHouse.Rooms[Convert.ToInt16((sender as TextBox).Tag)].temperature = Convert.ToDouble((sender as TextBox).Text);
+                    // change in the view
+                    changeTempView(Convert.ToInt16((sender as TextBox).Tag), (sender as TextBox).Text);
+                }
+
+            }
+        }
+
 
 
 
