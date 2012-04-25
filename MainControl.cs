@@ -348,5 +348,9 @@ namespace MyhouseDomotique
 
         }
 
+        private void TimerClock_Tick(object sender, EventArgs e)
+        {
+            Clock.Text = DateTime.Now.ToString("HH:mm");
+        }
     }
 }

@@ -72,6 +72,8 @@
             this.tBOutdoorTempAct = new System.Windows.Forms.TextBox();
             this.TimerMainRoutine = new System.Windows.Forms.Timer(this.components);
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.Clock = new System.Windows.Forms.Label();
+            this.TimerClock = new System.Windows.Forms.Timer(this.components);
             this.fireHotBedRoom = new FireHotPannel();
             this.fireHotKitchen = new FireHotPannel();
             this.lighInactivePanel = new LighInactivePannel();
@@ -618,6 +620,7 @@
             this.MainPanel.BackColor = System.Drawing.Color.Transparent;
             this.MainPanel.BackgroundImage = global::MyhouseDomotique.Properties.Resources.ImageMaison1;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MainPanel.Controls.Add(this.Clock);
             this.MainPanel.Controls.Add(this.fireHotBedRoom);
             this.MainPanel.Controls.Add(this.fireHotKitchen);
             this.MainPanel.Controls.Add(this.lighInactivePanel);
@@ -641,6 +644,22 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(980, 795);
             this.MainPanel.TabIndex = 107;
+            // 
+            // Clock
+            // 
+            this.Clock.AutoSize = true;
+            this.Clock.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clock.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Clock.Location = new System.Drawing.Point(402, 10);
+            this.Clock.Name = "Clock";
+            this.Clock.Size = new System.Drawing.Size(56, 18);
+            this.Clock.TabIndex = 107;
+            this.Clock.Text = "00H00";
+            // 
+            // TimerClock
+            // 
+            this.TimerClock.Enabled = true;
+            this.TimerClock.Tick += new System.EventHandler(this.TimerClock_Tick);
             // 
             // fireHotBedRoom
             // 
@@ -781,6 +800,7 @@
             this.GroupOutdoor.ResumeLayout(false);
             this.GroupOutdoor.PerformLayout();
             this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
             this.lighInactivePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -844,6 +864,8 @@
         private System.Windows.Forms.Timer TimerMainRoutine;
         private System.Windows.Forms.ToolStripMenuItem MenuBarRegulation;
         private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.Label Clock;
+        private System.Windows.Forms.Timer TimerClock;
 
     }
 }
