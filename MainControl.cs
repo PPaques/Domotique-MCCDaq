@@ -100,8 +100,10 @@ namespace MyhouseDomotique
         private void Initialisation(object sender, EventArgs e)
         {
             // verifying and setting the card
-            MyCard = new Card();
+            //MyCard = new Card();
+            GlobalVariables.mode = "simulation";
             StatusBarMode.Text = "Mode "+ GlobalVariables.mode;
+
             
             // creating the house
             myHouse = new House();
