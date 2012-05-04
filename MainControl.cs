@@ -297,7 +297,36 @@ namespace MyhouseDomotique
             }
             else
             {
+                // Modif Maxime pour recuperer dans la vue et introduire dans l'objet
                 // check states on the view
+
+                //cuisine
+                //On regarde s'il y a des virgules
+                if (tBKitchenTempAct.Text.Contains(".") || tBKitchenTempAct.Text.Contains(","))
+                    tBKitchenTempAct.Text = tBKitchenTempAct.Text.Replace(".", System.Threading.Thread.CurrentThread.
+                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator).Replace(",", System.Threading.Thread.CurrentThread.
+                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
+
+                if (tBBedRoomTempAct.Text.Contains(".") || tBBedRoomTempAct.Text.Contains(","))
+                    tBBedRoomTempAct.Text = tBBedRoomTempAct.Text.Replace(".", System.Threading.Thread.CurrentThread.
+                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator).Replace(",", System.Threading.Thread.CurrentThread.
+                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
+
+                if (tBSaloonTempAct.Text.Contains(".") || tBSaloonTempAct.Text.Contains(","))
+                    tBSaloonTempAct.Text = tBSaloonTempAct.Text.Replace(".", System.Threading.Thread.CurrentThread.
+                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator).Replace(",", System.Threading.Thread.CurrentThread.
+                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
+
+                GlobalVariables.MyHouse.Rooms[2].temperature = Convert.ToDouble(tBKitchenTempAct.Text);
+                GlobalVariables.MyHouse.Rooms[2].temperature_order = Convert.ToDouble(tBKitchenTempRef.Text);
+
+                //chambre
+                GlobalVariables.MyHouse.Rooms[3].temperature = Convert.ToDouble(tBBedRoomTempAct.Text);
+                GlobalVariables.MyHouse.Rooms[3].temperature_order = Convert.ToDouble(tBBedRoomTempRef.Text);
+
+                //salon
+                GlobalVariables.MyHouse.Rooms[1].temperature = Convert.ToDouble(tBSaloonTempAct.Text);
+                GlobalVariables.MyHouse.Rooms[1].temperature_order = Convert.ToDouble(tBSaloonTempRef.Text);
             }
 
             // verification of change

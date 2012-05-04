@@ -122,6 +122,7 @@
     <None Include="Resources\FireHot.png" />
     <None Include="Resources\light_active.png" />
     <None Include="Resources\light_inactive.png" />
+    <None Include="Resources\House_HD.png" />
     <Content Include="simulation.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

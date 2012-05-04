@@ -74,6 +74,13 @@ namespace MyhouseDomotique.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap House_HD {
+            get {
+                object obj = ResourceManager.GetObject("House_HD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap ImageMaison1 {
             get {
                 object obj = ResourceManager.GetObject("ImageMaison1", resourceCulture);
