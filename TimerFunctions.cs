@@ -11,7 +11,7 @@ namespace MyhouseDomotique
         /// <summary>
         /// Function that perform the regulation, ON the hot when it's need
         /// </summary>
-        public void regulation()
+        public static void regulation()
         {
             // Kitchen
             if ((GlobalVariables.MyHouse.Rooms[2].temperature) < (GlobalVariables.MyHouse.Rooms[2].temperature_order) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen==false))

@@ -326,16 +326,7 @@ namespace MyhouseDomotique
             // regulation
             if (to_regul == true)
             {
-                //regulation routine
-
-                if (GlobalVariables.mode == "normal")
-                {
-                    // change to the card 
-                }
-                else
-                {
-                    // change into the view
-                }
+                TimerFunctions.regulation();
             }
             routine_count++;
         }

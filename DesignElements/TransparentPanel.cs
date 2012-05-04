@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 
-class FireColdPannel : DrawingArea
+public class FireColdPannel : DrawingArea
 {
     protected override void OnDraw()
     {
@@ -19,7 +19,7 @@ class FireColdPannel : DrawingArea
         this.graphics.DrawImage(broculoImage, small);
     }
 }
-class FireHotPannel : DrawingArea
+public class FireHotPannel : DrawingArea
 {
     protected override void OnDraw()
     {
@@ -35,7 +35,7 @@ class FireHotPannel : DrawingArea
         this.graphics.DrawImage(broculoImage, small);
     }
 }
-class LighActivePannel : DrawingArea
+public class LighActivePannel : DrawingArea
 {
     protected override void OnDraw()
     {
@@ -51,7 +51,7 @@ class LighActivePannel : DrawingArea
         this.graphics.DrawImage(broculoImage, small);
     }
 }
-class LighInactivePannel : DrawingArea
+public class LighInactivePannel : DrawingArea
 {
     protected override void OnDraw()
     {
