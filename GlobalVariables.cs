@@ -13,6 +13,7 @@ namespace MyhouseDomotique
     {
         // list of global variables
         public static string mode { get; set; }
+        public static House MyHouse { get; set; }
         public static SqlCeConnection conn { get; set; }
     }
 }

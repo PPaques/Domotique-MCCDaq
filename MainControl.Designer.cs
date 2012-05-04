@@ -1,11 +1,11 @@
 ﻿namespace MyhouseDomotique
 {
-    partial class MainControl
+    public partial class MainControl
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -74,7 +74,6 @@
             this.MainPanel = new System.Windows.Forms.Panel();
             this.Clock = new System.Windows.Forms.Label();
             this.TimerClock = new System.Windows.Forms.Timer(this.components);
-            this.fireHotBedRoom = new FireHotPannel();
             this.fireHotKitchen = new FireHotPannel();
             this.lighInactivePanel = new LighInactivePannel();
             this.lighActivePanel = new LighActivePannel();
@@ -84,6 +83,7 @@
             this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
             this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
             this.fireColdPannelBedRoom = new FireColdPannel();
+            this.fireHotBedRoom = new FireHotPannel();
             this.fireHotSaloon = new FireHotPannel();
             this.fireColdSaloon = new FireColdPannel();
             this.StatusBar.SuspendLayout();
@@ -620,8 +620,8 @@
             this.MainPanel.BackColor = System.Drawing.Color.Transparent;
             this.MainPanel.BackgroundImage = global::MyhouseDomotique.Properties.Resources.ImageMaison1;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.MainPanel.Controls.Add(this.Clock);
             this.MainPanel.Controls.Add(this.fireHotBedRoom);
+            this.MainPanel.Controls.Add(this.Clock);
             this.MainPanel.Controls.Add(this.fireHotKitchen);
             this.MainPanel.Controls.Add(this.lighInactivePanel);
             this.MainPanel.Controls.Add(this.BtWindowBedroom);
@@ -660,15 +660,6 @@
             // 
             this.TimerClock.Enabled = true;
             this.TimerClock.Tick += new System.EventHandler(this.TimerClock_Tick);
-            // 
-            // fireHotBedRoom
-            // 
-            this.fireHotBedRoom.Location = new System.Drawing.Point(641, 124);
-            this.fireHotBedRoom.Margin = new System.Windows.Forms.Padding(2);
-            this.fireHotBedRoom.Name = "fireHotBedRoom";
-            this.fireHotBedRoom.Size = new System.Drawing.Size(144, 131);
-            this.fireHotBedRoom.TabIndex = 99;
-            this.fireHotBedRoom.Visible = false;
             // 
             // fireHotKitchen
             // 
@@ -757,6 +748,15 @@
             this.fireColdPannelBedRoom.Size = new System.Drawing.Size(130, 159);
             this.fireColdPannelBedRoom.TabIndex = 96;
             // 
+            // fireHotBedRoom
+            // 
+            this.fireHotBedRoom.Location = new System.Drawing.Point(641, 128);
+            this.fireHotBedRoom.Margin = new System.Windows.Forms.Padding(2);
+            this.fireHotBedRoom.Name = "fireHotBedRoom";
+            this.fireHotBedRoom.Size = new System.Drawing.Size(144, 131);
+            this.fireHotBedRoom.TabIndex = 99;
+            this.fireHotBedRoom.Visible = false;
+            // 
             // fireHotSaloon
             // 
             this.fireHotSaloon.Location = new System.Drawing.Point(394, 411);
@@ -809,64 +809,63 @@
 
         #endregion
 
-        private System.Windows.Forms.StatusStrip StatusBar;
-        private System.Windows.Forms.ToolStripStatusLabel StatusBarMode;
-        private System.Windows.Forms.MenuStrip MenuBar;
-        private System.Windows.Forms.ToolStripMenuItem MenuBarTitleProgramme;
-        private System.Windows.Forms.ToolStripMenuItem MenuBarClose;
-        private System.Windows.Forms.ToolStripMenuItem MenuBarTitleInt;
-        private System.Windows.Forms.ToolStripMenuItem MenuBarCredit;
-        private System.Windows.Forms.Button BtWindowKitchen;
-        private System.Windows.Forms.Button BtWindowBedroom;
-        private System.Windows.Forms.Button BtWindowSaloonL;
-        private System.Windows.Forms.Button BtWindowSaloonR;
-        private System.Windows.Forms.Button BtDoorKitchen;
-        private System.Windows.Forms.Button BtDoorBedroom;
-        private System.Windows.Forms.Button BtDoorEnter;
-        private VertcicalProgressBar ProgressBarBedRoom;
-        private VertcicalProgressBar ProgressBarKitchen;
-        private VertcicalProgressBar ProgressBarSaloon;
-        private VertcicalProgressBar ProgressBarOutdoor;
-        private FireColdPannel fireColdPannelBedRoom;
-        private FireHotPannel fireHotBedRoom;
-        private FireColdPannel fireColdKitchen;
-        private FireHotPannel fireHotKitchen;
-        private FireColdPannel fireColdSaloon;
-        private FireHotPannel fireHotSaloon;
+        public System.Windows.Forms.StatusStrip StatusBar;
+        public System.Windows.Forms.ToolStripStatusLabel StatusBarMode;
+        public System.Windows.Forms.MenuStrip MenuBar;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarTitleProgramme;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarClose;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarTitleInt;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarCredit;
+        public System.Windows.Forms.Button BtWindowKitchen;
+        public System.Windows.Forms.Button BtWindowBedroom;
+        public System.Windows.Forms.Button BtWindowSaloonL;
+        public System.Windows.Forms.Button BtWindowSaloonR;
+        public System.Windows.Forms.Button BtDoorKitchen;
+        public System.Windows.Forms.Button BtDoorBedroom;
+        public System.Windows.Forms.Button BtDoorEnter;
+        public VertcicalProgressBar ProgressBarBedRoom;
+        public VertcicalProgressBar ProgressBarKitchen;
+        public VertcicalProgressBar ProgressBarSaloon;
+        public VertcicalProgressBar ProgressBarOutdoor;
+        public FireColdPannel fireColdPannelBedRoom;
+        public FireHotPannel fireHotBedRoom;
+        public FireColdPannel fireColdKitchen;
+        public FireHotPannel fireHotKitchen;
+        public FireColdPannel fireColdSaloon;
+        public FireHotPannel fireHotSaloon;
         public System.Windows.Forms.TextBox tBKitchenTempAct;
         public System.Windows.Forms.TextBox tBKitchenTempRef;
-        private System.Windows.Forms.GroupBox GroupKitchen;
-        private System.Windows.Forms.Label labelKitchenSubtitleAct;
-        private System.Windows.Forms.Label labelKitchenSubtitleHot;
-        private System.Windows.Forms.Button BtKitchenHot;
-        private System.Windows.Forms.Label labelKitchenSubtitleAsk;
-        private System.Windows.Forms.GroupBox GroupBedroom;
-        private System.Windows.Forms.Label labelBedRoomSubtitleHot;
-        private System.Windows.Forms.Button BtBedRoomHot;
-        private System.Windows.Forms.Label labelBedRoomSubtitleAsk;
-        private System.Windows.Forms.Label labelBedRoomSubtitleAct;
+        public System.Windows.Forms.GroupBox GroupKitchen;
+        public System.Windows.Forms.Label labelKitchenSubtitleAct;
+        public System.Windows.Forms.Label labelKitchenSubtitleHot;
+        public System.Windows.Forms.Button BtKitchenHot;
+        public System.Windows.Forms.Label labelKitchenSubtitleAsk;
+        public System.Windows.Forms.GroupBox GroupBedroom;
+        public System.Windows.Forms.Label labelBedRoomSubtitleHot;
+        public System.Windows.Forms.Button BtBedRoomHot;
+        public System.Windows.Forms.Label labelBedRoomSubtitleAsk;
+        public System.Windows.Forms.Label labelBedRoomSubtitleAct;
         public System.Windows.Forms.TextBox tBBedRoomTempAct;
         public System.Windows.Forms.TextBox tBBedRoomTempRef;
-        private System.Windows.Forms.GroupBox GroupSaloon;
-        private System.Windows.Forms.Label labelSaloonSubtitleHot;
-        private System.Windows.Forms.Button BtSaloonHot;
-        private System.Windows.Forms.Label labelSaloonSubtitleAsk;
-        private System.Windows.Forms.Label labelSaloonSubtitleAct;
+        public System.Windows.Forms.GroupBox GroupSaloon;
+        public System.Windows.Forms.Label labelSaloonSubtitleHot;
+        public System.Windows.Forms.Button BtSaloonHot;
+        public System.Windows.Forms.Label labelSaloonSubtitleAsk;
+        public System.Windows.Forms.Label labelSaloonSubtitleAct;
         public System.Windows.Forms.TextBox tBSaloonTempAct;
         public System.Windows.Forms.TextBox tBSaloonTempRef;
-        private System.Windows.Forms.GroupBox GroupOutdoor;
-        private System.Windows.Forms.Label labelOutdoorLamp;
-        private System.Windows.Forms.Button BtOutdoorLight;
-        private System.Windows.Forms.Label labelOutdoorSubtitleAct;
+        public System.Windows.Forms.GroupBox GroupOutdoor;
+        public System.Windows.Forms.Label labelOutdoorLamp;
+        public System.Windows.Forms.Button BtOutdoorLight;
+        public System.Windows.Forms.Label labelOutdoorSubtitleAct;
         public System.Windows.Forms.TextBox tBOutdoorTempAct;
-        private LighInactivePannel lighInactivePanel;
-        private LighActivePannel lighActivePanel;
-        private System.Windows.Forms.Timer TimerMainRoutine;
-        private System.Windows.Forms.ToolStripMenuItem MenuBarRegulation;
-        private System.Windows.Forms.Panel MainPanel;
-        private System.Windows.Forms.Label Clock;
-        private System.Windows.Forms.Timer TimerClock;
-
+        public LighInactivePannel lighInactivePanel;
+        public LighActivePannel lighActivePanel;
+        public System.Windows.Forms.Timer TimerMainRoutine;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarRegulation;
+        public System.Windows.Forms.Panel MainPanel;
+        public System.Windows.Forms.Label Clock;
+        public System.Windows.Forms.Timer TimerClock;
     }
 }
 

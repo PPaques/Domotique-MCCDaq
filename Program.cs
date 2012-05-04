@@ -5,17 +5,19 @@ using System.Windows.Forms;
 
 namespace MyhouseDomotique
 {
-    static class Program
+    public static class Program
     {
+        public static MainControl MainForm;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainControl());
+            MainForm = new MainControl();
+            Application.Run(MainForm);
         }
     }
 }

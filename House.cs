@@ -49,9 +49,9 @@ namespace MyhouseDomotique
         }
 
         // adding a room to the list
-        public void addRoom(string getName, double getDefault_temp)
+        public void addRoom(string getName, double getTempratureOrder)
         {
-            Rooms.Add(new Room { name = getName, default_temp = getDefault_temp });
+            Rooms.Add(new Room { name = getName, temperature_order = getTempratureOrder });
         }
         // adding a wall
         public void addWall(Room getRoom1, Room getRoom2)
@@ -70,7 +70,7 @@ namespace MyhouseDomotique
         public Boolean hot_is_active { get; set; }
         public Boolean light_is_active { get; set; }
         public double temperature { get; set; }
-        public double default_temp { get; set; }
+        public double temperature_order { get; set; }
 
         public Room()
         {
