@@ -82,67 +82,7 @@ namespace MyhouseDomotique
         {
             Dispose();
         }
-        /// <summary>
-        /// changing the temperature with the textbox and progressbar Neeed To fix and threw it to a function on another file
-        /// </summary>
-        /// <param name="RoomId"></param>
-        /// <param name="Value"></param>
-        public void changeTempView(int RoomId, string getValue)
-        {
-            VertcicalProgressBar ProgressBar = null;
-            TextBox Tbtemp = null;
-            double min = 10;
-            double max = 30;
-            double value = min;
-
-            if (getValue == "HI")
-            {
-                value = max;
-            }
-            else
-            {
-                value = Convert.ToDouble(getValue);
-            }
-
-            switch (RoomId)
-            {
-                case 0:
-                    ProgressBar = ProgressBarOutdoor;
-                    Tbtemp = tBOutdoorTempAct;
-                    break;
-                case 1:
-                    ProgressBar = ProgressBarSaloon;
-                    Tbtemp = tBSaloonTempAct;
-                    break;
-                case 2:
-                    ProgressBar = ProgressBarKitchen;
-                    Tbtemp = tBKitchenTempAct;
-                    break;
-                case 3:
-                    ProgressBar = ProgressBarBedRoom;
-                    Tbtemp = tBBedRoomTempAct;
-                    break;
-                default:
-                    MessageBox.Show("Error at Change Hot State (Room ID out of range)");
-                    break;
-            }
-
-            if (value < min)
-            {
-                Tbtemp.Text = "LO";
-                ProgressBar.Value = 0;
-            }
-            else if (value > max)
-            {
-                Tbtemp.Text = "HI";
-                ProgressBar.Value = 100;
-            }
-            else
-            {
-                Tbtemp.Text = Convert.ToString(getValue);
-                ProgressBar.Value = Convert.ToInt16(((value - min) / (max - min)) * 100);
-            }
-        }
+        
 
         /// <summary>
         /// Changing the state of all the openings
@@ -151,17 +91,14 @@ namespace MyhouseDomotique
         /// <param name="e"></param>
         private void ChangeOpeningState(object sender, EventArgs e)
         {
-            int WallId = Convert.ToInt32(Convert.ToString((sender as Button).Tag).Substring(0,1));
-            int OpenId = Convert.ToInt32(Convert.ToString((sender as Button).Tag).Substring(1));
-
-            if (GlobalVariables.MyHouse.Walls[WallId].Openings[OpenId].isOpen)
+            if (((string)(sender as Button).Tag) == "open") 
             {
-                GlobalVariables.MyHouse.Walls[WallId].Openings[OpenId].isOpen = false;
+                (sender as Button).Tag = "close";
                 (sender as Button).BackColor = System.Drawing.Color.Black;
             }
             else 
             {
-                GlobalVariables.MyHouse.Walls[WallId].Openings[OpenId].isOpen = true;
+                (sender as Button).Tag = "open";
                 (sender as Button).BackColor = System.Drawing.Color.Maroon;
             }
         }
@@ -277,7 +214,7 @@ namespace MyhouseDomotique
                     // change in model
                     GlobalVariables.MyHouse.Rooms[Convert.ToInt16((sender as TextBox).Tag)].temperature = Convert.ToDouble((sender as TextBox).Text);
                     // change in the view
-                    changeTempView(Convert.ToInt16((sender as TextBox).Tag), (sender as TextBox).Text);
+                    Functions.changeTempView(Convert.ToInt16((sender as TextBox).Tag), (sender as TextBox).Text);
                 }
 
             }
@@ -298,12 +235,15 @@ namespace MyhouseDomotique
             if (GlobalVariables.mode == "normal")
             {
                 //checkstates by card
+                TimerFunctions.StatesModelToView();
             }
             if (GlobalVariables.mode == "simulation") 
             {
                 TimerFunctions.TempViewToModel();
                 TimerFunctions.StatesViewToModel();
             }
+
+           
 
             // *--------------------------------------------------------
             // *            taking the temperature                     *
@@ -312,20 +252,19 @@ namespace MyhouseDomotique
             if (GlobalVariables.mode == "simulation")
             {
                 // calculate and send it to the model
-                TimerFunctions.calculate_next_temp();
-                // actualise the view
-
+                //TimerFunctions.calculate_next_temp();
             }
 
             // 60 sec = 1 min
             if (routine_count >= 60 && GlobalVariables.mode == "normal")
             {
                 // check temp by card
-                // actualise the view
-
                 // resetting the routine counter
                 routine_count = -1;
             }
+
+            // actualise the temperatures from the model
+            TimerFunctions.TempModelToView();
 
 
 

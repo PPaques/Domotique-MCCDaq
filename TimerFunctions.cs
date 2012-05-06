@@ -86,12 +86,12 @@ namespace MyhouseDomotique
         /// Function that uses the forward states to find the new temperatures.
         /// </summary>
         public static void calculate_next_temp () {
-           //Création des variables
+            //Création des variables
             double[] NewTemp = new double[3];           // On crée un vecteur qui contiendra les températures calculées
             NewTemp = null;
 
             double TIteration = 1;		                        // Interval de calcul de température (on calcule toute les secondes)
-			double P = 50;		                        // Puissance de la lampe dégagée.
+            double P = 50;		                        // Puissance de la lampe dégagée.
 
             double SpecificHeatCap_Air = 1004;
             double AirDensity = 1.2;				    // en kg/m3 à 20 °C
@@ -108,7 +108,7 @@ namespace MyhouseDomotique
                     }
                 }
             }
-            
+
             // Vérification ouvertures internes et propagation des températures externes
             for (int i = 3; i <= 4; i++)
             {
@@ -133,8 +133,8 @@ namespace MyhouseDomotique
                 if (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen ^ GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen)      // Une ouverture ou (xor) l'autre est ouverte
                 {
                     if (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen)
-                    { 
-                        double FinalTemp = ConnectedRooms(GlobalVariables.MyHouse.Rooms[1].temperature, GlobalVariables.MyHouse.Rooms[2].temperature, 0, GlobalVariables.MyHouse.Rooms[1].volume, GlobalVariables.MyHouse.Rooms[2].volume, 0); 
+                    {
+                        double FinalTemp = ConnectedRooms(GlobalVariables.MyHouse.Rooms[1].temperature, GlobalVariables.MyHouse.Rooms[2].temperature, 0, GlobalVariables.MyHouse.Rooms[1].volume, GlobalVariables.MyHouse.Rooms[2].volume, 0);
                         NewTemp[1] = FinalTemp;
                         NewTemp[2] = FinalTemp;
                     }
@@ -145,7 +145,7 @@ namespace MyhouseDomotique
                         NewTemp[3] = FinalTemp;
                     }
                 }
-                if(GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen & GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen)       // Les deux ouvertures sont ouvertes
+                if (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen & GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen)       // Les deux ouvertures sont ouvertes
                 {
                     double FinalTemp = ConnectedRooms(GlobalVariables.MyHouse.Rooms[1].temperature, GlobalVariables.MyHouse.Rooms[2].temperature, GlobalVariables.MyHouse.Rooms[3].temperature, GlobalVariables.MyHouse.Rooms[1].volume, GlobalVariables.MyHouse.Rooms[2].volume, GlobalVariables.MyHouse.Rooms[3].volume);
                     NewTemp[1] = FinalTemp;
@@ -158,7 +158,7 @@ namespace MyhouseDomotique
             for (int i = 1; i <= 3; i++)
             {
                 if (NewTemp[i] == null)
-                { 
+                {
                     NewTemp[i] = GlobalVariables.MyHouse.Rooms[i].temperature;
                 }
             }
@@ -184,7 +184,6 @@ namespace MyhouseDomotique
             {
                 GlobalVariables.MyHouse.Rooms[i].temperature = NewTemp[i];
             }
-
         }
 
         /// <summary>
@@ -211,35 +210,53 @@ namespace MyhouseDomotique
         /// </summary>
         public static void StatesViewToModel()
         {
+            GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorEnter.Tag));
+            GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowSaloonL.Tag));
+            GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowSaloonR.Tag));
+            GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowKitchen.Tag));
+            GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowBedroom.Tag));
+            GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorKitchen.Tag));
+            GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorBedroom.Tag));
         }
         /// <summary>
         /// Taking all the states from Model and send it to the View
         /// </summary>
         public static void StatesModelToView()
         {
-
+            Functions.IsOpenToView(Program.MainForm.BtDoorEnter,     GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtWindowSaloonL, GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtWindowSaloonR, GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtWindowKitchen, GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtWindowBedroom, GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtDoorKitchen,   GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtDoorBedroom,   GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen);
         }
         /// <summary>
         /// Taking all the temp from View and send it to the Model
         /// </summary>
         public static void TempViewToModel()
         {
-            GlobalVariables.MyHouse.Rooms[2].temperature = Functions.ConvertToDoubleSeparator(Program.MainForm.tBKitchenTempAct.Text);
-            GlobalVariables.MyHouse.Rooms[2].temperature_order = Functions.ConvertToDoubleSeparator(Program.MainForm.tBKitchenTempRef.Text);
-
-            //chambre
-            GlobalVariables.MyHouse.Rooms[3].temperature = Functions.ConvertToDoubleSeparator(Program.MainForm.tBBedRoomTempAct.Text);
-            GlobalVariables.MyHouse.Rooms[3].temperature_order = Functions.ConvertToDoubleSeparator(Program.MainForm.tBBedRoomTempRef.Text);
-
-            //salon
-            GlobalVariables.MyHouse.Rooms[1].temperature = Functions.ConvertToDoubleSeparator(Program.MainForm.tBSaloonTempAct.Text);
-            GlobalVariables.MyHouse.Rooms[1].temperature_order = Functions.ConvertToDoubleSeparator(Program.MainForm.tBSaloonTempRef.Text);
+            // TODO : Function qui fait quelque chose de plus beau que ça...  Je pense a une function qui a juste besoin du numéro de pièce, on aurait qu'a faire un foreach MyHouse.rooms
+            // ToDO : fonction qui selectionne les bons éléments sur la vie en fonction de la room id (chauffage) ...
+            // !!!!!! LOW NE PASSE PAS :(
+            GlobalVariables.MyHouse.Rooms[2].temperature = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBKitchenTempAct.Text));
+            GlobalVariables.MyHouse.Rooms[2].temperature_order = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBKitchenTempRef.Text));
+            GlobalVariables.MyHouse.Rooms[3].temperature = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBBedRoomTempAct.Text));
+            GlobalVariables.MyHouse.Rooms[3].temperature_order = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBBedRoomTempRef.Text));
+            GlobalVariables.MyHouse.Rooms[1].temperature = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBSaloonTempAct.Text));
+            GlobalVariables.MyHouse.Rooms[1].temperature_order = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBSaloonTempRef.Text));
+            GlobalVariables.MyHouse.Rooms[0].temperature = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBOutdoorTempAct.Text));
         }
         /// <summary>
         /// Taking all the temp from Model and send it to the View
         /// </summary>
         public static void TempModelToView()
         {
+            for (int i=1; i <= 3; i++) 
+            {
+                Functions.changeTempView(i ,Convert.ToString(GlobalVariables.MyHouse.Rooms[i].temperature));
+
+            }
         }
 
 
