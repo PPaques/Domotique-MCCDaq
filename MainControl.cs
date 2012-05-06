@@ -83,7 +83,7 @@ namespace MyhouseDomotique
             Dispose();
         }
         /// <summary>
-        /// changing the temperature with the textbox and progressbar
+        /// changing the temperature with the textbox and progressbar Neeed To fix and threw it to a function on another file
         /// </summary>
         /// <param name="RoomId"></param>
         /// <param name="Value"></param>
@@ -103,8 +103,6 @@ namespace MyhouseDomotique
             {
                 value = Convert.ToDouble(getValue);
             }
-
-
 
             switch (RoomId)
             {
@@ -264,7 +262,7 @@ namespace MyhouseDomotique
         }
 
         /// <summary>
-        /// force the temperature change with the view 
+        /// force the temperature change with the view when press enter
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -285,81 +283,66 @@ namespace MyhouseDomotique
             }
         }
 
-
+        /// <summary>
+        /// This is the main timer, check all the states and temperature, calculate and do the regulation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TMainRoutine_Tick(object sender, EventArgs e)
         {
-            Boolean to_regul = false;
 
-            //taking system state (door and windows)
+            // *--------------------------------------------------------
+            // *  taking the system states (door and windows)          *
+            // *--------------------------------------------------------
+            
             if (GlobalVariables.mode == "normal")
             {
                 //checkstates by card
             }
-            else
+            if (GlobalVariables.mode == "simulation") 
             {
-                // Modif Maxime pour recuperer dans la vue et introduire dans l'objet
-                // check states on the view
-
-                //cuisine
-                //On regarde s'il y a des virgules
-                if (tBKitchenTempAct.Text.Contains(".") || tBKitchenTempAct.Text.Contains(","))
-                    tBKitchenTempAct.Text = tBKitchenTempAct.Text.Replace(".", System.Threading.Thread.CurrentThread.
-                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator).Replace(",", System.Threading.Thread.CurrentThread.
-                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
-
-                if (tBBedRoomTempAct.Text.Contains(".") || tBBedRoomTempAct.Text.Contains(","))
-                    tBBedRoomTempAct.Text = tBBedRoomTempAct.Text.Replace(".", System.Threading.Thread.CurrentThread.
-                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator).Replace(",", System.Threading.Thread.CurrentThread.
-                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
-
-                if (tBSaloonTempAct.Text.Contains(".") || tBSaloonTempAct.Text.Contains(","))
-                    tBSaloonTempAct.Text = tBSaloonTempAct.Text.Replace(".", System.Threading.Thread.CurrentThread.
-                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator).Replace(",", System.Threading.Thread.CurrentThread.
-                    CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
-
-                GlobalVariables.MyHouse.Rooms[2].temperature = Convert.ToDouble(tBKitchenTempAct.Text);
-                GlobalVariables.MyHouse.Rooms[2].temperature_order = Convert.ToDouble(tBKitchenTempRef.Text);
-
-                //chambre
-                GlobalVariables.MyHouse.Rooms[3].temperature = Convert.ToDouble(tBBedRoomTempAct.Text);
-                GlobalVariables.MyHouse.Rooms[3].temperature_order = Convert.ToDouble(tBBedRoomTempRef.Text);
-
-                //salon
-                GlobalVariables.MyHouse.Rooms[1].temperature = Convert.ToDouble(tBSaloonTempAct.Text);
-                GlobalVariables.MyHouse.Rooms[1].temperature_order = Convert.ToDouble(tBSaloonTempRef.Text);
+                TimerFunctions.TempViewToModel();
+                TimerFunctions.StatesViewToModel();
             }
 
-            // verification of change
-            // if change=> to_regul à true
-
-            // taking the temperature
-            // 300 * 1 sec = 5 min
-            if (routine_count >= 300)
+            // *--------------------------------------------------------
+            // *            taking the temperature                     *
+            // *--------------------------------------------------------
+            // if we are in simulation mode, we calculate every secondes, if normal mode, we take every min
+            if (GlobalVariables.mode == "simulation")
             {
-                if (GlobalVariables.mode == "normal")
-                {
-                    // check temp by card
-                }
-                else
-                {
-                    // check temp by calc
-                }
+                // calculate and send it to the model
+                TimerFunctions.calculate_next_temp();
+                // actualise the view
 
-                //if change => to_regul a true
+            }
+
+            // 60 sec = 1 min
+            if (routine_count >= 60 && GlobalVariables.mode == "normal")
+            {
+                // check temp by card
+                // actualise the view
 
                 // resetting the routine counter
                 routine_count = -1;
             }
 
-            to_regul = true; 
-            // regulation
-            if (to_regul == true)
-            {
-                TimerFunctions.regulation();
-            }
+
+
+            // *--------------------------------------------------------
+            // *                Hotter regulation                      *
+            // *--------------------------------------------------------
+            // start the regulation (the hot system on or off ? )
+            TimerFunctions.regulation();
+            
             routine_count++;
         }
 
+        /// <summary>
+        /// Function to enable the routine of regulation (Need to fix that because we just have to make a FORCE mode)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartTimerMainRoutine(object sender, EventArgs e)
         {
             TimerMainRoutine.Enabled = !TimerMainRoutine.Enabled;
@@ -375,6 +358,11 @@ namespace MyhouseDomotique
 
         }
 
+        /// <summary>
+        /// Print a clock for the house system
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimerClock_Tick(object sender, EventArgs e)
         {
             Clock.Text = DateTime.Now.ToString("HH:mm");

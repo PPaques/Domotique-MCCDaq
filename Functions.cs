@@ -27,6 +27,21 @@ namespace MyhouseDomotique
                 return false;
             }
         }
+
+        /// <summary>
+        /// Function that convert to double with the good coma system
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static double ConvertToDoubleSeparator(string Value)
+        {
+            if (Value.Contains(".") || Value.Contains(","))
+            {
+                Value = Value.Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator)
+                             .Replace(",", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
+            }
+            return Convert.ToDouble(Value);
+        }
         
     }
 }

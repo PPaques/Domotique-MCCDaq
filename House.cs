@@ -22,10 +22,10 @@ namespace MyhouseDomotique
             this.Walls = new List<Wall>();
             
             // adding all the rooms
-            this.addRoom("Exterieur", 0); // ID = 0
-            this.addRoom("Salon", 19);    // ID = 1
-            this.addRoom("Cuisine", 17);  // ID = 2
-            this.addRoom("Chambre", 20);  // ID = 3
+            this.addRoom("Exterieur", 15, 999999999, 0.001); // ID = 0
+            this.addRoom("Salon", 20, 20.4, 874.45);    // ID = 1
+            this.addRoom("Cuisine", 20, 8.16, 618.35);  // ID = 2
+            this.addRoom("Chambre", 20, 12.24, 817.04);  // ID = 3
 
             // adding the walls and opening
             this.addWall(this.Rooms[0], this.Rooms[1]); // between exterior and saloon ID = 0
@@ -49,9 +49,9 @@ namespace MyhouseDomotique
         }
 
         // adding a room to the list
-        public void addRoom(string getName, double getTempratureOrder)
+        public void addRoom(string getName, double getTempratureOrder, double getVolume, double getT0)
         {
-            Rooms.Add(new Room { name = getName, temperature_order = getTempratureOrder });
+            Rooms.Add(new Room { name = getName, temperature_order = getTempratureOrder, volume = getVolume, t0 = getT0 });
         }
         // adding a wall
         public void addWall(Room getRoom1, Room getRoom2)
@@ -71,6 +71,8 @@ namespace MyhouseDomotique
         public Boolean light_is_active { get; set; }
         public double temperature { get; set; }
         public double temperature_order { get; set; }
+        public double volume { get; set; }
+        public double t0 { get; set; }
 
         public Room()
         {
