@@ -249,7 +249,7 @@ namespace MyhouseDomotique
         /// </summary>
         public static void TempModelToView()
         {
-            for (int i = 1; i <= 3; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 Functions.changeTempView(i, Convert.ToString(GlobalVariables.MyHouse.Rooms[i].temperature));
 

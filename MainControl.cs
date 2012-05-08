@@ -36,8 +36,8 @@ namespace MyhouseDomotique
         private void Initialisation(object sender, EventArgs e)
         {
             // configuring the range of temperature
-            GlobalVariables.MinTemp = 10;
-            GlobalVariables.MaxTemp = 30;
+            GlobalVariables.MinTemp = 0;
+            GlobalVariables.MaxTemp = 35;
 
             // verifying and setting the card
             MyCard = new Card();
@@ -185,15 +185,15 @@ namespace MyhouseDomotique
                 this.BtDoorEnter.Enabled = true;
 
                 // kitchen
-                this.BtKitchenHot.Enabled = true;
+                //this.BtKitchenHot.Enabled = true;
                 this.tBKitchenTempAct.Enabled = true;
 
                 // bedroom
-                this.BtBedRoomHot.Enabled = true;
+                //this.BtBedRoomHot.Enabled = true;
                 this.tBBedRoomTempAct.Enabled = true;
 
                 // saloon
-                this.BtSaloonHot.Enabled = true;
+                //this.BtSaloonHot.Enabled = true;
                 this.tBSaloonTempAct.Enabled = true;
 
                 // exterior

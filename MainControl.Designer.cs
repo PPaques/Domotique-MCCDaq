@@ -73,12 +73,12 @@
             this.MenuBarTitleInt = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuBarCredit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuBar = new System.Windows.Forms.MenuStrip();
+            this.lighInactivePanel = new LighInactivePannel();
+            this.lighActivePanel = new LighActivePannel();
             this.fireHotSaloon = new FireHotPannel();
             this.fireHotKitchen = new FireHotPannel();
             this.fireHotBedRoom = new FireHotPannel();
             this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
-            this.lighInactivePanel = new LighInactivePannel();
-            this.lighActivePanel = new LighActivePannel();
             this.ProgressBarKitchen = new MyhouseDomotique.VertcicalProgressBar();
             this.fireColdKitchen = new FireColdPannel();
             this.ProgressBarOutdoor = new MyhouseDomotique.VertcicalProgressBar();
@@ -94,7 +94,6 @@
             this.TabMainPanel.SuspendLayout();
             this.TabOverview.SuspendLayout();
             this.MenuBar.SuspendLayout();
-            this.lighInactivePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StatusBar
@@ -131,13 +130,14 @@
             this.MainPanel.BackColor = System.Drawing.Color.Transparent;
             this.MainPanel.BackgroundImage = global::MyhouseDomotique.Properties.Resources.House_HD;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.MainPanel.Controls.Add(this.lighInactivePanel);
+            this.MainPanel.Controls.Add(this.lighActivePanel);
             this.MainPanel.Controls.Add(this.fireHotSaloon);
             this.MainPanel.Controls.Add(this.fireHotKitchen);
             this.MainPanel.Controls.Add(this.fireHotBedRoom);
             this.MainPanel.Controls.Add(this.BtDoorEnter);
             this.MainPanel.Controls.Add(this.GroupBedroom);
             this.MainPanel.Controls.Add(this.Clock);
-            this.MainPanel.Controls.Add(this.lighInactivePanel);
             this.MainPanel.Controls.Add(this.BtWindowBedroom);
             this.MainPanel.Controls.Add(this.GroupKitchen);
             this.MainPanel.Controls.Add(this.BtWindowKitchen);
@@ -305,7 +305,7 @@
             this.GroupKitchen.Controls.Add(this.tBKitchenTempRef);
             this.GroupKitchen.Controls.Add(this.ProgressBarKitchen);
             this.GroupKitchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.GroupKitchen.Location = new System.Drawing.Point(64, 151);
+            this.GroupKitchen.Location = new System.Drawing.Point(23, 151);
             this.GroupKitchen.Margin = new System.Windows.Forms.Padding(2);
             this.GroupKitchen.Name = "GroupKitchen";
             this.GroupKitchen.Padding = new System.Windows.Forms.Padding(2);
@@ -411,7 +411,7 @@
             this.GroupOutdoor.Controls.Add(this.tBOutdoorTempAct);
             this.GroupOutdoor.Controls.Add(this.ProgressBarOutdoor);
             this.GroupOutdoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.GroupOutdoor.Location = new System.Drawing.Point(878, 668);
+            this.GroupOutdoor.Location = new System.Drawing.Point(23, 655);
             this.GroupOutdoor.Margin = new System.Windows.Forms.Padding(2);
             this.GroupOutdoor.Name = "GroupOutdoor";
             this.GroupOutdoor.Padding = new System.Windows.Forms.Padding(2);
@@ -706,6 +706,24 @@
             this.MenuBar.TabIndex = 83;
             this.MenuBar.Text = "MenuBar";
             // 
+            // lighInactivePanel
+            // 
+            this.lighInactivePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lighInactivePanel.Location = new System.Drawing.Point(197, 680);
+            this.lighInactivePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.lighInactivePanel.Name = "lighInactivePanel";
+            this.lighInactivePanel.Size = new System.Drawing.Size(115, 124);
+            this.lighInactivePanel.TabIndex = 106;
+            // 
+            // lighActivePanel
+            // 
+            this.lighActivePanel.Location = new System.Drawing.Point(197, 680);
+            this.lighActivePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.lighActivePanel.Name = "lighActivePanel";
+            this.lighActivePanel.Size = new System.Drawing.Size(113, 122);
+            this.lighActivePanel.TabIndex = 107;
+            this.lighActivePanel.Visible = false;
+            // 
             // fireHotSaloon
             // 
             this.fireHotSaloon.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -746,25 +764,6 @@
             this.ProgressBarBedRoom.Size = new System.Drawing.Size(21, 137);
             this.ProgressBarBedRoom.TabIndex = 92;
             this.ProgressBarBedRoom.Value = 50;
-            // 
-            // lighInactivePanel
-            // 
-            this.lighInactivePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lighInactivePanel.Controls.Add(this.lighActivePanel);
-            this.lighInactivePanel.Location = new System.Drawing.Point(629, 680);
-            this.lighInactivePanel.Margin = new System.Windows.Forms.Padding(2);
-            this.lighInactivePanel.Name = "lighInactivePanel";
-            this.lighInactivePanel.Size = new System.Drawing.Size(135, 153);
-            this.lighInactivePanel.TabIndex = 106;
-            // 
-            // lighActivePanel
-            // 
-            this.lighActivePanel.Location = new System.Drawing.Point(0, 0);
-            this.lighActivePanel.Margin = new System.Windows.Forms.Padding(2);
-            this.lighActivePanel.Name = "lighActivePanel";
-            this.lighActivePanel.Size = new System.Drawing.Size(160, 152);
-            this.lighActivePanel.TabIndex = 107;
-            this.lighActivePanel.Visible = false;
             // 
             // ProgressBarKitchen
             // 
@@ -855,7 +854,6 @@
             this.TabOverview.ResumeLayout(false);
             this.MenuBar.ResumeLayout(false);
             this.MenuBar.PerformLayout();
-            this.lighInactivePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
