@@ -64,7 +64,37 @@ namespace MyhouseDomotique
             }
         }
 
+        public void ReadTemp()
+        {
+            float[] EngUnits;   // [] car array
+            System.UInt16 DataValue;
 
+            //  Collect the data by calling AIn memeber function of MccBoard object
+            //   Parameters:
+            //     Chan       :the input channel number
+            //     Range      :the Range for the board.
+            //     DataValue  :the name for the value collected
+            Range = Range.Bip10Volts; // selectionne un range de 10 V
+
+            // on définit la taille de engunit
+            EngUnits = new float[5];
+
+            // taking the values from the card
+            for (int i = 0; i <= 4; i++)
+            {
+                ULStat = DaqBoard.AIn(i, Range, out DataValue);
+                // on vérifie si le range est bon
+                if (ULStat.Value == MccDaq.ErrorInfo.ErrorCode.BadRange)
+                {
+                    MessageBox.Show("Range not upported by the card.",
+                        "Unsupported Range", MessageBoxButtons.OK);
+                    Application.Exit();
+                }
+
+                ULStat = DaqBoard.ToEngUnits(Range, DataValue, out EngUnits[i]);// converting to voltage
+                GlobalVariables.MyHouse.Rooms[i].temperature = (EngUnits[i] * 11F); //convert voltage to temperature
+            }
+        }
 
 
     }

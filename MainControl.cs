@@ -258,7 +258,7 @@ namespace MyhouseDomotique
             // 60 sec = 1 min
             if (routine_count >= 60 && GlobalVariables.mode == "normal")
             {
-                // check temp by card
+                MyCard.ReadTemp();
                 // resetting the routine counter
                 routine_count = -1;
             }
