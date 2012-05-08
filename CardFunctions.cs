@@ -19,8 +19,11 @@ namespace MyhouseDomotique
         private MccDaq.MccBoard DaqBoard;
         private MccDaq.ErrorInfo ULStat;
         private MccDaq.Range Range;
-        private Boolean CardLock = false;
 
+
+        // *----------------------------------------------------------------*
+        // *     Initialisation and configuration of the card               *
+        // *----------------------------------------------------------------*
         /// <summary>
         /// Constructor that initialise the card
         /// </summary>
@@ -59,11 +62,12 @@ namespace MyhouseDomotique
             {
                 // if error, simulation mode and blocking the card
                 GlobalVariables.mode = "simulation";
-                
-                this.CardLock = true;
             }
         }
 
+        // *----------------------------------------------------------------*
+        // *     Functions to take values                                   *
+        // *----------------------------------------------------------------*
         /// <summary>
         /// read the temperature and send it to the model
         /// </summary>
@@ -99,6 +103,27 @@ namespace MyhouseDomotique
             }
         }
 
+        public void ReadStates()
+        {
+            short DigitalIn;
+            ULStat = DaqBoard.DIn(MccDaq.DigitalPortType.FirstPortB, out DigitalIn); // read from the card
+
+            Boolean[] Raw_states = NumberToBinaryArray(DigitalIn);
+            // now we have to push this to the model, We have to pay attention because the number is inverted !!!!
+            // we can't make a for because this is difficult to attributes it to a array
+
+            GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen = Raw_states[7];
+            GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen = Raw_states[6];
+            GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen = Raw_states[5];
+            GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen = Raw_states[4];
+            GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen = Raw_states[3];
+            GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen = Raw_states[2];
+            GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen = Raw_states[1];
+        }
+
+        // *----------------------------------------------------------------*
+        // *     Functions to set output value                              *
+        // *----------------------------------------------------------------*
         /// <summary>
         /// Send the hot states to the card.
         /// </summary>
@@ -124,6 +149,40 @@ namespace MyhouseDomotique
                 ULStat = DaqBoard.DBitOut(MccDaq.DigitalPortType.FirstPortA, 0, MccDaq.DigitalLogicState.Low);
         }
 
+
+        // *----------------------------------------------------------------*
+        // *     Functions needed in this system                            *
+        // *----------------------------------------------------------------*
+        /// <summary>
+        /// Convert a number to a binary array
+        /// </summary>
+        /// <param name="digitalBit"></param>
+        /// <returns></returns>
+        private Boolean[] NumberToBinaryArray(short digitalBit)
+        {
+            // we receive a number for the octet (0 -> 255), we have to convert it to binary
+            string Binaray_string = Convert.ToString(digitalBit, 2);
+
+            // Correcting the proble with the bug of zeros : if the number begin with 0, that is not printed
+            while (Binaray_string.Length < 8)
+            {
+                Binaray_string = "0" + Binaray_string;
+            }
+
+            // divide in a array array
+            char[] array = Binaray_string.ToCharArray();
+            Boolean[] Output = new Boolean[8];
+
+            for(int i = 0; i < 8; i++) 
+            {
+                if (array[i] == '0')
+                    Output[i] = false;
+                else
+                    Output[i] = true;
+            }
+
+            return Output;
+        }
 
 
     }

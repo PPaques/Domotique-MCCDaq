@@ -248,7 +248,7 @@ namespace MyhouseDomotique
             if (GlobalVariables.mode == "normal")
             {
                 //checkstates by card
-                TimerFunctions.StatesModelToView();
+                MyCard.ReadStates();
             }
             if (GlobalVariables.mode == "simulation") 
             {
@@ -287,6 +287,8 @@ namespace MyhouseDomotique
             // *-------------------------------------------------------- 
             TimerFunctions.HotModelToView();
             TimerFunctions.TempModelToView();
+            if (GlobalVariables.mode == "normal")
+                TimerFunctions.StatesModelToView();
 
             // *--------------------------------------------------------
             // *  Sending the new states for hot and lum to the card   *
