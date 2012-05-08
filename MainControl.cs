@@ -252,7 +252,7 @@ namespace MyhouseDomotique
             if (GlobalVariables.mode == "simulation")
             {
                 // calculate and send it to the model
-                //TimerFunctions.calculate_next_temp();
+                TimerFunctions.calculate_next_temp();
             }
 
             // 60 sec = 1 min
@@ -273,7 +273,9 @@ namespace MyhouseDomotique
             // *--------------------------------------------------------
             // start the regulation (the hot system on or off ? )
             TimerFunctions.regulation();
-            
+            //show the regulator system
+            TimerFunctions.HotModelToView();
+
             routine_count++;
         }
 

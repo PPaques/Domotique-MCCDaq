@@ -17,66 +17,39 @@ namespace MyhouseDomotique
         /// </summary>
         public static void regulation()
         {
+            //salon
+            if ((GlobalVariables.MyHouse.Rooms[1].temperature) < (GlobalVariables.MyHouse.Rooms[1].temperature_order) && (GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false))
+            {
+                if (((GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen == false)))
+                    GlobalVariables.MyHouse.Rooms[1].hot_is_active = true;
+                else
+                    GlobalVariables.MyHouse.Rooms[1].hot_is_active = false;
+            }
+            else
+                GlobalVariables.MyHouse.Rooms[1].hot_is_active = false;
+
             // Kitchen
             if ((GlobalVariables.MyHouse.Rooms[2].temperature) < (GlobalVariables.MyHouse.Rooms[2].temperature_order) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen == false))
             {
                 if ((GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false) || ((GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false)))
-                {
-                    Program.MainForm.fireHotKitchen.Visible = true;
-                    Program.MainForm.fireColdKitchen.Visible = false;
-                }
+                    GlobalVariables.MyHouse.Rooms[2].hot_is_active = true;
                 else
-                {
-                    Program.MainForm.fireHotKitchen.Visible = false;
-                    Program.MainForm.fireColdKitchen.Visible = true;
-                }
+                    GlobalVariables.MyHouse.Rooms[2].hot_is_active = false;
             }
             else
-            {
-                Program.MainForm.fireHotKitchen.Visible = false;
-                Program.MainForm.fireColdKitchen.Visible = true;
-            }
+                GlobalVariables.MyHouse.Rooms[2].hot_is_active = false;
 
 
             // bedroom
             if ((GlobalVariables.MyHouse.Rooms[3].temperature) < (GlobalVariables.MyHouse.Rooms[3].temperature_order) && (GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false))
             {
                 if (((GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen == false)))
-                {
-                    Program.MainForm.fireHotBedRoom.Visible = true;
-                    Program.MainForm.fireColdPannelBedRoom.Visible = false;
-                }
+                    GlobalVariables.MyHouse.Rooms[3].hot_is_active = true;
                 else
-                {
-                    Program.MainForm.fireHotBedRoom.Visible = false;
-                    Program.MainForm.fireColdPannelBedRoom.Visible = true;
-                }
+                    GlobalVariables.MyHouse.Rooms[3].hot_is_active = false;
             }
             else
-            {
-                Program.MainForm.fireHotBedRoom.Visible = false;
-                Program.MainForm.fireColdPannelBedRoom.Visible = true;
-            }
-
-            //salon
-            if ((GlobalVariables.MyHouse.Rooms[1].temperature) < (GlobalVariables.MyHouse.Rooms[1].temperature_order) && (GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false))
-            {
-                if (((GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen == false)))
-                {
-                    Program.MainForm.fireHotSaloon.Visible = true;
-                    Program.MainForm.fireColdSaloon.Visible = false;
-                }
-                else
-                {
-                    Program.MainForm.fireHotSaloon.Visible = false;
-                    Program.MainForm.fireColdSaloon.Visible = true;
-                }
-            }
-            else
-            {
-                Program.MainForm.fireHotSaloon.Visible = false;
-                Program.MainForm.fireColdSaloon.Visible = true;
-            }
+            GlobalVariables.MyHouse.Rooms[3].hot_is_active = false;
         }
 
         // *-----------------------------------------------------*
@@ -155,7 +128,7 @@ namespace MyhouseDomotique
             }
 
             // On rempli par la température précédente les pièces où la température est encore null.
-            for (int i = 1; i <= 3; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 if (NewTemp[i] == 1024)
                 {
@@ -259,6 +232,13 @@ namespace MyhouseDomotique
             }
         }
 
-
+        public static void HotModelToView()
+        {
+            for (int i = 1; i <= 3; i++)
+            {
+                Functions.selectPannelHot(i).Visible = GlobalVariables.MyHouse.Rooms[i].hot_is_active;
+                Functions.selectPannelCold(i).Visible = !GlobalVariables.MyHouse.Rooms[i].hot_is_active;
+            }
+        }
     }
 }

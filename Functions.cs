@@ -132,7 +132,62 @@ namespace MyhouseDomotique
                 ProgressBar.Value = Convert.ToInt16(((value - min) / (max - min)) * 100);
             }
         }
-        
+
+        /// <summary>
+        /// Function that select the good hotpanel with the roomid
+        /// </summary>
+        /// <param name="RoomId"></param>
+        /// <returns></returns>
+        public static FireHotPannel selectPannelHot(int RoomId)
+        {
+            FireHotPannel Hotpanel =null;
+
+            switch (RoomId)
+            {
+                case 1:
+                    Hotpanel = Program.MainForm.fireHotSaloon;
+                    break;
+                case 2:
+                    Hotpanel = Program.MainForm.fireHotKitchen;
+                    break;
+                case 3:
+                    Hotpanel = Program.MainForm.fireHotBedRoom;
+                    break;
+                default:
+                    MessageBox.Show("Error at selecting view hotpannel (Room ID out of range)");
+                    break;
+            }
+
+            return Hotpanel;
+        }
+
+        /// <summary>
+        /// function that select the good cold pannel with the roomid
+        /// </summary>
+        /// <param name="RoomId"></param>
+        /// <returns></returns>
+        public static FireColdPannel selectPannelCold(int RoomId)
+        {
+            FireColdPannel Coldpanel = null;
+
+            switch (RoomId)
+            {
+                case 1:
+                    Coldpanel = Program.MainForm.fireColdSaloon;
+                    break;
+                case 2:
+                    Coldpanel = Program.MainForm.fireColdKitchen;
+                    break;
+                case 3:
+                    Coldpanel = Program.MainForm.fireColdPannelBedRoom;
+                    break;
+                default:
+                    MessageBox.Show("Error at selecting view cold (Room ID out of range)");
+                    break;
+            }
+
+            return Coldpanel;
+        }
     }
 }
 
