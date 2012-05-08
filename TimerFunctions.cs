@@ -11,16 +11,16 @@ namespace MyhouseDomotique
         // *-----------------------------------------------------*
         // *       Regulation (check if we need to hot)          *
         // *-----------------------------------------------------*
-        
+
         /// <summary>
         /// Function that perform the regulation, ON the hot when it's need
         /// </summary>
         public static void regulation()
         {
             // Kitchen
-            if ((GlobalVariables.MyHouse.Rooms[2].temperature) < (GlobalVariables.MyHouse.Rooms[2].temperature_order) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen==false))
+            if ((GlobalVariables.MyHouse.Rooms[2].temperature) < (GlobalVariables.MyHouse.Rooms[2].temperature_order) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen == false))
             {
-                if ((GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen==false) || ((GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen==false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen==false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen==false) && (GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen==false)) || ((GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen==false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen==false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen==false) && (GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen==false)))
+                if ((GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false) || ((GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false)))
                 {
                     Program.MainForm.fireHotKitchen.Visible = true;
                     Program.MainForm.fireColdKitchen.Visible = false;
@@ -85,10 +85,10 @@ namespace MyhouseDomotique
         /// <summary>
         /// Function that uses the forward states to find the new temperatures.
         /// </summary>
-        public static void calculate_next_temp () {
+        public static void calculate_next_temp()
+        {
             //Création des variables
-            double[] NewTemp = new double[3];           // On crée un vecteur qui contiendra les températures calculées
-            NewTemp = null;
+            double[] NewTemp = new double[] { 1024, 1024, 1024, 1024 };           // On crée un vecteur qui contiendra les températures calculées
 
             double TIteration = 1;		                        // Interval de calcul de température (on calcule toute les secondes)
             double P = 50;		                        // Puissance de la lampe dégagée.
@@ -114,10 +114,10 @@ namespace MyhouseDomotique
             {
                 if (GlobalVariables.MyHouse.Walls[i].Openings[0].isOpen)
                 {
-                    if (NewTemp[Convert.ToInt16(GlobalVariables.MyHouse.Walls[i].Room1)] != null || NewTemp[Convert.ToInt16(GlobalVariables.MyHouse.Walls[i].Room2)] != null)   // On regarde si une valeur existe déjà pour une des 2 pièces (ou les 2)
+                    if (NewTemp[GlobalVariables.MyHouse.Walls[i].Room1.IDRoom] != 1024 || NewTemp[GlobalVariables.MyHouse.Walls[i].Room2.IDRoom] != 1024)   // On regarde si une valeur existe déjà pour une des 2 pièces (ou les 2)
                     {
-                        NewTemp[Convert.ToInt16(GlobalVariables.MyHouse.Walls[i].Room1)] = GlobalVariables.MyHouse.Rooms[0].temperature;        // Les deux pièces sont à température externe
-                        NewTemp[Convert.ToInt16(GlobalVariables.MyHouse.Walls[i].Room2)] = GlobalVariables.MyHouse.Rooms[0].temperature;
+                        NewTemp[GlobalVariables.MyHouse.Walls[i].Room1.IDRoom] = GlobalVariables.MyHouse.Rooms[0].temperature;        // Les deux pièces sont à température externe
+                        NewTemp[GlobalVariables.MyHouse.Walls[i].Room2.IDRoom] = GlobalVariables.MyHouse.Rooms[0].temperature;
 
                         if (i == 4 & GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen)   // changer pour la cuisine si ouvert dans la chambre
                         {
@@ -128,7 +128,7 @@ namespace MyhouseDomotique
             }
 
             // Calculer la moyenne des températures si pièces en contact
-            if (NewTemp[1] == null)     // On regarde si le salon n'est pas en contact avec l'extérieur (Temp == null)  car il est relié aux deux autres pièces.
+            if (NewTemp[1] == 1024)     // On regarde si le salon n'est pas en contact avec l'extérieur (Temp == null)  car il est relié aux deux autres pièces.
             {
                 if (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen ^ GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen)      // Une ouverture ou (xor) l'autre est ouverte
                 {
@@ -157,7 +157,7 @@ namespace MyhouseDomotique
             // On rempli par la température précédente les pièces où la température est encore null.
             for (int i = 1; i <= 3; i++)
             {
-                if (NewTemp[i] == null)
+                if (NewTemp[i] == 1024)
                 {
                     NewTemp[i] = GlobalVariables.MyHouse.Rooms[i].temperature;
                 }
@@ -223,13 +223,13 @@ namespace MyhouseDomotique
         /// </summary>
         public static void StatesModelToView()
         {
-            Functions.IsOpenToView(Program.MainForm.BtDoorEnter,     GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtDoorEnter, GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen);
             Functions.IsOpenToView(Program.MainForm.BtWindowSaloonL, GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen);
             Functions.IsOpenToView(Program.MainForm.BtWindowSaloonR, GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen);
             Functions.IsOpenToView(Program.MainForm.BtWindowKitchen, GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen);
             Functions.IsOpenToView(Program.MainForm.BtWindowBedroom, GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen);
-            Functions.IsOpenToView(Program.MainForm.BtDoorKitchen,   GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen);
-            Functions.IsOpenToView(Program.MainForm.BtDoorBedroom,   GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtDoorKitchen, GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen);
+            Functions.IsOpenToView(Program.MainForm.BtDoorBedroom, GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen);
         }
         /// <summary>
         /// Taking all the temp from View and send it to the Model
@@ -252,9 +252,9 @@ namespace MyhouseDomotique
         /// </summary>
         public static void TempModelToView()
         {
-            for (int i=1; i <= 3; i++) 
+            for (int i = 1; i <= 3; i++)
             {
-                Functions.changeTempView(i ,Convert.ToString(GlobalVariables.MyHouse.Rooms[i].temperature));
+                Functions.changeTempView(i, Convert.ToString(GlobalVariables.MyHouse.Rooms[i].temperature));
 
             }
         }
