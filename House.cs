@@ -20,12 +20,12 @@ namespace MyhouseDomotique
         {
             this.Rooms = new List<Room>();
             this.Walls = new List<Wall>();
-            
+
             // adding all the rooms
-            this.addRoom("Exterieur", 15, 999999999, 0.001); // ID = 0
-            this.addRoom("Salon", 20, 20.4, 874.45);    // ID = 1
-            this.addRoom("Cuisine", 20, 8.16, 618.35);  // ID = 2
-            this.addRoom("Chambre", 20, 12.24, 817.04);  // ID = 3
+            this.addRoom("Exterieur", 0, 15, 999999999, 0.001); // ID = 0
+            this.addRoom("Salon", 1, 20, 20.4, 874.45);    // ID = 1
+            this.addRoom("Cuisine", 2, 20, 8.16, 618.35);  // ID = 2
+            this.addRoom("Chambre", 3, 20, 12.24, 817.04);  // ID = 3
 
             // adding the walls and opening
             this.addWall(this.Rooms[0], this.Rooms[1]); // between exterior and saloon ID = 0
@@ -49,9 +49,9 @@ namespace MyhouseDomotique
         }
 
         // adding a room to the list
-        public void addRoom(string getName, double getTempratureOrder, double getVolume, double getT0)
+        public void addRoom(string getName, Int32 getIDRoom, double getTempratureOrder, double getVolume, double getT0)
         {
-            Rooms.Add(new Room { name = getName, temperature_order = getTempratureOrder, volume = getVolume, t0 = getT0 });
+            Rooms.Add(new Room { name = getName, IDRoom = getIDRoom, temperature_order = getTempratureOrder, volume = getVolume, t0 = getT0 });
         }
         // adding a wall
         public void addWall(Room getRoom1, Room getRoom2)
@@ -67,6 +67,7 @@ namespace MyhouseDomotique
     {
         // room data
         public string name { get; set; }
+        public Int32 IDRoom { get; set; }
         public Boolean hot_is_active { get; set; }
         public Boolean light_is_active { get; set; }
         public double temperature { get; set; }
@@ -98,7 +99,7 @@ namespace MyhouseDomotique
 
         public void addOpening(string getName)
         {
-            Openings.Add(new Opening { name = getName});
+            Openings.Add(new Opening { name = getName });
         }
     }
 
@@ -114,7 +115,7 @@ namespace MyhouseDomotique
         {
             this.isOpen = false;
         }
-    
+
         /// <summary>
         /// To change the state of an opening
         /// </summary>
