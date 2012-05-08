@@ -41,7 +41,6 @@ namespace MyhouseDomotique
 
             // verifying and setting the card
             MyCard = new Card();
-            GlobalVariables.mode = "simulation";
             StatusBarMode.Text = "Mode "+ GlobalVariables.mode;
 
             
@@ -130,6 +129,7 @@ namespace MyhouseDomotique
         private void ChangeLightState(object sender, EventArgs e)
         {
             GlobalVariables.MyHouse.Rooms[0].light_is_active = !GlobalVariables.MyHouse.Rooms[0].light_is_active;
+            
             lighActivePanel.Visible = GlobalVariables.MyHouse.Rooms[0].light_is_active;
             if (GlobalVariables.MyHouse.Rooms[0].light_is_active)
             {
@@ -221,6 +221,7 @@ namespace MyhouseDomotique
                 this.BtSaloonHot.Enabled = true;
                 this.BtKitchenHot.Enabled = true;
                 this.BtBedRoomHot.Enabled = true;
+                this.BtOutdoorLight.Enabled = true;
             }
             else
             {
@@ -228,6 +229,7 @@ namespace MyhouseDomotique
                 this.BtSaloonHot.Enabled = false;
                 this.BtKitchenHot.Enabled = false;
                 this.BtBedRoomHot.Enabled = false;
+                this.BtOutdoorLight.Enabled = false;
             }
         }
 
@@ -267,30 +269,32 @@ namespace MyhouseDomotique
             }
 
             // 60 sec = 1 min
-            if (routine_count >= 60 && GlobalVariables.mode == "normal")
+            if (routine_count <= 0 && GlobalVariables.mode == "normal")
             {
                 MyCard.ReadTemp();
-                // resetting the routine counter
-                routine_count = -1;
+                routine_count = 1; // time between the measures
             }
 
 
             // *--------------------------------------------------------
             // *                Hotter regulation                      *
             // *--------------------------------------------------------
-            
-            // start the regulation (the hot system on or off ? )
             if (GlobalVariables.godMode == false)
                 TimerFunctions.regulation();
 
             // *--------------------------------------------------------
             // *             Sending the model to the view             *
             // *-------------------------------------------------------- 
-            // show the regulator system
             TimerFunctions.HotModelToView();
             TimerFunctions.TempModelToView();
 
-            routine_count++;
+            // *--------------------------------------------------------
+            // *  Sending the new states for hot and lum to the card   *
+            // *-------------------------------------------------------- 
+            MyCard.setHotStates();
+            MyCard.setLightState();
+
+            routine_count--;
         }
 
         /// <summary>

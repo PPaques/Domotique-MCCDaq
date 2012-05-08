@@ -64,6 +64,9 @@ namespace MyhouseDomotique
             }
         }
 
+        /// <summary>
+        /// read the temperature and send it to the model
+        /// </summary>
         public void ReadTemp()
         {
             float[] EngUnits;   // [] car array
@@ -77,10 +80,10 @@ namespace MyhouseDomotique
             Range = Range.Bip10Volts; // selectionne un range de 10 V
 
             // on définit la taille de engunit
-            EngUnits = new float[5];
+            EngUnits = new float[4];
 
             // taking the values from the card
-            for (int i = 0; i <= 4; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 ULStat = DaqBoard.AIn(i, Range, out DataValue);
                 // on vérifie si le range est bon
@@ -95,6 +98,32 @@ namespace MyhouseDomotique
                 GlobalVariables.MyHouse.Rooms[i].temperature = (EngUnits[i] * 11F); //convert voltage to temperature
             }
         }
+
+        /// <summary>
+        /// Send the hot states to the card.
+        /// </summary>
+        public void setHotStates()
+        {
+            for (int RoomId = 1; RoomId <= 3; RoomId++)
+            {
+                if (GlobalVariables.MyHouse.Rooms[RoomId].hot_is_active)
+                    ULStat = DaqBoard.DBitOut(MccDaq.DigitalPortType.FirstPortA, RoomId, MccDaq.DigitalLogicState.High);
+                else
+                    ULStat = DaqBoard.DBitOut(MccDaq.DigitalPortType.FirstPortA, RoomId, MccDaq.DigitalLogicState.Low);
+            }     
+        }
+
+        /// <summary>
+        /// Send the light state to the card
+        /// </summary>
+        public void setLightState()
+        {
+            if(GlobalVariables.MyHouse.Rooms[0].light_is_active)
+                ULStat = DaqBoard.DBitOut(MccDaq.DigitalPortType.FirstPortA, 0, MccDaq.DigitalLogicState.High);
+            else
+                ULStat = DaqBoard.DBitOut(MccDaq.DigitalPortType.FirstPortA, 0, MccDaq.DigitalLogicState.Low);
+        }
+
 
 
     }
