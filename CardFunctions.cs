@@ -152,7 +152,7 @@ namespace MyhouseDomotique
 
             ULStat = DaqBoard.ToEngUnits(Range, DataValue, out Voltage);// converting to voltage
 
-            if (Voltage <= 2.5 + 0.2 * Program.MainForm.ScrollSensibility.Value)
+            if (Voltage <= 0.5 + 0.2 * Program.MainForm.ScrollSensibility.Value/5)
                 return false;
             else
                 return true;
