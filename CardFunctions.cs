@@ -103,6 +103,9 @@ namespace MyhouseDomotique
             }
         }
 
+        /// <summary>
+        /// Read all the states and send it to the model
+        /// </summary>
         public void ReadStates()
         {
             short DigitalIn;
@@ -119,6 +122,41 @@ namespace MyhouseDomotique
             GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen = Raw_states[3];
             GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen = Raw_states[2];
             GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen = Raw_states[1];
+        }
+
+        /// <summary>
+        /// Function that check the luminosity
+        /// </summary>
+        /// <returns></returns>
+        public Boolean IsDay()
+        {
+            float Voltage;   // [] car array
+            System.UInt16 DataValue;
+
+            //  Collect the data by calling AIn memeber function of MccBoard object
+            //   Parameters:
+            //     Chan       :the input channel number
+            //     Range      :the Range for the board.
+            //     DataValue  :the name for the value collected
+            Range = Range.Bip10Volts; // selectionne un range de 10 V
+
+            ULStat = DaqBoard.AIn(4, Range.Bip10Volts, out DataValue);
+            
+            // on vérifie si le range est bon
+            if (ULStat.Value == MccDaq.ErrorInfo.ErrorCode.BadRange)
+            {
+                MessageBox.Show("Range not upported by the card.",
+                    "Unsupported Range", MessageBoxButtons.OK);
+                Application.Exit();
+            }
+
+            ULStat = DaqBoard.ToEngUnits(Range, DataValue, out Voltage);// converting to voltage
+
+            if (Voltage <= 2.5 + 0.2 * Program.MainForm.ScrollSensibility.Value)
+                return false;
+            else
+                return true;
+
         }
 
         // *----------------------------------------------------------------*

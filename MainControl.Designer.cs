@@ -72,6 +72,7 @@
             this.GbConfigMain = new System.Windows.Forms.GroupBox();
             this.CbConfGodMode = new System.Windows.Forms.CheckBox();
             this.CbConfRegulation = new System.Windows.Forms.CheckBox();
+            this.ScrollSensibility = new System.Windows.Forms.HScrollBar();
             this.lighInactivePanel = new LighInactivePannel();
             this.lighActivePanel = new LighActivePannel();
             this.fireHotSaloon = new FireHotPannel();
@@ -84,6 +85,9 @@
             this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
             this.fireColdPannelBedRoom = new FireColdPannel();
             this.fireColdSaloon = new FireColdPannel();
+            this.LbConfSensibility = new System.Windows.Forms.Label();
+            this.GbConfLight = new System.Windows.Forms.GroupBox();
+            this.CbConfLightAuto = new System.Windows.Forms.CheckBox();
             this.StatusBar.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.GroupBedroom.SuspendLayout();
@@ -94,6 +98,7 @@
             this.TabOverview.SuspendLayout();
             this.tabConfiguration.SuspendLayout();
             this.GbConfigMain.SuspendLayout();
+            this.GbConfLight.SuspendLayout();
             this.SuspendLayout();
             // 
             // StatusBar
@@ -661,6 +666,7 @@
             // 
             // tabConfiguration
             // 
+            this.tabConfiguration.Controls.Add(this.GbConfLight);
             this.tabConfiguration.Controls.Add(this.GbConfigMain);
             this.tabConfiguration.Location = new System.Drawing.Point(4, 22);
             this.tabConfiguration.Name = "tabConfiguration";
@@ -677,7 +683,7 @@
             this.GbConfigMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbConfigMain.Location = new System.Drawing.Point(26, 27);
             this.GbConfigMain.Name = "GbConfigMain";
-            this.GbConfigMain.Size = new System.Drawing.Size(241, 172);
+            this.GbConfigMain.Size = new System.Drawing.Size(239, 200);
             this.GbConfigMain.TabIndex = 0;
             this.GbConfigMain.TabStop = false;
             this.GbConfigMain.Text = "Configuration principale";
@@ -706,6 +712,14 @@
             this.CbConfRegulation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CbConfRegulation.UseVisualStyleBackColor = true;
             this.CbConfRegulation.CheckedChanged += new System.EventHandler(this.ChangeRegulation);
+            // 
+            // ScrollSensibility
+            // 
+            this.ScrollSensibility.Location = new System.Drawing.Point(16, 86);
+            this.ScrollSensibility.Name = "ScrollSensibility";
+            this.ScrollSensibility.Size = new System.Drawing.Size(171, 17);
+            this.ScrollSensibility.TabIndex = 3;
+            this.ScrollSensibility.Value = 50;
             // 
             // lighInactivePanel
             // 
@@ -826,6 +840,41 @@
             this.fireColdSaloon.Size = new System.Drawing.Size(142, 143);
             this.fireColdSaloon.TabIndex = 98;
             // 
+            // LbConfSensibility
+            // 
+            this.LbConfSensibility.AutoSize = true;
+            this.LbConfSensibility.Location = new System.Drawing.Point(13, 61);
+            this.LbConfSensibility.Name = "LbConfSensibility";
+            this.LbConfSensibility.Size = new System.Drawing.Size(81, 16);
+            this.LbConfSensibility.TabIndex = 4;
+            this.LbConfSensibility.Text = "Sensibilité";
+            // 
+            // GbConfLight
+            // 
+            this.GbConfLight.Controls.Add(this.CbConfLightAuto);
+            this.GbConfLight.Controls.Add(this.LbConfSensibility);
+            this.GbConfLight.Controls.Add(this.ScrollSensibility);
+            this.GbConfLight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbConfLight.Location = new System.Drawing.Point(282, 28);
+            this.GbConfLight.Name = "GbConfLight";
+            this.GbConfLight.Size = new System.Drawing.Size(199, 199);
+            this.GbConfLight.TabIndex = 1;
+            this.GbConfLight.TabStop = false;
+            this.GbConfLight.Text = "Lumière extérieure";
+            // 
+            // CbConfLightAuto
+            // 
+            this.CbConfLightAuto.AutoSize = true;
+            this.CbConfLightAuto.Checked = true;
+            this.CbConfLightAuto.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CbConfLightAuto.Location = new System.Drawing.Point(16, 32);
+            this.CbConfLightAuto.Name = "CbConfLightAuto";
+            this.CbConfLightAuto.Size = new System.Drawing.Size(113, 20);
+            this.CbConfLightAuto.TabIndex = 5;
+            this.CbConfLightAuto.Text = "Automatique";
+            this.CbConfLightAuto.UseVisualStyleBackColor = true;
+            this.CbConfLightAuto.CheckedChanged += new System.EventHandler(this.ChangeLightAuto);
+            // 
             // MainControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -856,6 +905,8 @@
             this.tabConfiguration.ResumeLayout(false);
             this.GbConfigMain.ResumeLayout(false);
             this.GbConfigMain.PerformLayout();
+            this.GbConfLight.ResumeLayout(false);
+            this.GbConfLight.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -914,14 +965,18 @@
         public System.Windows.Forms.Panel MainPanel;
         public System.Windows.Forms.Label Clock;
         public System.Windows.Forms.Timer TimerClock;
-        private System.ComponentModel.IContainer components;
-        private System.Windows.Forms.TabControl TabMainPanel;
-        private System.Windows.Forms.TabPage TabOverview;
-        private System.Windows.Forms.TabPage TabProgramation;
-        private System.Windows.Forms.TabPage tabConfiguration;
-        private System.Windows.Forms.GroupBox GbConfigMain;
-        private System.Windows.Forms.CheckBox CbConfGodMode;
-        private System.Windows.Forms.CheckBox CbConfRegulation;
+        public System.ComponentModel.IContainer components;
+        public System.Windows.Forms.TabControl TabMainPanel;
+        public System.Windows.Forms.TabPage TabOverview;
+        public System.Windows.Forms.TabPage TabProgramation;
+        public System.Windows.Forms.TabPage tabConfiguration;
+        public System.Windows.Forms.GroupBox GbConfigMain;
+        public System.Windows.Forms.CheckBox CbConfGodMode;
+        public System.Windows.Forms.CheckBox CbConfRegulation;
+        public System.Windows.Forms.HScrollBar ScrollSensibility;
+        public System.Windows.Forms.Label LbConfSensibility;
+        public System.Windows.Forms.GroupBox GbConfLight;
+        public System.Windows.Forms.CheckBox CbConfLightAuto;
     }
 }
 

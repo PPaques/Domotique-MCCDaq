@@ -134,6 +134,22 @@ namespace MyhouseDomotique
 
         }
 
+        public static void SetLightState()
+        {
+            if (GlobalVariables.MyHouse.Rooms[0].light_is_active)
+            {
+                Program.MainForm.BtOutdoorLight.Text = "On";
+                Program.MainForm.lighActivePanel.Visible = true;
+                Program.MainForm.lighInactivePanel.Visible = false;
+            }
+            else
+            {
+                Program.MainForm.BtOutdoorLight.Text = "Off";
+                Program.MainForm.lighActivePanel.Visible = false;
+                Program.MainForm.lighInactivePanel.Visible = true;
+            }
+        }
+
         // *-------------------------------------------------------------*
         // *   functions to select good elements in the view             *
         // *-------------------------------------------------------------*

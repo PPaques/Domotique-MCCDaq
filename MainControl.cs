@@ -26,7 +26,6 @@ namespace MyhouseDomotique
         {
             InitializeComponent();
         }
-
  
         /// <summary>
         /// Initialising the system
@@ -35,9 +34,10 @@ namespace MyhouseDomotique
         /// <param name="e"></param>
         private void Initialisation(object sender, EventArgs e)
         {
-            // configuring the range of temperature
+            // configuring the defaults values
             GlobalVariables.MinTemp = 0;
             GlobalVariables.MaxTemp = 35;
+            GlobalVariables.LightAutomatique = true;
 
             // verifying and setting the card
             MyCard = new Card();
@@ -129,16 +129,7 @@ namespace MyhouseDomotique
         private void ChangeLightState(object sender, EventArgs e)
         {
             GlobalVariables.MyHouse.Rooms[0].light_is_active = !GlobalVariables.MyHouse.Rooms[0].light_is_active;
-            
-            lighActivePanel.Visible = GlobalVariables.MyHouse.Rooms[0].light_is_active;
-            if (GlobalVariables.MyHouse.Rooms[0].light_is_active)
-            {
-                (sender as Button).Text = "On";
-            }
-            else
-            {
-                (sender as Button).Text = "Off";
-            }
+            Functions.SetLightState();
         }
 
         /// <summary>
@@ -173,6 +164,7 @@ namespace MyhouseDomotique
             }
         }
 
+        // TODO ? is neeeded , NON 
         /// <summary>
         /// force the temperature change with the view when press enter
         /// </summary>
@@ -195,44 +187,9 @@ namespace MyhouseDomotique
             }
         }
 
-        /// <summary>
-        /// Function to enable the routine of regulation (Need to fix that because we just have to make a FORCE mode)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ChangeRegulation(object sender, EventArgs e)
-        {
-            if (CbConfRegulation.Checked)
-                TimerMainRoutine.Enabled = true;
-            else
-                TimerMainRoutine.Enabled = false;  
-        }
-
-        /// <summary>
-        /// function to change the configuration to the god mode
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ChangeGodMode(object sender, EventArgs e)
-        {
-            if (CbConfGodMode.Checked)
-            {
-                GlobalVariables.godMode = true;
-                this.BtSaloonHot.Enabled = true;
-                this.BtKitchenHot.Enabled = true;
-                this.BtBedRoomHot.Enabled = true;
-                this.BtOutdoorLight.Enabled = true;
-            }
-            else
-            {
-                GlobalVariables.godMode = false;
-                this.BtSaloonHot.Enabled = false;
-                this.BtKitchenHot.Enabled = false;
-                this.BtBedRoomHot.Enabled = false;
-                this.BtOutdoorLight.Enabled = false;
-            }
-        }
-
+        // *-------------------------------------------------------------*
+        // *        Mains timers (clock and routine)                     *
+        // *-------------------------------------------------------------*
         /// <summary>
         /// This is the main timer, check all the states and temperature, calculate and do the regulation
         /// </summary>
@@ -256,7 +213,13 @@ namespace MyhouseDomotique
                 TimerFunctions.StatesViewToModel();
             }
 
-           
+            // *--------------------------------------------------------
+            // *              Analysing the light status               *
+            // *--------------------------------------------------------
+            if (GlobalVariables.mode == "normal" && GlobalVariables.LightAutomatique)
+            {
+                GlobalVariables.MyHouse.Rooms[0].light_is_active = MyCard.IsDay();
+            }
 
             // *--------------------------------------------------------
             // *            taking the temperature                     *
@@ -287,14 +250,19 @@ namespace MyhouseDomotique
             // *-------------------------------------------------------- 
             TimerFunctions.HotModelToView();
             TimerFunctions.TempModelToView();
+            Functions.SetLightState();
+
             if (GlobalVariables.mode == "normal")
                 TimerFunctions.StatesModelToView();
 
             // *--------------------------------------------------------
             // *  Sending the new states for hot and lum to the card   *
             // *-------------------------------------------------------- 
-            MyCard.setHotStates();
-            MyCard.setLightState();
+            if (GlobalVariables.mode == "normal")
+            {
+                MyCard.setHotStates();
+                MyCard.setLightState();
+            }
 
             routine_count--;
         }
@@ -309,5 +277,64 @@ namespace MyhouseDomotique
             Clock.Text = DateTime.Now.ToString("HH:mm");
         }
 
+        // *-------------------------------------------------------------*
+        // *             For the configuration                           *
+        // *-------------------------------------------------------------*
+        /// <summary>
+        /// Change the automatic light system to the Globalvariables
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeLightAuto(object sender, EventArgs e)
+        {
+            if (CbConfLightAuto.Checked)
+            {
+                GlobalVariables.LightAutomatique = true;
+                BtOutdoorLight.Enabled = false;
+            }
+            else
+            {
+                GlobalVariables.LightAutomatique = false;
+                BtOutdoorLight.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Function to enable the routine of regulation (Need to fix that because we just have to make a FORCE mode)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeRegulation(object sender, EventArgs e)
+        {
+            if (CbConfRegulation.Checked)
+                TimerMainRoutine.Enabled = true;
+            else
+                TimerMainRoutine.Enabled = false;
+        }
+
+        /// <summary>
+        /// function to change the configuration to the god mode
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeGodMode(object sender, EventArgs e)
+        {
+            if (CbConfGodMode.Checked)
+            {
+                GlobalVariables.godMode = true;
+                this.BtSaloonHot.Enabled = true;
+                this.BtKitchenHot.Enabled = true;
+                this.BtBedRoomHot.Enabled = true;
+                this.BtOutdoorLight.Enabled = true;
+            }
+            else
+            {
+                GlobalVariables.godMode = false;
+                this.BtSaloonHot.Enabled = false;
+                this.BtKitchenHot.Enabled = false;
+                this.BtBedRoomHot.Enabled = false;
+                this.BtOutdoorLight.Enabled = false;
+            }
+        }
     }
 }
