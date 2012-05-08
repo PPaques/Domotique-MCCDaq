@@ -35,6 +35,10 @@ namespace MyhouseDomotique
         /// <param name="e"></param>
         private void Initialisation(object sender, EventArgs e)
         {
+            // configuring the range of temperature
+            GlobalVariables.MinTemp = 10;
+            GlobalVariables.MaxTemp = 30;
+
             // verifying and setting the card
             MyCard = new Card();
             GlobalVariables.mode = "simulation";
@@ -83,7 +87,6 @@ namespace MyhouseDomotique
             Dispose();
         }
         
-
         /// <summary>
         /// Changing the state of all the openings
         /// </summary>
@@ -142,8 +145,7 @@ namespace MyhouseDomotique
             }
 
         }
-
-       
+ 
         /// <summary>
         /// Change the light state
         /// </summary>

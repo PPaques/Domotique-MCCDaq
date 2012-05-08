@@ -191,6 +191,7 @@ namespace MyhouseDomotique
             GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorKitchen.Tag));
             GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorBedroom.Tag));
         }
+
         /// <summary>
         /// Taking all the states from Model and send it to the View
         /// </summary>
@@ -204,22 +205,45 @@ namespace MyhouseDomotique
             Functions.IsOpenToView(Program.MainForm.BtDoorKitchen, GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen);
             Functions.IsOpenToView(Program.MainForm.BtDoorBedroom, GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen);
         }
+
         /// <summary>
         /// Taking all the temp from View and send it to the Model
         /// </summary>
         public static void TempViewToModel()
         {
-            // TODO : Function qui fait quelque chose de plus beau que ça...  Je pense a une function qui a juste besoin du numéro de pièce, on aurait qu'a faire un foreach MyHouse.rooms
-            // ToDO : fonction qui selectionne les bons éléments sur la vie en fonction de la room id (chauffage) ...
-            // !!!!!! LOW NE PASSE PAS :(
-            GlobalVariables.MyHouse.Rooms[2].temperature = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBKitchenTempAct.Text));
-            GlobalVariables.MyHouse.Rooms[2].temperature_order = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBKitchenTempRef.Text));
-            GlobalVariables.MyHouse.Rooms[3].temperature = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBBedRoomTempAct.Text));
-            GlobalVariables.MyHouse.Rooms[3].temperature_order = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBBedRoomTempRef.Text));
-            GlobalVariables.MyHouse.Rooms[1].temperature = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBSaloonTempAct.Text));
-            GlobalVariables.MyHouse.Rooms[1].temperature_order = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBSaloonTempRef.Text));
-            GlobalVariables.MyHouse.Rooms[0].temperature = Convert.ToDouble(Functions.ConvertSeparator(Program.MainForm.tBOutdoorTempAct.Text));
+            // taking the temperature
+            for (int RoomId = 0; RoomId <= 3; RoomId++)
+            {
+                string texboxActualTemp = Functions.selectTbTempActual(RoomId).Text;
+                double Value = 0;
+
+                if (texboxActualTemp == "HI")
+                    Value = GlobalVariables.MaxTemp;
+                else if (texboxActualTemp == "LO")
+                    Value = GlobalVariables.MinTemp;
+                else if (texboxActualTemp == "")
+                    Value = GlobalVariables.MyHouse.Rooms[RoomId].temperature;
+                else
+                    Value = Convert.ToDouble(texboxActualTemp);
+
+                GlobalVariables.MyHouse.Rooms[RoomId].temperature = Value;
+            }
+
+            // taking the temperature order
+            for (int RoomId = 1; RoomId <= 3; RoomId++)
+            {
+                string TexboxOrderTemp = Functions.selectTbTempOrder(RoomId).Text;
+                double Value=0;
+
+                if (TexboxOrderTemp == "")
+                    Value = GlobalVariables.MyHouse.Rooms[RoomId].temperature_order;
+                else
+                    Value = Convert.ToDouble(TexboxOrderTemp);
+
+                GlobalVariables.MyHouse.Rooms[RoomId].temperature_order = Value;
+            }
         }
+
         /// <summary>
         /// Taking all the temp from Model and send it to the View
         /// </summary>
@@ -232,6 +256,9 @@ namespace MyhouseDomotique
             }
         }
 
+        /// <summary>
+        /// disply the hot system as the model ask it
+        /// </summary>
         public static void HotModelToView()
         {
             for (int i = 1; i <= 3; i++)

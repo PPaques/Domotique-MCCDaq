@@ -15,5 +15,7 @@ namespace MyhouseDomotique
         public static string mode { get; set; }
         public static House MyHouse { get; set; }
         public static SqlCeConnection conn { get; set; }
+        public static double MinTemp { get; set; }
+        public static double MaxTemp { get; set; }
     }
 }

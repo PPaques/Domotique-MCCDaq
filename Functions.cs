@@ -78,50 +78,26 @@ namespace MyhouseDomotique
         /// <param name="Value"></param>
         public static void changeTempView(int RoomId, string getValue)
         {
-            VertcicalProgressBar ProgressBar = null;
-            TextBox Tbtemp = null;
-            double min = 10;
-            double max = 30;
-            double value = min;
+            double value = GlobalVariables.MinTemp;
 
             if (getValue == "HI")
             {
-                value = max;
+                value = GlobalVariables.MaxTemp;
             }
             else
             {
                 value = Convert.ToDouble(getValue);
             }
 
-            switch (RoomId)
-            {
-                case 0:
-                    ProgressBar = Program.MainForm.ProgressBarOutdoor;
-                    Tbtemp = Program.MainForm.tBOutdoorTempAct;
-                    break;
-                case 1:
-                    ProgressBar = Program.MainForm.ProgressBarSaloon;
-                    Tbtemp = Program.MainForm.tBSaloonTempAct;
-                    break;
-                case 2:
-                    ProgressBar = Program.MainForm.ProgressBarKitchen;
-                    Tbtemp = Program.MainForm.tBKitchenTempAct;
-                    break;
-                case 3:
-                    ProgressBar = Program.MainForm.ProgressBarBedRoom;
-                    Tbtemp = Program.MainForm.tBBedRoomTempAct;
-                    break;
-                default:
-                    MessageBox.Show("Error at Change Hot State (Room ID out of range)");
-                    break;
-            }
+            VertcicalProgressBar ProgressBar = selectVerticalProgress(RoomId);
+            TextBox Tbtemp = selectTbTempActual(RoomId);
 
-            if (value < min)
+            if (value < GlobalVariables.MinTemp)
             {
                 Tbtemp.Text = "LO";
                 ProgressBar.Value = 0;
             }
-            else if (value > max)
+            else if (value > GlobalVariables.MaxTemp)
             {
                 Tbtemp.Text = "HI";
                 ProgressBar.Value = 100;
@@ -129,10 +105,14 @@ namespace MyhouseDomotique
             else
             {
                 Tbtemp.Text = Convert.ToString(getValue);
-                ProgressBar.Value = Convert.ToInt16(((value - min) / (max - min)) * 100);
+                ProgressBar.Value = Convert.ToInt16(((value - GlobalVariables.MinTemp) / (GlobalVariables.MaxTemp - GlobalVariables.MinTemp)) * 100);
             }
         }
 
+
+        // *-------------------------------------------------------------*
+        // *   functions to select good élements in the view             *
+        // *-------------------------------------------------------------*
         /// <summary>
         /// Function that select the good hotpanel with the roomid
         /// </summary>
@@ -188,6 +168,95 @@ namespace MyhouseDomotique
 
             return Coldpanel;
         }
+
+        /// <summary>
+        /// selecting the good verticalprogressbar with the roomid
+        /// </summary>
+        /// <param name="RoomId"></param>
+        /// <returns></returns>
+        public static VertcicalProgressBar selectVerticalProgress(int RoomId)
+        {
+            VertcicalProgressBar VerticalProgress = null;
+            
+            switch (RoomId)
+            {
+                case 0:
+                    VerticalProgress = Program.MainForm.ProgressBarOutdoor;
+                    break;
+                case 1:
+                    VerticalProgress = Program.MainForm.ProgressBarSaloon;
+                    break;
+                case 2:
+                    VerticalProgress = Program.MainForm.ProgressBarKitchen;
+                    break;
+                case 3:
+                    VerticalProgress = Program.MainForm.ProgressBarBedRoom;
+                    break;
+                default:
+                    MessageBox.Show("Error at select progressbarvertical (Room ID out of range)");
+                    break;
+            }
+
+            return VerticalProgress;
+        }
+        
+        /// <summary>
+        /// selecting the good textbox with the roomid
+        /// </summary>
+        /// <param name="RoomId"></param>
+        /// <returns></returns>
+        public static TextBox selectTbTempActual(int RoomId)
+        {
+            TextBox Textbox = null;
+
+            switch (RoomId)
+            {
+                case 0:
+                    Textbox = Program.MainForm.tBOutdoorTempAct;
+                    break;
+                case 1:
+                    Textbox = Program.MainForm.tBSaloonTempAct;
+                    break;
+                case 2:
+                    Textbox = Program.MainForm.tBKitchenTempAct;
+                    break;
+                case 3:
+                    Textbox = Program.MainForm.tBBedRoomTempAct;
+                    break;
+                default:
+                    MessageBox.Show("Error at select the good actual temp textbox (Room ID out of range)");
+                    break;
+            }
+            return Textbox;
+        }
+
+        /// <summary>
+        /// Selecting the good temp order textbox
+        /// </summary>
+        /// <param name="RoomId"></param>
+        /// <returns></returns>
+        public static TextBox selectTbTempOrder(int RoomId)
+        {
+            TextBox Textbox = null;
+
+            switch (RoomId)
+            {
+                case 1:
+                    Textbox = Program.MainForm.tBSaloonTempRef;
+                    break;
+                case 2:
+                    Textbox = Program.MainForm.tBKitchenTempRef;
+                    break;
+                case 3:
+                    Textbox = Program.MainForm.tBBedRoomTempRef;
+                    break;
+                default:
+                    MessageBox.Show("Error at select the good actual temp ref textbox (Room ID out of range)");
+                    break;
+            }
+            return Textbox;
+        }
+    
     }
 }
 

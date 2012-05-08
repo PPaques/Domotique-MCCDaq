@@ -36,12 +36,8 @@
             this.TimerMainRoutine = new System.Windows.Forms.Timer(this.components);
             this.TimerClock = new System.Windows.Forms.Timer(this.components);
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.fireHotSaloon = new FireHotPannel();
-            this.fireHotBedRoom = new FireHotPannel();
-            this.fireHotKitchen = new FireHotPannel();
             this.BtDoorEnter = new System.Windows.Forms.Button();
             this.GroupBedroom = new System.Windows.Forms.GroupBox();
-            this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
             this.labelBedRoomSubtitleHot = new System.Windows.Forms.Label();
             this.BtBedRoomHot = new System.Windows.Forms.Button();
             this.labelBedRoomSubtitleAsk = new System.Windows.Forms.Label();
@@ -49,8 +45,6 @@
             this.tBBedRoomTempAct = new System.Windows.Forms.TextBox();
             this.tBBedRoomTempRef = new System.Windows.Forms.TextBox();
             this.Clock = new System.Windows.Forms.Label();
-            this.lighInactivePanel = new LighInactivePannel();
-            this.lighActivePanel = new LighActivePannel();
             this.BtWindowBedroom = new System.Windows.Forms.Button();
             this.GroupKitchen = new System.Windows.Forms.GroupBox();
             this.labelKitchenSubtitleAsk = new System.Windows.Forms.Label();
@@ -59,18 +53,14 @@
             this.labelKitchenSubtitleAct = new System.Windows.Forms.Label();
             this.tBKitchenTempAct = new System.Windows.Forms.TextBox();
             this.tBKitchenTempRef = new System.Windows.Forms.TextBox();
-            this.ProgressBarKitchen = new MyhouseDomotique.VertcicalProgressBar();
             this.BtWindowKitchen = new System.Windows.Forms.Button();
-            this.fireColdKitchen = new FireColdPannel();
             this.GroupOutdoor = new System.Windows.Forms.GroupBox();
             this.labelOutdoorLamp = new System.Windows.Forms.Label();
             this.BtOutdoorLight = new System.Windows.Forms.Button();
             this.labelOutdoorSubtitleAct = new System.Windows.Forms.Label();
             this.tBOutdoorTempAct = new System.Windows.Forms.TextBox();
-            this.ProgressBarOutdoor = new MyhouseDomotique.VertcicalProgressBar();
             this.BtWindowSaloonL = new System.Windows.Forms.Button();
             this.GroupSaloon = new System.Windows.Forms.GroupBox();
-            this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
             this.labelSaloonSubtitleHot = new System.Windows.Forms.Label();
             this.BtSaloonHot = new System.Windows.Forms.Button();
             this.labelSaloonSubtitleAsk = new System.Windows.Forms.Label();
@@ -80,16 +70,31 @@
             this.BtWindowSaloonR = new System.Windows.Forms.Button();
             this.BtDoorKitchen = new System.Windows.Forms.Button();
             this.BtDoorBedroom = new System.Windows.Forms.Button();
+            this.TabMainPanel = new System.Windows.Forms.TabControl();
+            this.TabOverview = new System.Windows.Forms.TabPage();
+            this.TabProgramation = new System.Windows.Forms.TabPage();
+            this.fireHotSaloon = new FireHotPannel();
+            this.fireHotBedRoom = new FireHotPannel();
+            this.fireHotKitchen = new FireHotPannel();
+            this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
+            this.lighInactivePanel = new LighInactivePannel();
+            this.lighActivePanel = new LighActivePannel();
+            this.ProgressBarKitchen = new MyhouseDomotique.VertcicalProgressBar();
+            this.fireColdKitchen = new FireColdPannel();
+            this.ProgressBarOutdoor = new MyhouseDomotique.VertcicalProgressBar();
+            this.ProgressBarSaloon = new MyhouseDomotique.VertcicalProgressBar();
             this.fireColdPannelBedRoom = new FireColdPannel();
             this.fireColdSaloon = new FireColdPannel();
             this.StatusBar.SuspendLayout();
             this.MenuBar.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.GroupBedroom.SuspendLayout();
-            this.lighInactivePanel.SuspendLayout();
             this.GroupKitchen.SuspendLayout();
             this.GroupOutdoor.SuspendLayout();
             this.GroupSaloon.SuspendLayout();
+            this.TabMainPanel.SuspendLayout();
+            this.TabOverview.SuspendLayout();
+            this.lighInactivePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StatusBar
@@ -156,7 +161,7 @@
             // MenuBarCredit
             // 
             this.MenuBarCredit.Name = "MenuBarCredit";
-            this.MenuBarCredit.Size = new System.Drawing.Size(152, 22);
+            this.MenuBarCredit.Size = new System.Drawing.Size(111, 22);
             this.MenuBarCredit.Text = "Crédits";
             // 
             // TimerMainRoutine
@@ -175,8 +180,8 @@
             this.MainPanel.BackgroundImage = global::MyhouseDomotique.Properties.Resources.House_HD;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.MainPanel.Controls.Add(this.fireHotSaloon);
-            this.MainPanel.Controls.Add(this.fireHotBedRoom);
             this.MainPanel.Controls.Add(this.fireHotKitchen);
+            this.MainPanel.Controls.Add(this.fireHotBedRoom);
             this.MainPanel.Controls.Add(this.BtDoorEnter);
             this.MainPanel.Controls.Add(this.GroupBedroom);
             this.MainPanel.Controls.Add(this.Clock);
@@ -194,41 +199,11 @@
             this.MainPanel.Controls.Add(this.fireColdPannelBedRoom);
             this.MainPanel.Controls.Add(this.fireColdSaloon);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(0, 24);
+            this.MainPanel.Location = new System.Drawing.Point(3, 3);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1110, 838);
+            this.MainPanel.Size = new System.Drawing.Size(1096, 806);
             this.MainPanel.TabIndex = 107;
-            // 
-            // fireHotSaloon
-            // 
-            this.fireHotSaloon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fireHotSaloon.Location = new System.Drawing.Point(427, 484);
-            this.fireHotSaloon.Margin = new System.Windows.Forms.Padding(2);
-            this.fireHotSaloon.Name = "fireHotSaloon";
-            this.fireHotSaloon.Size = new System.Drawing.Size(144, 143);
-            this.fireHotSaloon.TabIndex = 100;
-            this.fireHotSaloon.Visible = false;
-            // 
-            // fireHotBedRoom
-            // 
-            this.fireHotBedRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fireHotBedRoom.Location = new System.Drawing.Point(653, 197);
-            this.fireHotBedRoom.Margin = new System.Windows.Forms.Padding(2);
-            this.fireHotBedRoom.Name = "fireHotBedRoom";
-            this.fireHotBedRoom.Size = new System.Drawing.Size(130, 131);
-            this.fireHotBedRoom.TabIndex = 99;
-            this.fireHotBedRoom.Visible = false;
-            // 
-            // fireHotKitchen
-            // 
-            this.fireHotKitchen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fireHotKitchen.Location = new System.Drawing.Point(193, 193);
-            this.fireHotKitchen.Margin = new System.Windows.Forms.Padding(2);
-            this.fireHotKitchen.Name = "fireHotKitchen";
-            this.fireHotKitchen.Size = new System.Drawing.Size(124, 131);
-            this.fireHotKitchen.TabIndex = 100;
-            this.fireHotKitchen.Visible = false;
             // 
             // BtDoorEnter
             // 
@@ -237,7 +212,7 @@
             this.BtDoorEnter.Enabled = false;
             this.BtDoorEnter.ForeColor = System.Drawing.Color.White;
             this.BtDoorEnter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtDoorEnter.Location = new System.Drawing.Point(477, 647);
+            this.BtDoorEnter.Location = new System.Drawing.Point(470, 631);
             this.BtDoorEnter.Margin = new System.Windows.Forms.Padding(2);
             this.BtDoorEnter.Name = "BtDoorEnter";
             this.BtDoorEnter.Size = new System.Drawing.Size(138, 32);
@@ -259,7 +234,7 @@
             this.GroupBedroom.Controls.Add(this.tBBedRoomTempAct);
             this.GroupBedroom.Controls.Add(this.tBBedRoomTempRef);
             this.GroupBedroom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.GroupBedroom.Location = new System.Drawing.Point(955, 167);
+            this.GroupBedroom.Location = new System.Drawing.Point(948, 151);
             this.GroupBedroom.Margin = new System.Windows.Forms.Padding(2);
             this.GroupBedroom.Name = "GroupBedroom";
             this.GroupBedroom.Padding = new System.Windows.Forms.Padding(2);
@@ -267,17 +242,6 @@
             this.GroupBedroom.TabIndex = 103;
             this.GroupBedroom.TabStop = false;
             this.GroupBedroom.Text = "Chambre";
-            // 
-            // ProgressBarBedRoom
-            // 
-            this.ProgressBarBedRoom.BackColor = System.Drawing.Color.LightGray;
-            this.ProgressBarBedRoom.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ProgressBarBedRoom.Location = new System.Drawing.Point(117, 20);
-            this.ProgressBarBedRoom.Margin = new System.Windows.Forms.Padding(2);
-            this.ProgressBarBedRoom.Name = "ProgressBarBedRoom";
-            this.ProgressBarBedRoom.Size = new System.Drawing.Size(21, 137);
-            this.ProgressBarBedRoom.TabIndex = 92;
-            this.ProgressBarBedRoom.Value = 50;
             // 
             // labelBedRoomSubtitleHot
             // 
@@ -354,30 +318,11 @@
             this.Clock.AutoSize = true;
             this.Clock.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clock.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Clock.Location = new System.Drawing.Point(445, 72);
+            this.Clock.Location = new System.Drawing.Point(438, 56);
             this.Clock.Name = "Clock";
             this.Clock.Size = new System.Drawing.Size(56, 18);
             this.Clock.TabIndex = 107;
             this.Clock.Text = "00H00";
-            // 
-            // lighInactivePanel
-            // 
-            this.lighInactivePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lighInactivePanel.Controls.Add(this.lighActivePanel);
-            this.lighInactivePanel.Location = new System.Drawing.Point(636, 696);
-            this.lighInactivePanel.Margin = new System.Windows.Forms.Padding(2);
-            this.lighInactivePanel.Name = "lighInactivePanel";
-            this.lighInactivePanel.Size = new System.Drawing.Size(135, 153);
-            this.lighInactivePanel.TabIndex = 106;
-            // 
-            // lighActivePanel
-            // 
-            this.lighActivePanel.Location = new System.Drawing.Point(0, 0);
-            this.lighActivePanel.Margin = new System.Windows.Forms.Padding(2);
-            this.lighActivePanel.Name = "lighActivePanel";
-            this.lighActivePanel.Size = new System.Drawing.Size(160, 152);
-            this.lighActivePanel.TabIndex = 107;
-            this.lighActivePanel.Visible = false;
             // 
             // BtWindowBedroom
             // 
@@ -386,7 +331,7 @@
             this.BtWindowBedroom.Enabled = false;
             this.BtWindowBedroom.ForeColor = System.Drawing.Color.White;
             this.BtWindowBedroom.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtWindowBedroom.Location = new System.Drawing.Point(611, 67);
+            this.BtWindowBedroom.Location = new System.Drawing.Point(604, 51);
             this.BtWindowBedroom.Margin = new System.Windows.Forms.Padding(2);
             this.BtWindowBedroom.Name = "BtWindowBedroom";
             this.BtWindowBedroom.Size = new System.Drawing.Size(174, 31);
@@ -408,7 +353,7 @@
             this.GroupKitchen.Controls.Add(this.tBKitchenTempRef);
             this.GroupKitchen.Controls.Add(this.ProgressBarKitchen);
             this.GroupKitchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.GroupKitchen.Location = new System.Drawing.Point(13, 100);
+            this.GroupKitchen.Location = new System.Drawing.Point(4, 151);
             this.GroupKitchen.Margin = new System.Windows.Forms.Padding(2);
             this.GroupKitchen.Name = "GroupKitchen";
             this.GroupKitchen.Padding = new System.Windows.Forms.Padding(2);
@@ -487,17 +432,6 @@
             this.tBKitchenTempRef.TabIndex = 77;
             this.tBKitchenTempRef.Text = "20";
             // 
-            // ProgressBarKitchen
-            // 
-            this.ProgressBarKitchen.BackColor = System.Drawing.Color.LightGray;
-            this.ProgressBarKitchen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ProgressBarKitchen.Location = new System.Drawing.Point(117, 23);
-            this.ProgressBarKitchen.Margin = new System.Windows.Forms.Padding(2);
-            this.ProgressBarKitchen.Name = "ProgressBarKitchen";
-            this.ProgressBarKitchen.Size = new System.Drawing.Size(21, 138);
-            this.ProgressBarKitchen.TabIndex = 93;
-            this.ProgressBarKitchen.Value = 50;
-            // 
             // BtWindowKitchen
             // 
             this.BtWindowKitchen.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -505,7 +439,7 @@
             this.BtWindowKitchen.Enabled = false;
             this.BtWindowKitchen.ForeColor = System.Drawing.Color.White;
             this.BtWindowKitchen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtWindowKitchen.Location = new System.Drawing.Point(221, 67);
+            this.BtWindowKitchen.Location = new System.Drawing.Point(214, 51);
             this.BtWindowKitchen.Margin = new System.Windows.Forms.Padding(2);
             this.BtWindowKitchen.Name = "BtWindowKitchen";
             this.BtWindowKitchen.Size = new System.Drawing.Size(164, 31);
@@ -514,15 +448,6 @@
             this.BtWindowKitchen.Text = "Fenêtre Cuisine";
             this.BtWindowKitchen.UseVisualStyleBackColor = false;
             this.BtWindowKitchen.Click += new System.EventHandler(this.ChangeOpeningState);
-            // 
-            // fireColdKitchen
-            // 
-            this.fireColdKitchen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fireColdKitchen.Location = new System.Drawing.Point(195, 195);
-            this.fireColdKitchen.Margin = new System.Windows.Forms.Padding(2);
-            this.fireColdKitchen.Name = "fireColdKitchen";
-            this.fireColdKitchen.Size = new System.Drawing.Size(124, 121);
-            this.fireColdKitchen.TabIndex = 97;
             // 
             // GroupOutdoor
             // 
@@ -534,7 +459,7 @@
             this.GroupOutdoor.Controls.Add(this.tBOutdoorTempAct);
             this.GroupOutdoor.Controls.Add(this.ProgressBarOutdoor);
             this.GroupOutdoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.GroupOutdoor.Location = new System.Drawing.Point(885, 684);
+            this.GroupOutdoor.Location = new System.Drawing.Point(878, 668);
             this.GroupOutdoor.Margin = new System.Windows.Forms.Padding(2);
             this.GroupOutdoor.Name = "GroupOutdoor";
             this.GroupOutdoor.Padding = new System.Windows.Forms.Padding(2);
@@ -591,17 +516,6 @@
             this.tBOutdoorTempAct.Text = "20";
             this.tBOutdoorTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
-            // ProgressBarOutdoor
-            // 
-            this.ProgressBarOutdoor.BackColor = System.Drawing.Color.LightGray;
-            this.ProgressBarOutdoor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ProgressBarOutdoor.Location = new System.Drawing.Point(117, 21);
-            this.ProgressBarOutdoor.Margin = new System.Windows.Forms.Padding(2);
-            this.ProgressBarOutdoor.Name = "ProgressBarOutdoor";
-            this.ProgressBarOutdoor.Size = new System.Drawing.Size(21, 104);
-            this.ProgressBarOutdoor.TabIndex = 95;
-            this.ProgressBarOutdoor.Value = 50;
-            // 
             // BtWindowSaloonL
             // 
             this.BtWindowSaloonL.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -609,7 +523,7 @@
             this.BtWindowSaloonL.Enabled = false;
             this.BtWindowSaloonL.ForeColor = System.Drawing.Color.White;
             this.BtWindowSaloonL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtWindowSaloonL.Location = new System.Drawing.Point(204, 648);
+            this.BtWindowSaloonL.Location = new System.Drawing.Point(197, 632);
             this.BtWindowSaloonL.Margin = new System.Windows.Forms.Padding(2);
             this.BtWindowSaloonL.Name = "BtWindowSaloonL";
             this.BtWindowSaloonL.Size = new System.Drawing.Size(170, 32);
@@ -631,7 +545,7 @@
             this.GroupSaloon.Controls.Add(this.tBSaloonTempAct);
             this.GroupSaloon.Controls.Add(this.tBSaloonTempRef);
             this.GroupSaloon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.GroupSaloon.Location = new System.Drawing.Point(949, 446);
+            this.GroupSaloon.Location = new System.Drawing.Point(942, 430);
             this.GroupSaloon.Margin = new System.Windows.Forms.Padding(2);
             this.GroupSaloon.Name = "GroupSaloon";
             this.GroupSaloon.Padding = new System.Windows.Forms.Padding(2);
@@ -639,17 +553,6 @@
             this.GroupSaloon.TabIndex = 104;
             this.GroupSaloon.TabStop = false;
             this.GroupSaloon.Text = "Salon";
-            // 
-            // ProgressBarSaloon
-            // 
-            this.ProgressBarSaloon.BackColor = System.Drawing.Color.LightGray;
-            this.ProgressBarSaloon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ProgressBarSaloon.Location = new System.Drawing.Point(117, 19);
-            this.ProgressBarSaloon.Margin = new System.Windows.Forms.Padding(2);
-            this.ProgressBarSaloon.Name = "ProgressBarSaloon";
-            this.ProgressBarSaloon.Size = new System.Drawing.Size(21, 136);
-            this.ProgressBarSaloon.TabIndex = 94;
-            this.ProgressBarSaloon.Value = 50;
             // 
             // labelSaloonSubtitleHot
             // 
@@ -727,7 +630,7 @@
             this.BtWindowSaloonR.Enabled = false;
             this.BtWindowSaloonR.ForeColor = System.Drawing.Color.White;
             this.BtWindowSaloonR.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtWindowSaloonR.Location = new System.Drawing.Point(738, 648);
+            this.BtWindowSaloonR.Location = new System.Drawing.Point(731, 632);
             this.BtWindowSaloonR.Margin = new System.Windows.Forms.Padding(2);
             this.BtWindowSaloonR.Name = "BtWindowSaloonR";
             this.BtWindowSaloonR.Size = new System.Drawing.Size(166, 32);
@@ -744,7 +647,7 @@
             this.BtDoorKitchen.Enabled = false;
             this.BtDoorKitchen.ForeColor = System.Drawing.Color.White;
             this.BtDoorKitchen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtDoorKitchen.Location = new System.Drawing.Point(257, 353);
+            this.BtDoorKitchen.Location = new System.Drawing.Point(250, 337);
             this.BtDoorKitchen.Margin = new System.Windows.Forms.Padding(2);
             this.BtDoorKitchen.Name = "BtDoorKitchen";
             this.BtDoorKitchen.Size = new System.Drawing.Size(149, 34);
@@ -761,7 +664,7 @@
             this.BtDoorBedroom.Enabled = false;
             this.BtDoorBedroom.ForeColor = System.Drawing.Color.White;
             this.BtDoorBedroom.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtDoorBedroom.Location = new System.Drawing.Point(753, 353);
+            this.BtDoorBedroom.Location = new System.Drawing.Point(746, 337);
             this.BtDoorBedroom.Margin = new System.Windows.Forms.Padding(2);
             this.BtDoorBedroom.Name = "BtDoorBedroom";
             this.BtDoorBedroom.Size = new System.Drawing.Size(137, 34);
@@ -771,10 +674,144 @@
             this.BtDoorBedroom.UseVisualStyleBackColor = false;
             this.BtDoorBedroom.Click += new System.EventHandler(this.ChangeOpeningState);
             // 
+            // TabMainPanel
+            // 
+            this.TabMainPanel.Controls.Add(this.TabOverview);
+            this.TabMainPanel.Controls.Add(this.TabProgramation);
+            this.TabMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabMainPanel.Location = new System.Drawing.Point(0, 24);
+            this.TabMainPanel.Name = "TabMainPanel";
+            this.TabMainPanel.SelectedIndex = 0;
+            this.TabMainPanel.Size = new System.Drawing.Size(1110, 838);
+            this.TabMainPanel.TabIndex = 108;
+            // 
+            // TabOverview
+            // 
+            this.TabOverview.Controls.Add(this.MainPanel);
+            this.TabOverview.Location = new System.Drawing.Point(4, 22);
+            this.TabOverview.Name = "TabOverview";
+            this.TabOverview.Padding = new System.Windows.Forms.Padding(3);
+            this.TabOverview.Size = new System.Drawing.Size(1102, 812);
+            this.TabOverview.TabIndex = 0;
+            this.TabOverview.Text = "Vue principale";
+            this.TabOverview.UseVisualStyleBackColor = true;
+            // 
+            // TabProgramation
+            // 
+            this.TabProgramation.Location = new System.Drawing.Point(4, 22);
+            this.TabProgramation.Name = "TabProgramation";
+            this.TabProgramation.Padding = new System.Windows.Forms.Padding(3);
+            this.TabProgramation.Size = new System.Drawing.Size(1102, 812);
+            this.TabProgramation.TabIndex = 1;
+            this.TabProgramation.Text = "Programmation";
+            this.TabProgramation.UseVisualStyleBackColor = true;
+            // 
+            // fireHotSaloon
+            // 
+            this.fireHotSaloon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fireHotSaloon.Location = new System.Drawing.Point(422, 470);
+            this.fireHotSaloon.Margin = new System.Windows.Forms.Padding(2);
+            this.fireHotSaloon.Name = "fireHotSaloon";
+            this.fireHotSaloon.Size = new System.Drawing.Size(144, 143);
+            this.fireHotSaloon.TabIndex = 100;
+            this.fireHotSaloon.Visible = false;
+            // 
+            // fireHotBedRoom
+            // 
+            this.fireHotBedRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fireHotBedRoom.Location = new System.Drawing.Point(648, 179);
+            this.fireHotBedRoom.Margin = new System.Windows.Forms.Padding(2);
+            this.fireHotBedRoom.Name = "fireHotBedRoom";
+            this.fireHotBedRoom.Size = new System.Drawing.Size(130, 131);
+            this.fireHotBedRoom.TabIndex = 99;
+            this.fireHotBedRoom.Visible = false;
+            // 
+            // fireHotKitchen
+            // 
+            this.fireHotKitchen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fireHotKitchen.Location = new System.Drawing.Point(188, 179);
+            this.fireHotKitchen.Margin = new System.Windows.Forms.Padding(2);
+            this.fireHotKitchen.Name = "fireHotKitchen";
+            this.fireHotKitchen.Size = new System.Drawing.Size(124, 131);
+            this.fireHotKitchen.TabIndex = 100;
+            this.fireHotKitchen.Visible = false;
+            // 
+            // ProgressBarBedRoom
+            // 
+            this.ProgressBarBedRoom.BackColor = System.Drawing.Color.LightGray;
+            this.ProgressBarBedRoom.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ProgressBarBedRoom.Location = new System.Drawing.Point(117, 20);
+            this.ProgressBarBedRoom.Margin = new System.Windows.Forms.Padding(2);
+            this.ProgressBarBedRoom.Name = "ProgressBarBedRoom";
+            this.ProgressBarBedRoom.Size = new System.Drawing.Size(21, 137);
+            this.ProgressBarBedRoom.TabIndex = 92;
+            this.ProgressBarBedRoom.Value = 50;
+            // 
+            // lighInactivePanel
+            // 
+            this.lighInactivePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lighInactivePanel.Controls.Add(this.lighActivePanel);
+            this.lighInactivePanel.Location = new System.Drawing.Point(629, 680);
+            this.lighInactivePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.lighInactivePanel.Name = "lighInactivePanel";
+            this.lighInactivePanel.Size = new System.Drawing.Size(135, 153);
+            this.lighInactivePanel.TabIndex = 106;
+            // 
+            // lighActivePanel
+            // 
+            this.lighActivePanel.Location = new System.Drawing.Point(0, 0);
+            this.lighActivePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.lighActivePanel.Name = "lighActivePanel";
+            this.lighActivePanel.Size = new System.Drawing.Size(160, 152);
+            this.lighActivePanel.TabIndex = 107;
+            this.lighActivePanel.Visible = false;
+            // 
+            // ProgressBarKitchen
+            // 
+            this.ProgressBarKitchen.BackColor = System.Drawing.Color.LightGray;
+            this.ProgressBarKitchen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ProgressBarKitchen.Location = new System.Drawing.Point(117, 23);
+            this.ProgressBarKitchen.Margin = new System.Windows.Forms.Padding(2);
+            this.ProgressBarKitchen.Name = "ProgressBarKitchen";
+            this.ProgressBarKitchen.Size = new System.Drawing.Size(21, 138);
+            this.ProgressBarKitchen.TabIndex = 93;
+            this.ProgressBarKitchen.Value = 50;
+            // 
+            // fireColdKitchen
+            // 
+            this.fireColdKitchen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fireColdKitchen.Location = new System.Drawing.Point(188, 179);
+            this.fireColdKitchen.Margin = new System.Windows.Forms.Padding(2);
+            this.fireColdKitchen.Name = "fireColdKitchen";
+            this.fireColdKitchen.Size = new System.Drawing.Size(124, 121);
+            this.fireColdKitchen.TabIndex = 97;
+            // 
+            // ProgressBarOutdoor
+            // 
+            this.ProgressBarOutdoor.BackColor = System.Drawing.Color.LightGray;
+            this.ProgressBarOutdoor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ProgressBarOutdoor.Location = new System.Drawing.Point(117, 21);
+            this.ProgressBarOutdoor.Margin = new System.Windows.Forms.Padding(2);
+            this.ProgressBarOutdoor.Name = "ProgressBarOutdoor";
+            this.ProgressBarOutdoor.Size = new System.Drawing.Size(21, 104);
+            this.ProgressBarOutdoor.TabIndex = 95;
+            this.ProgressBarOutdoor.Value = 50;
+            // 
+            // ProgressBarSaloon
+            // 
+            this.ProgressBarSaloon.BackColor = System.Drawing.Color.LightGray;
+            this.ProgressBarSaloon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ProgressBarSaloon.Location = new System.Drawing.Point(117, 19);
+            this.ProgressBarSaloon.Margin = new System.Windows.Forms.Padding(2);
+            this.ProgressBarSaloon.Name = "ProgressBarSaloon";
+            this.ProgressBarSaloon.Size = new System.Drawing.Size(21, 136);
+            this.ProgressBarSaloon.TabIndex = 94;
+            this.ProgressBarSaloon.Value = 50;
+            // 
             // fireColdPannelBedRoom
             // 
             this.fireColdPannelBedRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fireColdPannelBedRoom.Location = new System.Drawing.Point(655, 195);
+            this.fireColdPannelBedRoom.Location = new System.Drawing.Point(648, 179);
             this.fireColdPannelBedRoom.Margin = new System.Windows.Forms.Padding(2);
             this.fireColdPannelBedRoom.Name = "fireColdPannelBedRoom";
             this.fireColdPannelBedRoom.Size = new System.Drawing.Size(130, 159);
@@ -783,7 +820,7 @@
             // fireColdSaloon
             // 
             this.fireColdSaloon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fireColdSaloon.Location = new System.Drawing.Point(429, 486);
+            this.fireColdSaloon.Location = new System.Drawing.Point(422, 470);
             this.fireColdSaloon.Margin = new System.Windows.Forms.Padding(2);
             this.fireColdSaloon.Name = "fireColdSaloon";
             this.fireColdSaloon.Size = new System.Drawing.Size(142, 143);
@@ -794,7 +831,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 884);
-            this.Controls.Add(this.MainPanel);
+            this.Controls.Add(this.TabMainPanel);
             this.Controls.Add(this.MenuBar);
             this.Controls.Add(this.StatusBar);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -810,13 +847,15 @@
             this.MainPanel.PerformLayout();
             this.GroupBedroom.ResumeLayout(false);
             this.GroupBedroom.PerformLayout();
-            this.lighInactivePanel.ResumeLayout(false);
             this.GroupKitchen.ResumeLayout(false);
             this.GroupKitchen.PerformLayout();
             this.GroupOutdoor.ResumeLayout(false);
             this.GroupOutdoor.PerformLayout();
             this.GroupSaloon.ResumeLayout(false);
             this.GroupSaloon.PerformLayout();
+            this.TabMainPanel.ResumeLayout(false);
+            this.TabOverview.ResumeLayout(false);
+            this.lighInactivePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -882,6 +921,9 @@
         public System.Windows.Forms.Label Clock;
         public System.Windows.Forms.Timer TimerClock;
         private System.ComponentModel.IContainer components;
+        private System.Windows.Forms.TabControl TabMainPanel;
+        private System.Windows.Forms.TabPage TabOverview;
+        private System.Windows.Forms.TabPage TabProgramation;
     }
 }
 
