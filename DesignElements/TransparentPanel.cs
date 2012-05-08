@@ -45,7 +45,7 @@ public class LighActivePannel : DrawingArea
         // Sets the images' sizes and positions
         int width = broculoImage.Size.Width;
         int height = broculoImage.Size.Height;
-        Rectangle small = new Rectangle(0, 0, (int)(0.5 * width), (int)(0.5 * height));
+        Rectangle small = new Rectangle(0, 0, (int)(0.25 * width), (int)(0.25 * height));
 
         // Draws the two images
         this.graphics.DrawImage(broculoImage, small);
@@ -61,7 +61,7 @@ public class LighInactivePannel : DrawingArea
         // Sets the images' sizes and positions
         int width = broculoImage.Size.Width;
         int height = broculoImage.Size.Height;
-        Rectangle small = new Rectangle(0, 0, (int)(0.5 * width), (int)(0.5 * height));
+        Rectangle small = new Rectangle(0, 0, (int)(0.25 * width), (int)(0.25 * height));
 
         // Draws the two images
         this.graphics.DrawImage(broculoImage, small);

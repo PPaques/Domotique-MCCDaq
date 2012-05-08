@@ -62,6 +62,8 @@ namespace MyhouseDomotique
             }
             GlobalVariables.conn.Open();
 
+            // lancement de la regulation
+            TimerMainRoutine.Enabled = true;
 
         }
 
@@ -282,26 +284,6 @@ namespace MyhouseDomotique
         }
 
         /// <summary>
-        /// Function to enable the routine of regulation (Need to fix that because we just have to make a FORCE mode)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void StartTimerMainRoutine(object sender, EventArgs e)
-        {
-            TimerMainRoutine.Enabled = !TimerMainRoutine.Enabled;
-
-            if (TimerMainRoutine.Enabled)
-            {
-                MenuBarRegulation.Text = "Arrêter la régulation";
-            }
-            else
-            {
-                MenuBarRegulation.Text = "Lancer la régulation";
-            }
-
-        }
-
-        /// <summary>
         /// Print a clock for the house system
         /// </summary>
         /// <param name="sender"></param>
@@ -309,6 +291,11 @@ namespace MyhouseDomotique
         private void TimerClock_Tick(object sender, EventArgs e)
         {
             Clock.Text = DateTime.Now.ToString("HH:mm");
+        }
+
+        private void StartTimerMainRoutine(object sender, EventArgs e)
+        {
+
         }
     }
 }

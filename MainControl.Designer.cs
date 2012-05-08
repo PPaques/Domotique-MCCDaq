@@ -27,12 +27,6 @@
             this.components = new System.ComponentModel.Container();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.StatusBarMode = new System.Windows.Forms.ToolStripStatusLabel();
-            this.MenuBar = new System.Windows.Forms.MenuStrip();
-            this.MenuBarTitleProgramme = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuBarRegulation = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuBarClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuBarTitleInt = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuBarCredit = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerMainRoutine = new System.Windows.Forms.Timer(this.components);
             this.TimerClock = new System.Windows.Forms.Timer(this.components);
             this.MainPanel = new System.Windows.Forms.Panel();
@@ -73,9 +67,15 @@
             this.TabMainPanel = new System.Windows.Forms.TabControl();
             this.TabOverview = new System.Windows.Forms.TabPage();
             this.TabProgramation = new System.Windows.Forms.TabPage();
+            this.MenuBarTitleProgramme = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuBarRegulation = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuBarClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuBarTitleInt = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuBarCredit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuBar = new System.Windows.Forms.MenuStrip();
             this.fireHotSaloon = new FireHotPannel();
-            this.fireHotBedRoom = new FireHotPannel();
             this.fireHotKitchen = new FireHotPannel();
+            this.fireHotBedRoom = new FireHotPannel();
             this.ProgressBarBedRoom = new MyhouseDomotique.VertcicalProgressBar();
             this.lighInactivePanel = new LighInactivePannel();
             this.lighActivePanel = new LighActivePannel();
@@ -86,7 +86,6 @@
             this.fireColdPannelBedRoom = new FireColdPannel();
             this.fireColdSaloon = new FireColdPannel();
             this.StatusBar.SuspendLayout();
-            this.MenuBar.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.GroupBedroom.SuspendLayout();
             this.GroupKitchen.SuspendLayout();
@@ -94,6 +93,7 @@
             this.GroupSaloon.SuspendLayout();
             this.TabMainPanel.SuspendLayout();
             this.TabOverview.SuspendLayout();
+            this.MenuBar.SuspendLayout();
             this.lighInactivePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,54 +115,6 @@
             this.StatusBarMode.Name = "StatusBarMode";
             this.StatusBarMode.Size = new System.Drawing.Size(38, 17);
             this.StatusBarMode.Text = "Mode";
-            // 
-            // MenuBar
-            // 
-            this.MenuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuBarTitleProgramme,
-            this.MenuBarTitleInt});
-            this.MenuBar.Location = new System.Drawing.Point(0, 0);
-            this.MenuBar.Name = "MenuBar";
-            this.MenuBar.Size = new System.Drawing.Size(1110, 24);
-            this.MenuBar.TabIndex = 83;
-            this.MenuBar.Text = "MenuBar";
-            // 
-            // MenuBarTitleProgramme
-            // 
-            this.MenuBarTitleProgramme.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuBarRegulation,
-            this.MenuBarClose});
-            this.MenuBarTitleProgramme.Name = "MenuBarTitleProgramme";
-            this.MenuBarTitleProgramme.Size = new System.Drawing.Size(82, 20);
-            this.MenuBarTitleProgramme.Text = "Programme";
-            // 
-            // MenuBarRegulation
-            // 
-            this.MenuBarRegulation.Name = "MenuBarRegulation";
-            this.MenuBarRegulation.Size = new System.Drawing.Size(178, 22);
-            this.MenuBarRegulation.Text = "Lancer la régulation";
-            this.MenuBarRegulation.Click += new System.EventHandler(this.StartTimerMainRoutine);
-            // 
-            // MenuBarClose
-            // 
-            this.MenuBarClose.Name = "MenuBarClose";
-            this.MenuBarClose.Size = new System.Drawing.Size(178, 22);
-            this.MenuBarClose.Text = "Fermer";
-            this.MenuBarClose.Click += new System.EventHandler(this.MenuBarClose_Click);
-            // 
-            // MenuBarTitleInt
-            // 
-            this.MenuBarTitleInt.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuBarCredit});
-            this.MenuBarTitleInt.Name = "MenuBarTitleInt";
-            this.MenuBarTitleInt.Size = new System.Drawing.Size(24, 20);
-            this.MenuBarTitleInt.Text = "?";
-            // 
-            // MenuBarCredit
-            // 
-            this.MenuBarCredit.Name = "MenuBarCredit";
-            this.MenuBarCredit.Size = new System.Drawing.Size(111, 22);
-            this.MenuBarCredit.Text = "Crédits";
             // 
             // TimerMainRoutine
             // 
@@ -296,19 +248,19 @@
             // tBBedRoomTempAct
             // 
             this.tBBedRoomTempAct.Enabled = false;
-            this.tBBedRoomTempAct.Location = new System.Drawing.Point(83, 22);
+            this.tBBedRoomTempAct.Location = new System.Drawing.Point(72, 22);
             this.tBBedRoomTempAct.Name = "tBBedRoomTempAct";
-            this.tBBedRoomTempAct.Size = new System.Drawing.Size(29, 23);
+            this.tBBedRoomTempAct.Size = new System.Drawing.Size(40, 23);
             this.tBBedRoomTempAct.TabIndex = 71;
             this.tBBedRoomTempAct.Tag = "3";
-            this.tBBedRoomTempAct.Text = "20";
+            this.tBBedRoomTempAct.Text = "20,0";
             this.tBBedRoomTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
             // tBBedRoomTempRef
             // 
-            this.tBBedRoomTempRef.Location = new System.Drawing.Point(83, 51);
+            this.tBBedRoomTempRef.Location = new System.Drawing.Point(72, 51);
             this.tBBedRoomTempRef.Name = "tBBedRoomTempRef";
-            this.tBBedRoomTempRef.Size = new System.Drawing.Size(29, 23);
+            this.tBBedRoomTempRef.Size = new System.Drawing.Size(40, 23);
             this.tBBedRoomTempRef.TabIndex = 77;
             this.tBBedRoomTempRef.Text = "20";
             // 
@@ -353,7 +305,7 @@
             this.GroupKitchen.Controls.Add(this.tBKitchenTempRef);
             this.GroupKitchen.Controls.Add(this.ProgressBarKitchen);
             this.GroupKitchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.GroupKitchen.Location = new System.Drawing.Point(4, 151);
+            this.GroupKitchen.Location = new System.Drawing.Point(64, 151);
             this.GroupKitchen.Margin = new System.Windows.Forms.Padding(2);
             this.GroupKitchen.Name = "GroupKitchen";
             this.GroupKitchen.Padding = new System.Windows.Forms.Padding(2);
@@ -416,19 +368,19 @@
             // tBKitchenTempAct
             // 
             this.tBKitchenTempAct.Enabled = false;
-            this.tBKitchenTempAct.Location = new System.Drawing.Point(83, 23);
+            this.tBKitchenTempAct.Location = new System.Drawing.Point(72, 23);
             this.tBKitchenTempAct.Name = "tBKitchenTempAct";
-            this.tBKitchenTempAct.Size = new System.Drawing.Size(29, 23);
+            this.tBKitchenTempAct.Size = new System.Drawing.Size(40, 23);
             this.tBKitchenTempAct.TabIndex = 71;
             this.tBKitchenTempAct.Tag = "2";
-            this.tBKitchenTempAct.Text = "20";
+            this.tBKitchenTempAct.Text = "20,0";
             this.tBKitchenTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
             // tBKitchenTempRef
             // 
-            this.tBKitchenTempRef.Location = new System.Drawing.Point(83, 52);
+            this.tBKitchenTempRef.Location = new System.Drawing.Point(72, 52);
             this.tBKitchenTempRef.Name = "tBKitchenTempRef";
-            this.tBKitchenTempRef.Size = new System.Drawing.Size(29, 23);
+            this.tBKitchenTempRef.Size = new System.Drawing.Size(40, 23);
             this.tBKitchenTempRef.TabIndex = 77;
             this.tBKitchenTempRef.Text = "20";
             // 
@@ -508,12 +460,12 @@
             // tBOutdoorTempAct
             // 
             this.tBOutdoorTempAct.Enabled = false;
-            this.tBOutdoorTempAct.Location = new System.Drawing.Point(83, 30);
+            this.tBOutdoorTempAct.Location = new System.Drawing.Point(71, 30);
             this.tBOutdoorTempAct.Name = "tBOutdoorTempAct";
-            this.tBOutdoorTempAct.Size = new System.Drawing.Size(29, 23);
+            this.tBOutdoorTempAct.Size = new System.Drawing.Size(41, 23);
             this.tBOutdoorTempAct.TabIndex = 71;
             this.tBOutdoorTempAct.Tag = "0";
-            this.tBOutdoorTempAct.Text = "20";
+            this.tBOutdoorTempAct.Text = "20,0";
             this.tBOutdoorTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
             // BtWindowSaloonL
@@ -607,19 +559,19 @@
             // tBSaloonTempAct
             // 
             this.tBSaloonTempAct.Enabled = false;
-            this.tBSaloonTempAct.Location = new System.Drawing.Point(83, 22);
+            this.tBSaloonTempAct.Location = new System.Drawing.Point(72, 22);
             this.tBSaloonTempAct.Name = "tBSaloonTempAct";
-            this.tBSaloonTempAct.Size = new System.Drawing.Size(29, 23);
+            this.tBSaloonTempAct.Size = new System.Drawing.Size(40, 23);
             this.tBSaloonTempAct.TabIndex = 71;
             this.tBSaloonTempAct.Tag = "1";
-            this.tBSaloonTempAct.Text = "20";
+            this.tBSaloonTempAct.Text = "20,0";
             this.tBSaloonTempAct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceChangeTempSim);
             // 
             // tBSaloonTempRef
             // 
-            this.tBSaloonTempRef.Location = new System.Drawing.Point(83, 52);
+            this.tBSaloonTempRef.Location = new System.Drawing.Point(72, 52);
             this.tBSaloonTempRef.Name = "tBSaloonTempRef";
-            this.tBSaloonTempRef.Size = new System.Drawing.Size(29, 23);
+            this.tBSaloonTempRef.Size = new System.Drawing.Size(40, 23);
             this.tBSaloonTempRef.TabIndex = 77;
             this.tBSaloonTempRef.Text = "20";
             // 
@@ -706,6 +658,54 @@
             this.TabProgramation.Text = "Programmation";
             this.TabProgramation.UseVisualStyleBackColor = true;
             // 
+            // MenuBarTitleProgramme
+            // 
+            this.MenuBarTitleProgramme.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuBarRegulation,
+            this.MenuBarClose});
+            this.MenuBarTitleProgramme.Name = "MenuBarTitleProgramme";
+            this.MenuBarTitleProgramme.Size = new System.Drawing.Size(82, 20);
+            this.MenuBarTitleProgramme.Text = "Programme";
+            // 
+            // MenuBarRegulation
+            // 
+            this.MenuBarRegulation.Name = "MenuBarRegulation";
+            this.MenuBarRegulation.Size = new System.Drawing.Size(178, 22);
+            this.MenuBarRegulation.Text = "Lancer la régulation";
+            this.MenuBarRegulation.Click += new System.EventHandler(this.StartTimerMainRoutine);
+            // 
+            // MenuBarClose
+            // 
+            this.MenuBarClose.Name = "MenuBarClose";
+            this.MenuBarClose.Size = new System.Drawing.Size(178, 22);
+            this.MenuBarClose.Text = "Fermer";
+            this.MenuBarClose.Click += new System.EventHandler(this.MenuBarClose_Click);
+            // 
+            // MenuBarTitleInt
+            // 
+            this.MenuBarTitleInt.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuBarCredit});
+            this.MenuBarTitleInt.Name = "MenuBarTitleInt";
+            this.MenuBarTitleInt.Size = new System.Drawing.Size(24, 20);
+            this.MenuBarTitleInt.Text = "?";
+            // 
+            // MenuBarCredit
+            // 
+            this.MenuBarCredit.Name = "MenuBarCredit";
+            this.MenuBarCredit.Size = new System.Drawing.Size(111, 22);
+            this.MenuBarCredit.Text = "Crédits";
+            // 
+            // MenuBar
+            // 
+            this.MenuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuBarTitleProgramme,
+            this.MenuBarTitleInt});
+            this.MenuBar.Location = new System.Drawing.Point(0, 0);
+            this.MenuBar.Name = "MenuBar";
+            this.MenuBar.Size = new System.Drawing.Size(1110, 24);
+            this.MenuBar.TabIndex = 83;
+            this.MenuBar.Text = "MenuBar";
+            // 
             // fireHotSaloon
             // 
             this.fireHotSaloon.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -716,16 +716,6 @@
             this.fireHotSaloon.TabIndex = 100;
             this.fireHotSaloon.Visible = false;
             // 
-            // fireHotBedRoom
-            // 
-            this.fireHotBedRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fireHotBedRoom.Location = new System.Drawing.Point(648, 179);
-            this.fireHotBedRoom.Margin = new System.Windows.Forms.Padding(2);
-            this.fireHotBedRoom.Name = "fireHotBedRoom";
-            this.fireHotBedRoom.Size = new System.Drawing.Size(130, 131);
-            this.fireHotBedRoom.TabIndex = 99;
-            this.fireHotBedRoom.Visible = false;
-            // 
             // fireHotKitchen
             // 
             this.fireHotKitchen.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -735,6 +725,16 @@
             this.fireHotKitchen.Size = new System.Drawing.Size(124, 131);
             this.fireHotKitchen.TabIndex = 100;
             this.fireHotKitchen.Visible = false;
+            // 
+            // fireHotBedRoom
+            // 
+            this.fireHotBedRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fireHotBedRoom.Location = new System.Drawing.Point(648, 179);
+            this.fireHotBedRoom.Margin = new System.Windows.Forms.Padding(2);
+            this.fireHotBedRoom.Name = "fireHotBedRoom";
+            this.fireHotBedRoom.Size = new System.Drawing.Size(130, 131);
+            this.fireHotBedRoom.TabIndex = 99;
+            this.fireHotBedRoom.Visible = false;
             // 
             // ProgressBarBedRoom
             // 
@@ -841,8 +841,6 @@
             this.Load += new System.EventHandler(this.Initialisation);
             this.StatusBar.ResumeLayout(false);
             this.StatusBar.PerformLayout();
-            this.MenuBar.ResumeLayout(false);
-            this.MenuBar.PerformLayout();
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
             this.GroupBedroom.ResumeLayout(false);
@@ -855,6 +853,8 @@
             this.GroupSaloon.PerformLayout();
             this.TabMainPanel.ResumeLayout(false);
             this.TabOverview.ResumeLayout(false);
+            this.MenuBar.ResumeLayout(false);
+            this.MenuBar.PerformLayout();
             this.lighInactivePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -865,11 +865,6 @@
 
         public System.Windows.Forms.StatusStrip StatusBar;
         public System.Windows.Forms.ToolStripStatusLabel StatusBarMode;
-        public System.Windows.Forms.MenuStrip MenuBar;
-        public System.Windows.Forms.ToolStripMenuItem MenuBarTitleProgramme;
-        public System.Windows.Forms.ToolStripMenuItem MenuBarClose;
-        public System.Windows.Forms.ToolStripMenuItem MenuBarTitleInt;
-        public System.Windows.Forms.ToolStripMenuItem MenuBarCredit;
         public System.Windows.Forms.Button BtWindowKitchen;
         public System.Windows.Forms.Button BtWindowBedroom;
         public System.Windows.Forms.Button BtWindowSaloonL;
@@ -916,7 +911,6 @@
         public LighInactivePannel lighInactivePanel;
         public LighActivePannel lighActivePanel;
         public System.Windows.Forms.Timer TimerMainRoutine;
-        public System.Windows.Forms.ToolStripMenuItem MenuBarRegulation;
         public System.Windows.Forms.Panel MainPanel;
         public System.Windows.Forms.Label Clock;
         public System.Windows.Forms.Timer TimerClock;
@@ -924,6 +918,12 @@
         private System.Windows.Forms.TabControl TabMainPanel;
         private System.Windows.Forms.TabPage TabOverview;
         private System.Windows.Forms.TabPage TabProgramation;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarTitleProgramme;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarRegulation;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarClose;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarTitleInt;
+        public System.Windows.Forms.ToolStripMenuItem MenuBarCredit;
+        public System.Windows.Forms.MenuStrip MenuBar;
     }
 }
 
