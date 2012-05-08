@@ -116,36 +116,10 @@ namespace MyhouseDomotique
         private void ChangeHotState(object sender, EventArgs e)
         {
             int RoomId = Convert.ToInt32((sender as Button).Tag);
-            
-            // selecting the fire
-            FireHotPannel Fire_panel = null;
-            switch (RoomId)
-            {
-                case 1:
-                    Fire_panel = fireHotSaloon;
-                    break;
-                case 2:
-                    Fire_panel = fireHotKitchen;
-                    break;
-                case 3:
-                    Fire_panel = fireHotBedRoom;
-                    break;
-                default:
-                    MessageBox.Show("Error at Change Hot State (Room ID out of range)");
-                    break;
-            }
-
+                    
             GlobalVariables.MyHouse.Rooms[RoomId].hot_is_active = !GlobalVariables.MyHouse.Rooms[RoomId].hot_is_active;
-            Fire_panel.Visible = GlobalVariables.MyHouse.Rooms[RoomId].hot_is_active;
-            if (GlobalVariables.MyHouse.Rooms[RoomId].hot_is_active)
-            {
-                (sender as Button).Text = "On";
-            }
-            else
-            {
-                (sender as Button).Text = "Off";
-            }
 
+            Functions.SetHotStateView(RoomId);
         }
  
         /// <summary>
@@ -185,15 +159,12 @@ namespace MyhouseDomotique
                 this.BtDoorEnter.Enabled = true;
 
                 // kitchen
-                //this.BtKitchenHot.Enabled = true;
                 this.tBKitchenTempAct.Enabled = true;
 
                 // bedroom
-                //this.BtBedRoomHot.Enabled = true;
                 this.tBBedRoomTempAct.Enabled = true;
 
                 // saloon
-                //this.BtSaloonHot.Enabled = true;
                 this.tBSaloonTempAct.Enabled = true;
 
                 // exterior
@@ -218,9 +189,45 @@ namespace MyhouseDomotique
                     // change in model
                     GlobalVariables.MyHouse.Rooms[Convert.ToInt16((sender as TextBox).Tag)].temperature = Convert.ToDouble((sender as TextBox).Text);
                     // change in the view
-                    Functions.changeTempView(Convert.ToInt16((sender as TextBox).Tag), (sender as TextBox).Text);
+                    Functions.SetTempView(Convert.ToInt16((sender as TextBox).Tag), (sender as TextBox).Text);
                 }
 
+            }
+        }
+
+        /// <summary>
+        /// Function to enable the routine of regulation (Need to fix that because we just have to make a FORCE mode)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeRegulation(object sender, EventArgs e)
+        {
+            if (CbConfRegulation.Checked)
+                TimerMainRoutine.Enabled = true;
+            else
+                TimerMainRoutine.Enabled = false;  
+        }
+
+        /// <summary>
+        /// function to change the configuration to the god mode
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeGodMode(object sender, EventArgs e)
+        {
+            if (CbConfGodMode.Checked)
+            {
+                GlobalVariables.godMode = true;
+                this.BtSaloonHot.Enabled = true;
+                this.BtKitchenHot.Enabled = true;
+                this.BtBedRoomHot.Enabled = true;
+            }
+            else
+            {
+                GlobalVariables.godMode = false;
+                this.BtSaloonHot.Enabled = false;
+                this.BtKitchenHot.Enabled = false;
+                this.BtBedRoomHot.Enabled = false;
             }
         }
 
@@ -267,18 +274,21 @@ namespace MyhouseDomotique
                 routine_count = -1;
             }
 
-            // actualise the temperatures from the model
-            TimerFunctions.TempModelToView();
-
-
 
             // *--------------------------------------------------------
             // *                Hotter regulation                      *
             // *--------------------------------------------------------
+            
             // start the regulation (the hot system on or off ? )
-            TimerFunctions.regulation();
-            //show the regulator system
+            if (GlobalVariables.godMode == false)
+                TimerFunctions.regulation();
+
+            // *--------------------------------------------------------
+            // *             Sending the model to the view             *
+            // *-------------------------------------------------------- 
+            // show the regulator system
             TimerFunctions.HotModelToView();
+            TimerFunctions.TempModelToView();
 
             routine_count++;
         }
@@ -293,9 +303,5 @@ namespace MyhouseDomotique
             Clock.Text = DateTime.Now.ToString("HH:mm");
         }
 
-        private void StartTimerMainRoutine(object sender, EventArgs e)
-        {
-
-        }
     }
 }

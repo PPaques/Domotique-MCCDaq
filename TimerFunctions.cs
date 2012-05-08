@@ -251,7 +251,7 @@ namespace MyhouseDomotique
         {
             for (int i = 0; i <= 3; i++)
             {
-                Functions.changeTempView(i, Convert.ToString(GlobalVariables.MyHouse.Rooms[i].temperature));
+                Functions.SetTempView(i, Convert.ToString(GlobalVariables.MyHouse.Rooms[i].temperature));
 
             }
         }
@@ -263,8 +263,7 @@ namespace MyhouseDomotique
         {
             for (int i = 1; i <= 3; i++)
             {
-                Functions.selectPannelHot(i).Visible = GlobalVariables.MyHouse.Rooms[i].hot_is_active;
-                Functions.selectPannelCold(i).Visible = !GlobalVariables.MyHouse.Rooms[i].hot_is_active;
+                Functions.SetHotStateView(i);
             }
         }
     }

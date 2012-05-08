@@ -71,12 +71,16 @@ namespace MyhouseDomotique
             }
         }
 
+
+        // *-------------------------------------------------------------*
+        // *   Functions to change something in the view                 *
+        // *-------------------------------------------------------------*
         /// <summary>
         /// changing the temperature with the textbox and progressbar
         /// </summary>
         /// <param name="RoomId"></param>
         /// <param name="Value"></param>
-        public static void changeTempView(int RoomId, string getValue)
+        public static void SetTempView(int RoomId, string getValue)
         {
             double value = GlobalVariables.MinTemp;
 
@@ -109,9 +113,29 @@ namespace MyhouseDomotique
             }
         }
 
+        /// <summary>
+        /// Function to set the hot state
+        /// </summary>
+        /// <param name="RoomId"></param>
+        public static void SetHotStateView(int RoomId)
+        {
+            if (GlobalVariables.MyHouse.Rooms[RoomId].hot_is_active)
+            {
+                selectbtnHot(RoomId).Text = "On";
+                Functions.selectPannelHot(RoomId).Visible = true;
+                Functions.selectPannelCold(RoomId).Visible = false;
+            }
+            else
+            {
+                selectbtnHot(RoomId).Text = "Off";
+                Functions.selectPannelHot(RoomId).Visible = false;
+                Functions.selectPannelCold(RoomId).Visible = true;
+            }
+
+        }
 
         // *-------------------------------------------------------------*
-        // *   functions to select good élements in the view             *
+        // *   functions to select good elements in the view             *
         // *-------------------------------------------------------------*
         /// <summary>
         /// Function that select the good hotpanel with the roomid
@@ -255,6 +279,33 @@ namespace MyhouseDomotique
                     break;
             }
             return Textbox;
+        }
+
+        /// <summary>
+        /// selecting the good btn hot with the roomid
+        /// </summary>
+        /// <param name="RoomId"></param>
+        /// <returns></returns>
+        public static Button selectbtnHot(int RoomId)
+        {
+            Button btn = null;
+
+            switch (RoomId)
+            {
+                case 1:
+                    btn = Program.MainForm.BtSaloonHot;
+                    break;
+                case 2:
+                    btn = Program.MainForm.BtKitchenHot;
+                    break;
+                case 3:
+                    btn = Program.MainForm.BtBedRoomHot;
+                    break;
+                default:
+                    MessageBox.Show("Error at select the good btn hot textbox (Room ID out of range)");
+                    break;
+            }
+            return btn;     
         }
     
     }

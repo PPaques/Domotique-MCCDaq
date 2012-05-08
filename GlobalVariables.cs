@@ -17,5 +17,6 @@ namespace MyhouseDomotique
         public static SqlCeConnection conn { get; set; }
         public static double MinTemp { get; set; }
         public static double MaxTemp { get; set; }
+        public static Boolean godMode { get; set; }
     }
 }
