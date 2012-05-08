@@ -64,7 +64,6 @@ namespace MyhouseDomotique
             double[] NewTemp = new double[] { 1024, 1024, 1024, 1024 };           // On crée un vecteur qui contiendra les températures calculées
 
             double TIteration = 1;		                        // Interval de calcul de température (on calcule toute les secondes)
-            double P = 50;		                        // Puissance de la lampe dégagée.
 
             double SpecificHeatCap_Air = 1004;
             double AirDensity = 1.2;				    // en kg/m3 à 20 °C
@@ -148,7 +147,7 @@ namespace MyhouseDomotique
             {
                 if (GlobalVariables.MyHouse.Rooms[i].hot_is_active)    // On calcul l'apport de température si on chauffe (hot_is_active == true)
                 {
-                    NewTemp[i] = NewTemp[i] + (P / (AirDensity * GlobalVariables.MyHouse.Rooms[i].volume * SpecificHeatCap_Air * TIteration));
+                    NewTemp[i] = NewTemp[i] + (GlobalVariables.MyHouse.Rooms[i].Heating_power / (AirDensity * GlobalVariables.MyHouse.Rooms[i].volume * SpecificHeatCap_Air * TIteration));
                 }
             }
 
