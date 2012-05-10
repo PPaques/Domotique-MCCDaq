@@ -154,7 +154,7 @@ namespace MyhouseDomotique
             // Inscription des nouvelles valeurs dans le modèle général
             for (int i = 1; i <= 3; i++)
             {
-                GlobalVariables.MyHouse.Rooms[i].temperature = NewTemp[i];
+                Functions.SaveTemperature(i, NewTemp[i]);
             }
         }
 
@@ -182,13 +182,13 @@ namespace MyhouseDomotique
         /// </summary>
         public static void StatesViewToModel()
         {
-            GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorEnter.Tag));
-            GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowSaloonL.Tag));
-            GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowSaloonR.Tag));
-            GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowKitchen.Tag));
-            GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowBedroom.Tag));
-            GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorKitchen.Tag));
-            GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen = Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorBedroom.Tag));
+            Functions.SaveStatesToDataBase(0,0, Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorEnter.Tag)));
+            Functions.SaveStatesToDataBase(0,1, Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowSaloonL.Tag)));
+            Functions.SaveStatesToDataBase(0,2, Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowSaloonR.Tag)));
+            Functions.SaveStatesToDataBase(1,0, Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowKitchen.Tag)));
+            Functions.SaveStatesToDataBase(2,0,Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtWindowBedroom.Tag)));
+            Functions.SaveStatesToDataBase(3,0,Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorKitchen.Tag)));
+            Functions.SaveStatesToDataBase(4,0,Functions.isOpenCheck(Convert.ToString(Program.MainForm.BtDoorBedroom.Tag)));
         }
 
         /// <summary>
@@ -213,33 +213,8 @@ namespace MyhouseDomotique
             // taking the temperature
             for (int RoomId = 0; RoomId <= 3; RoomId++)
             {
-                string texboxActualTemp = Functions.selectTbTempActual(RoomId).Text;
-                double Value = 0;
-
-                if (texboxActualTemp == "HI")
-                    Value = GlobalVariables.MaxTemp;
-                else if (texboxActualTemp == "LO")
-                    Value = GlobalVariables.MinTemp;
-                else if (texboxActualTemp == "")
-                    Value = GlobalVariables.MyHouse.Rooms[RoomId].temperature;
-                else
-                    Value = Convert.ToDouble(texboxActualTemp);
-
-                GlobalVariables.MyHouse.Rooms[RoomId].temperature = Value;
-            }
-
-            // taking the temperature order
-            for (int RoomId = 1; RoomId <= 3; RoomId++)
-            {
-                string TexboxOrderTemp = Functions.selectTbTempOrder(RoomId).Text;
-                double Value=0;
-
-                if (TexboxOrderTemp == "")
-                    Value = GlobalVariables.MyHouse.Rooms[RoomId].temperature_order;
-                else
-                    Value = Convert.ToDouble(TexboxOrderTemp);
-
-                GlobalVariables.MyHouse.Rooms[RoomId].temperature_order = Value;
+                double Value = Functions.ReadValue(RoomId, Functions.selectTbTempActual(RoomId).Text);
+                Functions.SaveTemperature(RoomId, Value);
             }
         }
 
@@ -263,6 +238,26 @@ namespace MyhouseDomotique
             for (int i = 1; i <= 3; i++)
             {
                 Functions.SetHotStateView(i);
+            }
+        }
+
+        /// <summary>
+        /// Taking the temperature order and throw it to the model
+        /// </summary>
+        public static void TempOrderToModel()
+        {
+            // taking the temperature order
+            for (int RoomId = 1; RoomId <= 3; RoomId++)
+            {
+                string TexboxOrderTemp = Functions.selectTbTempOrder(RoomId).Text;
+                double Value = 0;
+
+                if (TexboxOrderTemp == "")
+                    Value = GlobalVariables.MyHouse.Rooms[RoomId].temperature_order;
+                else
+                    Value = Convert.ToDouble(TexboxOrderTemp);
+
+                GlobalVariables.MyHouse.Rooms[RoomId].temperature_order = Value;
             }
         }
     }

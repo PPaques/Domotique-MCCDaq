@@ -108,5 +108,19 @@ namespace MyhouseDomotique.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap Regime_Moon_little {
+            get {
+                object obj = ResourceManager.GetObject("Regime_Moon_little", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Regime_Sun_little {
+            get {
+                object obj = ResourceManager.GetObject("Regime_Sun_little", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

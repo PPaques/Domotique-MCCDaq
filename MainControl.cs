@@ -34,6 +34,10 @@ namespace MyhouseDomotique
         /// <param name="e"></param>
         private void Initialisation(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'simulationDataSet.States_History' table. You can move, or remove it, as needed.
+            this.states_HistoryTableAdapter.Fill(this.simulationDataSet.States_History);
+            // TODO: This line of code loads data into the 'simulationDataSet.Temperatures_History' table. You can move, or remove it, as needed.
+            this.temperatures_HistoryTableAdapter.Fill(this.simulationDataSet.Temperatures_History);
             // configuring the defaults values
             GlobalVariables.MinTemp = 0;
             GlobalVariables.MaxTemp = 35;
@@ -140,50 +144,26 @@ namespace MyhouseDomotique
             if (GlobalVariables.mode == "simulation")
             {
                 // all the opening
-                this.BtWindowKitchen.Enabled = true;
-                this.BtWindowBedroom.Enabled = true;
-                this.BtWindowSaloonL.Enabled = true;
-                this.BtWindowSaloonR.Enabled = true;
+                BtWindowKitchen.Enabled = true;
+                BtWindowBedroom.Enabled = true;
+                BtWindowSaloonL.Enabled = true;
+                BtWindowSaloonR.Enabled = true;
 
-                this.BtDoorKitchen.Enabled = true;
-                this.BtDoorBedroom.Enabled = true;
-                this.BtDoorEnter.Enabled = true;
+                BtDoorKitchen.Enabled = true;
+                BtDoorBedroom.Enabled = true;
+                BtDoorEnter.Enabled = true;
 
                 // kitchen
-                this.tBKitchenTempAct.Enabled = true;
+                tBKitchenTempAct.Enabled = true;
 
                 // bedroom
-                this.tBBedRoomTempAct.Enabled = true;
+                tBBedRoomTempAct.Enabled = true;
 
                 // saloon
-                this.tBSaloonTempAct.Enabled = true;
-
-                // exterior
-                this.tBOutdoorTempAct.Enabled = true;
-                this.BtOutdoorLight.Enabled = true;
-            }
-        }
-
-        // TODO ? is neeeded , NON 
-        /// <summary>
-        /// force the temperature change with the view when press enter
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ForceChangeTempSim(object sender, KeyPressEventArgs e)
-        {
-            // inf we press enter, we change the value
-            if (e.KeyChar == (char)13)
-            {
-                //verify the data
-                if (Functions.TemperatureRange((sender as TextBox).Text,-50,50))
-                { 
-                    // change in model
-                    GlobalVariables.MyHouse.Rooms[Convert.ToInt16((sender as TextBox).Tag)].temperature = Convert.ToDouble((sender as TextBox).Text);
-                    // change in the view
-                    Functions.SetTempView(Convert.ToInt16((sender as TextBox).Tag), (sender as TextBox).Text);
-                }
-
+                tBSaloonTempAct.Enabled = true;
+                
+                // Outdoor
+                tBOutdoorTempAct.Enabled = true;
             }
         }
 
@@ -212,6 +192,7 @@ namespace MyhouseDomotique
                 TimerFunctions.TempViewToModel();
                 TimerFunctions.StatesViewToModel();
             }
+            TimerFunctions.TempOrderToModel();
 
             // *--------------------------------------------------------
             // *              Analysing the light status               *
@@ -275,6 +256,15 @@ namespace MyhouseDomotique
         private void TimerClock_Tick(object sender, EventArgs e)
         {
             Clock.Text = DateTime.Now.ToString("HH:mm");
+            if(GlobalVariables.mode == "simulation" && GlobalVariables.LightAutomatique)
+            {
+                if (Convert.ToDouble(DateTime.Now.ToString("HH")) < 19 && Convert.ToDouble(DateTime.Now.ToString("HH")) > 8)
+                    GlobalVariables.MyHouse.Rooms[0].light_is_active = false;
+                else
+                    GlobalVariables.MyHouse.Rooms[0].light_is_active = true;
+            
+            }
+            
         }
 
         // *-------------------------------------------------------------*
@@ -322,19 +312,22 @@ namespace MyhouseDomotique
             if (CbConfGodMode.Checked)
             {
                 GlobalVariables.godMode = true;
-                this.BtSaloonHot.Enabled = true;
-                this.BtKitchenHot.Enabled = true;
-                this.BtBedRoomHot.Enabled = true;
-                this.BtOutdoorLight.Enabled = true;
+                BtSaloonHot.Enabled = true;
+                BtKitchenHot.Enabled = true;
+                BtBedRoomHot.Enabled = true;
+                BtOutdoorLight.Enabled = true;
+                CbConfLightAuto.Checked = false;
             }
             else
             {
                 GlobalVariables.godMode = false;
-                this.BtSaloonHot.Enabled = false;
-                this.BtKitchenHot.Enabled = false;
-                this.BtBedRoomHot.Enabled = false;
-                this.BtOutdoorLight.Enabled = false;
+                CbConfLightAuto.Checked = true;
+                BtSaloonHot.Enabled = false;
+                BtKitchenHot.Enabled = false;
+                BtBedRoomHot.Enabled = false;
+                BtOutdoorLight.Enabled = false;
             }
         }
+
     }
 }

@@ -39,7 +39,7 @@ namespace MyhouseDomotique
             //     MccDaq.ErrorHandling.
             //              -> StopAll  : If an error is encountered, the program will stop
             //              -> DontStop : No stop (in production)
-            ULStat = MccDaq.MccService.ErrHandling(MccDaq.ErrorReporting.PrintAll, MccDaq.ErrorHandling.DontStop);
+            ULStat = MccDaq.MccService.ErrHandling(MccDaq.ErrorReporting.DontPrint, MccDaq.ErrorHandling.DontStop);
 
             // select the first card (the only connected)
             DaqBoard = new MccDaq.MccBoard(0);
@@ -100,7 +100,8 @@ namespace MyhouseDomotique
                 }
 
                 ULStat = DaqBoard.ToEngUnits(Range, DataValue, out EngUnits[i]);// converting to voltage
-                GlobalVariables.MyHouse.Rooms[i].temperature = (EngUnits[i] *100F/11F); //convert voltage to temperature
+                double Value = (EngUnits[i] * 100F / 11F);
+                Functions.SaveTemperature(i, Value);
             }
         }
          

@@ -116,6 +116,34 @@ namespace MyhouseDomotique
         }
 
         /// <summary>
+        /// Function to read values
+        /// </summary>
+        /// <param name="getValue"></param>
+        /// <returns></returns>
+        public static double ReadValue(int RoomId,string getValue)
+        {
+            double Value;
+            if (getValue == "HI")
+                Value = GlobalVariables.MaxTemp;
+            else if (getValue == "LO")
+                Value = GlobalVariables.MinTemp;
+            else if (getValue == "")
+                Value = GlobalVariables.MyHouse.Rooms[RoomId].temperature;
+            else
+            {
+                try
+                {
+                    Value = Convert.ToDouble(getValue);
+                }
+                catch
+                {
+                    Value = GlobalVariables.MyHouse.Rooms[RoomId].temperature;
+                }
+            }
+            return Value;
+        }
+
+        /// <summary>
         /// Function to set the hot state
         /// </summary>
         /// <param name="RoomId"></param>
@@ -337,20 +365,14 @@ namespace MyhouseDomotique
         /// On donne à la fonction l'ID de la pièce dont on veut les températures 
         /// </summary>
         /// <param name="FK_id_Room"></param>
-        public static SqlCeDataReader ReadTemperatureFromDataBase(Int32 FK_id_Room, Int32 limit)    
+        /*public static SqlCeDataReader ReadTemperatureFromDataBase(Int32 FK_id_Room, Int32 limit)    
         {
          
             // On construit la requête pour ensuite lire les valeurs du reader
             SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + FK_id_Room + " ORDER BY Time ASC LIMIT " + limit, GlobalVariables.conn);
             SqlCeDataReader reader = com.ExecuteReader();
             return reader;
-            /*while (reader.Read())
-            {
-              string num = Convert.ToString(reader.GetValue(0));
-              string num1 = Convert.ToString(reader.GetValue(1));
-              MessageBox.Show("Valeur : " + num + "°C à la date du " + num1);
-            }*/
-        }
+        }*/
         
         /// <summary>
         /// On donne à la fonction l'ID de la pièce avec laquelle on travaille and the temperature
@@ -366,11 +388,21 @@ namespace MyhouseDomotique
             // Vérification de la dernière température stockée
             double LastTemp = 0;
 
-           SqlCeCommand cn = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " ORDER BY Time DESC LiMit1", GlobalVariables.conn);
+           SqlCeCommand cn = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " ORDER BY Time ASC", GlobalVariables.conn);
            SqlCeDataReader reader = cn.ExecuteReader();
-           LastTemp = Convert.ToDouble(reader.GetValue(0));
+           try
+           {
+               while (reader.Read())
+               {
+                   LastTemp = Convert.ToDouble(reader.GetValue(0));
+               }
            
-            if ((LastTemp - Temperature < 0.2) || (LastTemp + Temperature > 0.2))
+           }
+           catch
+           {
+               LastTemp = -1;
+           }
+           if ( Temperature < (LastTemp - 0.2) || (Temperature > LastTemp + 0.2))
             {
                 //On récupère les variables/on convertit
                 DateTime time = DateTime.Now;
@@ -406,20 +438,15 @@ namespace MyhouseDomotique
         /// </summary>
         /// <param name="IDWall"></param>
         /// <param name="Mode"></param>
+        /*
         public static SqlCeDataReader ReadStateFromDataBase(Int32 IDWall, string Mode, Int32 Limit)      // On donne à la fonction l'ID du mur dont on veut l'état et ensuite le mode à lire (mode "simulation" ou "normal")
         {
             // On construit la requête pour ensuite lire les valeurs du reader
             Int32 FK_id_Wall = IDWall;
             SqlCeCommand com = new SqlCeCommand("SELECT New_state, Time FROM States_History WHERE FK_id_Wall=" + FK_id_Wall + " ORDER BY Time ASC LIMIT "+Limit , GlobalVariables.conn);
             SqlCeDataReader reader = com.ExecuteReader();
-            /*while (reader.Read())
-            {
-                string num = Convert.ToString(reader.GetValue(0));
-                string num1 = Convert.ToString(reader.GetValue(1));
-                MessageBox.Show("Etat : " + num + " à la date du " + num1);
-            }*/
             return reader;
-        }
+        }*/
         
         /// <summary>
         /// SaveStatesTodatabase
@@ -442,14 +469,15 @@ namespace MyhouseDomotique
 
                 //On crée la requête
                 string sql = "insert into States_History "
-                + "( FK_id_Wall, Time, New_State) "
-                + "values (@idwall, @time, @state)";
+                + "( FK_id_Wall,FK_id_Opening, Time, New_State) "
+                + "values (@idwall, @opening, @time, @state)";
 
                 //On exécute la requête
                 try
                 {
                     cmd = new SqlCeCommand(sql, GlobalVariables.conn);
                     cmd.Parameters.AddWithValue("@idwall", IDWall);
+                    cmd.Parameters.AddWithValue("@opening", IDOpening);
                     cmd.Parameters.AddWithValue("@time", time);
                     cmd.Parameters.AddWithValue("@state", state);
                     cmd.ExecuteNonQuery();
