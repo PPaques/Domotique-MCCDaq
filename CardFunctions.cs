@@ -87,6 +87,7 @@ namespace MyhouseDomotique
             EngUnits = new float[4];
 
             // taking the values from the card
+            
             for (int i = 0; i <= 3; i++)
             {
                 ULStat = DaqBoard.AIn(i, Range, out DataValue);
@@ -99,10 +100,10 @@ namespace MyhouseDomotique
                 }
 
                 ULStat = DaqBoard.ToEngUnits(Range, DataValue, out EngUnits[i]);// converting to voltage
-                GlobalVariables.MyHouse.Rooms[i].temperature = (EngUnits[i] * 11F); //convert voltage to temperature
+                GlobalVariables.MyHouse.Rooms[i].temperature = (EngUnits[i] *100F/11F); //convert voltage to temperature
             }
         }
-
+         
         /// <summary>
         /// Read all the states and send it to the model
         /// </summary>
@@ -152,7 +153,7 @@ namespace MyhouseDomotique
 
             ULStat = DaqBoard.ToEngUnits(Range, DataValue, out Voltage);// converting to voltage
 
-            if (Voltage <= 0.5 + 0.2 * Program.MainForm.ScrollSensibility.Value/5)
+            if (Voltage >= 0.5 + 0.2 * Program.MainForm.ScrollSensibility.Value/5)
                 return false;
             else
                 return true;

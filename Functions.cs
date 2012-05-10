@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlServerCe;
 
 namespace MyhouseDomotique
 {
@@ -134,6 +136,9 @@ namespace MyhouseDomotique
 
         }
 
+        /// <summary>
+        /// Set light state into the view
+        /// </summary>
         public static void SetLightState()
         {
             if (GlobalVariables.MyHouse.Rooms[0].light_is_active)
@@ -323,6 +328,139 @@ namespace MyhouseDomotique
             }
             return btn;     
         }
+
+
+        // *-------------------------------------------------------------*
+        // *                 Database functions                          *
+        // *-------------------------------------------------------------*
+        /// <summary>
+        /// On donne à la fonction l'ID de la pièce dont on veut les températures 
+        /// </summary>
+        /// <param name="FK_id_Room"></param>
+        public static SqlCeDataReader ReadTemperatureFromDataBase(Int32 FK_id_Room, Int32 limit)    
+        {
+         
+            // On construit la requête pour ensuite lire les valeurs du reader
+            SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + FK_id_Room + " ORDER BY Time ASC LIMIT " + limit, GlobalVariables.conn);
+            SqlCeDataReader reader = com.ExecuteReader();
+            return reader;
+            /*while (reader.Read())
+            {
+              string num = Convert.ToString(reader.GetValue(0));
+              string num1 = Convert.ToString(reader.GetValue(1));
+              MessageBox.Show("Valeur : " + num + "°C à la date du " + num1);
+            }*/
+        }
+        
+        /// <summary>
+        /// On donne à la fonction l'ID de la pièce avec laquelle on travaille and the temperature
+        /// </summary>
+        /// <param name="IDRoom"></param>
+        /// <param name="Temperature"></param>
+        public static void SaveTemperature(Int32 IDRoom, double Temperature)      // On donne à la fonction l'ID de la pièce avec laquelle on travaille, sa température et ensuite le mode dans lequel on est (mode "simulation" ou "normal")
+        {
+            // On stocke dans les classes
+            GlobalVariables.MyHouse.Rooms[IDRoom].temperature = Temperature;
+            
+            // Stockage en base de donnée
+            // Vérification de la dernière température stockée
+            double LastTemp = 0;
+
+           SqlCeCommand cn = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " ORDER BY Time DESC LiMit1", GlobalVariables.conn);
+           SqlCeDataReader reader = cn.ExecuteReader();
+           LastTemp = Convert.ToDouble(reader.GetValue(0));
+           
+            if ((LastTemp - Temperature < 0.2) || (LastTemp + Temperature > 0.2))
+            {
+                //On récupère les variables/on convertit
+                DateTime time = DateTime.Now;
+                //Conversion du double Temperature en float
+                float temperature = (float)Temperature;
+    
+                //On définit la commande SQL
+                SqlCeCommand cmd;
+
+                //On crée la requête
+                string sql = "insert into Temperatures_History "
+                + "( FK_id_Room, Time, Temperature) "
+                + "values (@idroom, @time, @temperature)";
+
+                //On exécute la requête
+                try
+                {
+                    cmd = new SqlCeCommand(sql, GlobalVariables.conn);
+                    cmd.Parameters.AddWithValue("@idroom", IDRoom);
+                    cmd.Parameters.AddWithValue("@time", time);
+                    cmd.Parameters.AddWithValue("@temperature", temperature);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    MessageBox.Show("Une erreur est survenue lors de l'écriture dans la base de donnée");
+                }
+            }
+        }
+
+        /// <summary>
+        /// reading states from database
+        /// </summary>
+        /// <param name="IDWall"></param>
+        /// <param name="Mode"></param>
+        public static SqlCeDataReader ReadStateFromDataBase(Int32 IDWall, string Mode, Int32 Limit)      // On donne à la fonction l'ID du mur dont on veut l'état et ensuite le mode à lire (mode "simulation" ou "normal")
+        {
+            // On construit la requête pour ensuite lire les valeurs du reader
+            Int32 FK_id_Wall = IDWall;
+            SqlCeCommand com = new SqlCeCommand("SELECT New_state, Time FROM States_History WHERE FK_id_Wall=" + FK_id_Wall + " ORDER BY Time ASC LIMIT "+Limit , GlobalVariables.conn);
+            SqlCeDataReader reader = com.ExecuteReader();
+            /*while (reader.Read())
+            {
+                string num = Convert.ToString(reader.GetValue(0));
+                string num1 = Convert.ToString(reader.GetValue(1));
+                MessageBox.Show("Etat : " + num + " à la date du " + num1);
+            }*/
+            return reader;
+        }
+        
+        /// <summary>
+        /// SaveStatesTodatabase
+        /// </summary>
+        /// <param name="IDWall"></param>
+        /// <param name="State"></param>
+        public static void SaveStatesToDataBase(Int32 IDWall,Int32 IDOpening, bool State)      // On donne à la fonction l'ID du mur avec lequel on travaille, son état et ensuite le mode dans lequel on est (mode "simulation" ou "normal")
+        {
+            Boolean oldState = GlobalVariables.MyHouse.Walls[IDWall].Openings[IDOpening].isOpen;
+
+            if (State != oldState)
+            {
+                GlobalVariables.MyHouse.Walls[IDWall].Openings[IDOpening].isOpen = State;
+                //On récupère les variables/on convertit
+                DateTime time = DateTime.Now;
+                Byte state = Convert.ToByte(State);
+
+                //On définit la commande SQL
+                SqlCeCommand cmd;
+
+                //On crée la requête
+                string sql = "insert into States_History "
+                + "( FK_id_Wall, Time, New_State) "
+                + "values (@idwall, @time, @state)";
+
+                //On exécute la requête
+                try
+                {
+                    cmd = new SqlCeCommand(sql, GlobalVariables.conn);
+                    cmd.Parameters.AddWithValue("@idwall", IDWall);
+                    cmd.Parameters.AddWithValue("@time", time);
+                    cmd.Parameters.AddWithValue("@state", state);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    MessageBox.Show("Une erreur est survenue lors de l'écriture dans la base de donnée");
+                }
+            }
+        }
+
     
     }
 }
