@@ -153,6 +153,8 @@ namespace MyhouseDomotique
             }
 
             ULStat = DaqBoard.ToEngUnits(Range, DataValue, out Voltage);// converting to voltage
+            Program.MainForm.LightConfProgress.Value = Convert.ToInt16(Voltage * 100/5);
+
 
             if (Voltage >= 0.5 + 0.2 * Program.MainForm.ScrollSensibility.Value/5)
                 return false;

@@ -17,7 +17,6 @@ namespace MyhouseDomotique
     {
         // global variables
         Card MyCard;
-        private int routine_count = 0;
  
         /// <summary>
         /// Loading the form
@@ -161,6 +160,9 @@ namespace MyhouseDomotique
                 
                 // Outdoor
                 tBOutdoorTempAct.Enabled = true;
+
+                // configuration
+                PanelLightConf.Enabled = false;
             }
         }
 
@@ -209,11 +211,9 @@ namespace MyhouseDomotique
                 TimerFunctions.calculate_next_temp();
             }
 
-            // 60 sec = 1 min
-            if (routine_count <= 0 && GlobalVariables.mode == "normal")
+            if (GlobalVariables.mode == "normal")
             {
                 MyCard.ReadTemp();
-                routine_count = 1; // time between the measures
             }
 
 
@@ -242,7 +242,8 @@ namespace MyhouseDomotique
                 MyCard.setLightState();
             }
 
-            routine_count--;
+            // blink of record system
+            StatusBarRecord.Visible = !StatusBarRecord.Visible;
         }
 
         /// <summary>
