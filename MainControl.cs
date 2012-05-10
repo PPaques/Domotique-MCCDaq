@@ -34,14 +34,11 @@ namespace MyhouseDomotique
         /// <param name="e"></param>
         private void Initialisation(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'simulationDataSet.States_History' table. You can move, or remove it, as needed.
-            this.states_HistoryTableAdapter.Fill(this.simulationDataSet.States_History);
-            // TODO: This line of code loads data into the 'simulationDataSet.Temperatures_History' table. You can move, or remove it, as needed.
-            this.temperatures_HistoryTableAdapter.Fill(this.simulationDataSet.Temperatures_History);
             // configuring the defaults values
             GlobalVariables.MinTemp = 0;
             GlobalVariables.MaxTemp = 35;
-            GlobalVariables.LightAutomatique = true;
+            GlobalVariables.LightAutomatique = true; 
+            GlobalVariables.RegulationActive = true;
 
             // verifying and setting the card
             MyCard = new Card();
@@ -223,7 +220,7 @@ namespace MyhouseDomotique
             // *--------------------------------------------------------
             // *                Hotter regulation                      *
             // *--------------------------------------------------------
-            if (GlobalVariables.godMode == false)
+            if (GlobalVariables.godMode == false && GlobalVariables.RegulationActive)
                 TimerFunctions.regulation();
 
             // *--------------------------------------------------------
@@ -297,9 +294,9 @@ namespace MyhouseDomotique
         private void ChangeRegulation(object sender, EventArgs e)
         {
             if (CbConfRegulation.Checked)
-                TimerMainRoutine.Enabled = true;
+                GlobalVariables.RegulationActive = true;
             else
-                TimerMainRoutine.Enabled = false;
+                GlobalVariables.RegulationActive = false;
         }
 
         /// <summary>
@@ -316,6 +313,7 @@ namespace MyhouseDomotique
                 BtKitchenHot.Enabled = true;
                 BtBedRoomHot.Enabled = true;
                 BtOutdoorLight.Enabled = true;
+                CbConfRegulation.Enabled = false;
                 CbConfLightAuto.Checked = false;
             }
             else
@@ -326,6 +324,7 @@ namespace MyhouseDomotique
                 BtKitchenHot.Enabled = false;
                 BtBedRoomHot.Enabled = false;
                 BtOutdoorLight.Enabled = false;
+                CbConfRegulation.Enabled = true;
             }
         }
 

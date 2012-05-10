@@ -88,11 +88,6 @@
       <DependentUpon>VerticalProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="simulationDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>simulationDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="TimerFunctions.cs" />
     <EmbeddedResource Include="MainControl.resx">
       <DependentUpon>MainControl.cs</DependentUpon>
@@ -117,17 +112,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="simulationDataSet.xsc">
-      <DependentUpon>simulationDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="simulationDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>simulationDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="simulationDataSet.xss">
-      <DependentUpon>simulationDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="normal.sdf">
