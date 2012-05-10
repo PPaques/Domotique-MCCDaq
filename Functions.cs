@@ -174,12 +174,14 @@ namespace MyhouseDomotique
                 Program.MainForm.BtOutdoorLight.Text = "On";
                 Program.MainForm.lighActivePanel.Visible = true;
                 Program.MainForm.lighInactivePanel.Visible = false;
+                Program.MainForm.MoonPanel.Visible = true;
             }
             else
             {
                 Program.MainForm.BtOutdoorLight.Text = "Off";
                 Program.MainForm.lighActivePanel.Visible = false;
                 Program.MainForm.lighInactivePanel.Visible = true;
+                Program.MainForm.MoonPanel.Visible = false;
             }
         }
 

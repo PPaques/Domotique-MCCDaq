@@ -315,7 +315,9 @@ namespace MyhouseDomotique
                 BtBedRoomHot.Enabled = true;
                 BtOutdoorLight.Enabled = true;
                 CbConfRegulation.Enabled = false;
+                CbConfRegulation.Checked = false;
                 CbConfLightAuto.Checked = false;
+                CbConfLightAuto.Enabled = false;
             }
             else
             {
@@ -326,6 +328,9 @@ namespace MyhouseDomotique
                 BtBedRoomHot.Enabled = false;
                 BtOutdoorLight.Enabled = false;
                 CbConfRegulation.Enabled = true;
+                CbConfRegulation.Checked = true;
+                CbConfLightAuto.Checked = true;
+                CbConfLightAuto.Enabled = true;
             }
         }
 
