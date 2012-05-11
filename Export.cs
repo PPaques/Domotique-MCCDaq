@@ -12,12 +12,12 @@ namespace MyhouseDomotique
         /// <summary>
         /// Function that export data for only one room from the database to an Excel file.
         /// </summary>
-        public static void ExportTempToExcel(Int32 IDRoom)
+        public static void ExportTempToExcel(Int32 IDRoom, DateTime StartDate, DateTime EndDate)
         {
             string Table;
             Table = "PK_id_autoIncrem" + "\t" + "FK_id_Room" + "\t" + "Time" + "\t" + "Temperature" + "\r\n";   // Each line contains time of measurement and the value of temperature (columns C & D)
 
-            SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " ORDER BY Time ASC ", GlobalVariables.conn);
+            SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' ORDER BY Time ASC ", GlobalVariables.conn);
             SqlCeDataReader reader = com.ExecuteReader();
             
             while (reader.Read())
@@ -90,17 +90,33 @@ namespace MyhouseDomotique
         /// </summary>
         /// <param name="IDRoom"></param>
         /// <param name="Mode"></param>
-        public static void ExportTempToExcelAll()
+        public static void ExportTempToExcelAll(DateTime StartDate, DateTime EndDate)
         {
             string[] Donnees = new string[4];
             string Table;
 
-            for (int i = 0; i < 4; i++)
+            Boolean CanContinue = true;
+            for (int i = 0; i < 3; i++)
             {
-                //Table's header
-                Table = "Time" + "\t" + "Temperature" + "\r\n";
-                using (SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + i + " ORDER BY Time ASC ", GlobalVariables.conn))
+                SqlCeCommand comm = new SqlCeCommand("SELECT COUNT(*) FROM Temperatures_History WHERE FK_id_Room=" + i + " AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' ", GlobalVariables.conn);
+                Int32 count = (Int32)comm.ExecuteScalar();
+                if (count <= 0)
+                    CanContinue = false;
+            }
+
+            if (!CanContinue)
+            {
+                MessageBox.Show("Il manque des données");
+            }
+            else
+            {
+
+
+                for (int i = 0; i < 4; i++)
                 {
+                    //Table's header
+                    Table = "Time" + "\t" + "Temperature" + "\r\n";
+                    SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + i + " AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' ORDER BY Time ASC ", GlobalVariables.conn);
                     SqlCeDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
@@ -111,67 +127,67 @@ namespace MyhouseDomotique
                         ligne = num3 + "\t" + num + "\r\n";
                         Table = Table + ligne;
                     }
+                    Donnees[i] = Table;
                 }
-                Donnees[i] = Table;
-            }
-            
-            //Excel elements
-            Excel.Application oXL;  //Excel application object
-            Excel.Workbook oWB;     //Workbook
-            Excel.Worksheet oSheet; //Sheet
-            Excel.Range oRng;       //Cell range
-            oXL = new Excel.Application(); //Open Excel
-            oXL.Visible = true;     //Show Excel
 
-            //Obtain new a Workbook
-            oWB = (Excel.Workbook)(oXL.Workbooks.Add(1));   //First Sheet
-            oSheet = (Excel.Worksheet)oWB.Worksheets.Add(Type.Missing, (Excel.Worksheet)oWB.ActiveSheet, 3, Type.Missing);  //Add 3 sheets to the Workbook
+                //Excel elements
+                Excel.Application oXL;  //Excel application object
+                Excel.Workbook oWB;     //Workbook
+                Excel.Worksheet oSheet; //Sheet
+                Excel.Range oRng;       //Cell range
+                oXL = new Excel.Application(); //Open Excel
+                oXL.Visible = true;     //Show Excel
 
-            //Send the table in the clipboard
-            for (int j = 0; j < 4; j++)
-            {
-                Clipboard.SetDataObject(Donnees[j], true);
-                oSheet = (Excel.Worksheet)oXL.Worksheets["Sheet" + (j + 1)];
-                oSheet.Select(true);
-                oSheet.Name = GlobalVariables.MyHouse.Rooms[j].name;
-           
-                oRng = oSheet.get_Range("A1", "A1");        // Select first cell
-                oSheet.Paste(oRng, false);                  // Copy/Paste
+                //Obtain new a Workbook
+                oWB = (Excel.Workbook)(oXL.Workbooks.Add(1));   //First Sheet
+                oSheet = (Excel.Worksheet)oWB.Worksheets.Add(Type.Missing, (Excel.Worksheet)oWB.ActiveSheet, 3, Type.Missing);  //Add 3 sheets to the Workbook
 
-                //Adjust cells sizes
-                oSheet.Rows.EntireRow.AutoFit();
-                oSheet.Columns.EntireColumn.AutoFit();
+                //Send the table in the clipboard
+                for (int j = 0; j < 4; j++)
+                {
+                    Clipboard.SetDataObject(Donnees[j], true);
+                    oSheet = (Excel.Worksheet)oXL.Worksheets["Sheet" + (j + 1)];
+                    oSheet.Select(true);
+                    oSheet.Name = GlobalVariables.MyHouse.Rooms[j].name;
 
-                //Put columns C & D header in bold
-                oRng = oSheet.get_Range("A1", "B1");
-                oRng.Font.Bold = true;
+                    oRng = oSheet.get_Range("A1", "A1");        // Select first cell
+                    oSheet.Paste(oRng, false);                  // Copy/Paste
 
-                //Create a chart in (400,0) size = 500x400
-                Excel.ChartObjects oCharts = (Excel.ChartObjects)oSheet.ChartObjects(Type.Missing);
-                Excel.ChartObject oChartObj = oCharts.Add(400, 0, 500, 400);
-                oChartObj.Chart.ChartType = Excel.XlChartType.xlLineMarkersStacked; //Chart type.
-                oChartObj.Name = "Graphe 1";
+                    //Adjust cells sizes
+                    oSheet.Rows.EntireRow.AutoFit();
+                    oSheet.Columns.EntireColumn.AutoFit();
 
-                //Select columns A & B to plot
-                oRng = oSheet.get_Range("A:A", "B:B");
-                oSheet.get_Range("B:B").NumberFormat = "General";
+                    //Put columns C & D header in bold
+                    oRng = oSheet.get_Range("A1", "B1");
+                    oRng.Font.Bold = true;
 
-                //Values from columns A & B definied as datasource
-                oChartObj.Chart.SetSourceData(oRng, Excel.XlRowCol.xlColumns);
+                    //Create a chart in (400,0) size = 500x400
+                    Excel.ChartObjects oCharts = (Excel.ChartObjects)oSheet.ChartObjects(Type.Missing);
+                    Excel.ChartObject oChartObj = oCharts.Add(400, 0, 500, 400);
+                    oChartObj.Chart.ChartType = Excel.XlChartType.xlLineMarkersStacked; //Chart type.
+                    oChartObj.Name = "Graphe 1";
 
-                //Add a title for the chart
-                oChartObj.Chart.ChartTitle.Text = "Températures en fonction du temps" + "\r (" + GlobalVariables.MyHouse.Rooms[j].name+")";
+                    //Select columns A & B to plot
+                    oRng = oSheet.get_Range("A:A", "B:B");
+                    oSheet.get_Range("B:B").NumberFormat = "General";
 
-                //Add titles to axis
-                Excel.Axis x_axis = (Excel.Axis)oChartObj.Chart.Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary);
-                x_axis.HasTitle = true;
-                x_axis.AxisTitle.Text = "Temps";
-                Excel.Axis y_axis = (Excel.Axis)oChartObj.Chart.Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlPrimary);
-                y_axis.HasTitle = true;
-                y_axis.AxisTitle.Text = "Températures (°C)";
+                    //Values from columns A & B definied as datasource
+                    oChartObj.Chart.SetSourceData(oRng, Excel.XlRowCol.xlColumns);
 
-                //Show value for each point in the chart
-                oChartObj.Chart.ApplyDataLabels(Excel.XlDataLabelsType.xlDataLabelsShowValue, false, false, false, false, false, true, false, false, false);
+                    //Add a title for the chart
+                    oChartObj.Chart.ChartTitle.Text = "Températures en fonction du temps" + "(" + GlobalVariables.MyHouse.Rooms[j].name + ")";
+
+                    //Add titles to axis
+                    Excel.Axis x_axis = (Excel.Axis)oChartObj.Chart.Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary);
+                    x_axis.HasTitle = true;
+                    x_axis.AxisTitle.Text = "Temps";
+                    Excel.Axis y_axis = (Excel.Axis)oChartObj.Chart.Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlPrimary);
+                    y_axis.HasTitle = true;
+                    y_axis.AxisTitle.Text = "Températures (°C)";
+
+                    //Show value for each point in the chart
+                    oChartObj.Chart.ApplyDataLabels(Excel.XlDataLabelsType.xlDataLabelsShowValue, false, false, false, false, false, true, false, false, false);
+                }
             }
         }
 
@@ -180,7 +196,7 @@ namespace MyhouseDomotique
         /// Exporting states to excel
         /// </summary>
         /// <param name="IDRoom"></param>
-        public static void ExportStatesToExcel(Int32 IDRoom)
+        public static void ExportStatesToExcel(Int32 IDRoom,DateTime StartDate, DateTime EndDate)
         {
 
             string Table1;
@@ -213,7 +229,7 @@ namespace MyhouseDomotique
                     break;
             }
 
-            SqlCeCommand com = new SqlCeCommand("SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=" + FK_id_Wall1 + " OR FK_id_Wall=" + FK_id_Wall2 + " OR FK_id_Wall=" + FK_id_Wall3 + "ORDER BY Time ASC ", GlobalVariables.conn);
+            SqlCeCommand com = new SqlCeCommand("SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=" + FK_id_Wall1 + " AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' OR FK_id_Wall=" + FK_id_Wall2 + " OR FK_id_Wall=" + FK_id_Wall3 + "ORDER BY Time ASC ", GlobalVariables.conn);
             SqlCeDataReader reader = com.ExecuteReader();
             while (reader.Read())
             {
@@ -272,7 +288,7 @@ namespace MyhouseDomotique
         /// <summary>
         /// Export all states to a xls
         /// </summary>
-        public static void ExportStatesToExcelAll()
+        public static void ExportStatesToExcelAll(DateTime StartDate, DateTime EndDate)
         {
             string[] Donnees = { "0", "0", "0" };
             string Table;
@@ -285,15 +301,15 @@ namespace MyhouseDomotique
                 switch (i)
                 {
                     case 1:
-                        sql_command = "SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=0 OR FK_id_Wall=3 OR FK_id_Wall=4 ORDER BY Time ASC ";
+                        sql_command = "SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=0 AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' OR FK_id_Wall=3 OR FK_id_Wall=4 ORDER BY Time ASC ";
                         break;
 
                     case 2:
-                        sql_command = "SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=1 OR FK_id_Wall=3 OR FK_id_Wall=5 ORDER BY Time ASC ";
+                        sql_command = "SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=1 AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' OR FK_id_Wall=3 OR FK_id_Wall=5 ORDER BY Time ASC ";
                         break;
 
                     case 3:
-                        sql_command = "SELECT FK_id_Wall, FK_id_Opening, Time, New_State FROM States_History WHERE FK_id_Wall=2 OR FK_id_Wall=4 OR FK_id_Wall=5 ORDER BY Time ASC ";
+                        sql_command = "SELECT FK_id_Wall, FK_id_Opening, Time, New_State FROM States_History WHERE FK_id_Wall=2 AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' OR FK_id_Wall=4 OR FK_id_Wall=5 ORDER BY Time ASC ";
                         break;
                 }
 

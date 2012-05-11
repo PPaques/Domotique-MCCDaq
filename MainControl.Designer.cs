@@ -86,7 +86,10 @@
             this.BtDoorKitchen = new System.Windows.Forms.Button();
             this.BtDoorBedroom = new System.Windows.Forms.Button();
             this.TabCredit = new System.Windows.Forms.TabControl();
-            this.StartExport = new System.Windows.Forms.DateTimePicker();
+            this.BtExportStatesExcel = new System.Windows.Forms.Button();
+            this.BtSetToday = new System.Windows.Forms.Button();
+            this.dTPEnd = new System.Windows.Forms.DateTimePicker();
+            this.dTPStart = new System.Windows.Forms.DateTimePicker();
             this.MoonPanel = new Moonpanel();
             this.lighInactivePanel = new LighInactivePannel();
             this.lighActivePanel = new LighActivePannel();
@@ -101,7 +104,6 @@
             this.fireColdPannelBedRoom = new FireColdPannel();
             this.fireColdSaloon = new FireColdPannel();
             this.LightConfProgress = new MyhouseDomotique.VertcicalProgressBar();
-            this.BtExportStatesExcel = new System.Windows.Forms.Button();
             this.tabConfiguration.SuspendLayout();
             this.gBExport.SuspendLayout();
             this.PExportRb.SuspendLayout();
@@ -156,14 +158,16 @@
             // 
             // gBExport
             // 
+            this.gBExport.Controls.Add(this.BtSetToday);
+            this.gBExport.Controls.Add(this.dTPEnd);
+            this.gBExport.Controls.Add(this.dTPStart);
             this.gBExport.Controls.Add(this.BtExportStatesExcel);
-            this.gBExport.Controls.Add(this.StartExport);
             this.gBExport.Controls.Add(this.PExportRb);
             this.gBExport.Controls.Add(this.BtExportTempExcel);
             this.gBExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBExport.Location = new System.Drawing.Point(499, 31);
             this.gBExport.Name = "gBExport";
-            this.gBExport.Size = new System.Drawing.Size(233, 355);
+            this.gBExport.Size = new System.Drawing.Size(443, 196);
             this.gBExport.TabIndex = 13;
             this.gBExport.TabStop = false;
             this.gBExport.Text = "Export";
@@ -175,7 +179,7 @@
             this.PExportRb.Controls.Add(this.RbExportAll);
             this.PExportRb.Controls.Add(this.RbExportBedRoom);
             this.PExportRb.Controls.Add(this.RbExportSaloon);
-            this.PExportRb.Location = new System.Drawing.Point(46, 149);
+            this.PExportRb.Location = new System.Drawing.Point(236, 64);
             this.PExportRb.Name = "PExportRb";
             this.PExportRb.Size = new System.Drawing.Size(125, 132);
             this.PExportRb.TabIndex = 12;
@@ -183,7 +187,7 @@
             // RbExportOutdoor
             // 
             this.RbExportOutdoor.AutoSize = true;
-            this.RbExportOutdoor.Location = new System.Drawing.Point(25, 13);
+            this.RbExportOutdoor.Location = new System.Drawing.Point(25, 15);
             this.RbExportOutdoor.Name = "RbExportOutdoor";
             this.RbExportOutdoor.Size = new System.Drawing.Size(87, 20);
             this.RbExportOutdoor.TabIndex = 10;
@@ -239,7 +243,7 @@
             // 
             // BtExportTempExcel
             // 
-            this.BtExportTempExcel.Location = new System.Drawing.Point(99, 316);
+            this.BtExportTempExcel.Location = new System.Drawing.Point(99, 160);
             this.BtExportTempExcel.Name = "BtExportTempExcel";
             this.BtExportTempExcel.Size = new System.Drawing.Size(115, 24);
             this.BtExportTempExcel.TabIndex = 11;
@@ -886,13 +890,44 @@
             this.TabCredit.Size = new System.Drawing.Size(1110, 884);
             this.TabCredit.TabIndex = 108;
             // 
-            // StartExport
+            // BtExportStatesExcel
             // 
-            this.StartExport.Location = new System.Drawing.Point(18, 29);
-            this.StartExport.Name = "StartExport";
-            this.StartExport.Size = new System.Drawing.Size(200, 22);
-            this.StartExport.TabIndex = 13;
-            this.StartExport.Value = new System.DateTime(2012, 5, 1, 0, 0, 0, 0);
+            this.BtExportStatesExcel.Location = new System.Drawing.Point(99, 122);
+            this.BtExportStatesExcel.Name = "BtExportStatesExcel";
+            this.BtExportStatesExcel.Size = new System.Drawing.Size(115, 23);
+            this.BtExportStatesExcel.TabIndex = 14;
+            this.BtExportStatesExcel.Tag = "states";
+            this.BtExportStatesExcel.Text = "States";
+            this.BtExportStatesExcel.UseVisualStyleBackColor = true;
+            this.BtExportStatesExcel.Click += new System.EventHandler(this.BtExportExcel_Click);
+            // 
+            // BtSetToday
+            // 
+            this.BtSetToday.Location = new System.Drawing.Point(127, 58);
+            this.BtSetToday.Name = "BtSetToday";
+            this.BtSetToday.Size = new System.Drawing.Size(77, 27);
+            this.BtSetToday.TabIndex = 17;
+            this.BtSetToday.Text = "Today";
+            this.BtSetToday.UseVisualStyleBackColor = true;
+            this.BtSetToday.Click += new System.EventHandler(this.BtSetToday_Click);
+            // 
+            // dTPEnd
+            // 
+            this.dTPEnd.Location = new System.Drawing.Point(236, 29);
+            this.dTPEnd.Name = "dTPEnd";
+            this.dTPEnd.Size = new System.Drawing.Size(185, 22);
+            this.dTPEnd.TabIndex = 16;
+            this.dTPEnd.Value = new System.DateTime(2012, 5, 11, 0, 0, 0, 0);
+            this.dTPEnd.ValueChanged += new System.EventHandler(this.dTP_ValueChanged);
+            // 
+            // dTPStart
+            // 
+            this.dTPStart.Location = new System.Drawing.Point(19, 29);
+            this.dTPStart.Name = "dTPStart";
+            this.dTPStart.Size = new System.Drawing.Size(185, 22);
+            this.dTPStart.TabIndex = 15;
+            this.dTPStart.Value = new System.DateTime(2012, 5, 11, 3, 57, 9, 0);
+            this.dTPStart.ValueChanged += new System.EventHandler(this.dTP_ValueChanged);
             // 
             // MoonPanel
             // 
@@ -1028,17 +1063,6 @@
             this.LightConfProgress.Size = new System.Drawing.Size(26, 104);
             this.LightConfProgress.TabIndex = 7;
             // 
-            // BtExportStatesExcel
-            // 
-            this.BtExportStatesExcel.Location = new System.Drawing.Point(99, 287);
-            this.BtExportStatesExcel.Name = "BtExportStatesExcel";
-            this.BtExportStatesExcel.Size = new System.Drawing.Size(115, 23);
-            this.BtExportStatesExcel.TabIndex = 14;
-            this.BtExportStatesExcel.Tag = "states";
-            this.BtExportStatesExcel.Text = "States";
-            this.BtExportStatesExcel.UseVisualStyleBackColor = true;
-            this.BtExportStatesExcel.Click += new System.EventHandler(this.BtExportExcel_Click);
-            // 
             // MainControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1157,8 +1181,10 @@
         private System.Windows.Forms.RadioButton RbExportBedRoom;
         private System.Windows.Forms.RadioButton RbExportSaloon;
         private System.Windows.Forms.Button BtExportTempExcel;
-        private System.Windows.Forms.DateTimePicker StartExport;
         private System.Windows.Forms.Button BtExportStatesExcel;
+        private System.Windows.Forms.Button BtSetToday;
+        private System.Windows.Forms.DateTimePicker dTPEnd;
+        private System.Windows.Forms.DateTimePicker dTPStart;
     }
 }
 

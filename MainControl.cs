@@ -374,18 +374,46 @@ namespace MyhouseDomotique
             {
                 case 4:
                     if ((sender as Button).Tag == "states")
-                        Export.ExportStatesToExcelAll();
+                        Export.ExportStatesToExcelAll(dTPStart.Value,dTPEnd.Value);
                     else
-                        Export.ExportTempToExcelAll();
+                        Export.ExportTempToExcelAll(dTPStart.Value, dTPEnd.Value);
                     break;
 
                 default:
                     if ((sender as Button).Tag == "states")
-                        Export.ExportStatesToExcel(RoomChoice);
+                        Export.ExportStatesToExcel(RoomChoice, dTPStart.Value, dTPEnd.Value);
                     else
-                        Export.ExportTempToExcel(RoomChoice);
+                        Export.ExportTempToExcel(RoomChoice, dTPStart.Value, dTPEnd.Value);
                     break;
             }
+        }
+
+        /// <summary>
+        /// set the today date
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtSetToday_Click(object sender, EventArgs e)
+        {
+            dTPEnd.Value = System.DateTime.Now;
+            dTPStart.Value = System.DateTime.Now.AddHours(-24);
+
+        }
+
+        /// <summary>
+        /// Read the values in datePicker fields & check if is possible
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dTP_ValueChanged(object sender, EventArgs e)
+        {
+            dTPStart.Format = DateTimePickerFormat.Long;
+            dTPEnd.Format = DateTimePickerFormat.Long;
+            String StartTime = dTPStart.Value.ToShortDateString();
+            String EndTime = dTPEnd.Value.ToShortDateString();
+
+            if (dTPStart.Value > dTPEnd.Value)
+                MessageBox.Show("Date de début ultérieure à date de fin !", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
 
