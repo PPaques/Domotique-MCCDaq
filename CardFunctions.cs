@@ -100,7 +100,7 @@ namespace MyhouseDomotique
                 }
 
                 ULStat = DaqBoard.ToEngUnits(Range, DataValue, out EngUnits[i]);// converting to voltage
-                double Value = (EngUnits[i] * 100F / 11F);
+                float Value = (EngUnits[i] * 100F / 11F);
                 Functions.SaveTemperature(i, Value);
             }
         }

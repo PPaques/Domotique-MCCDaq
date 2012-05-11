@@ -17,10 +17,9 @@ namespace MyhouseDomotique
         /// </summary>
         public static void regulation()
         {
-            //salon
-            if ((GlobalVariables.MyHouse.Rooms[1].temperature) < (GlobalVariables.MyHouse.Rooms[1].temperature_order) && (GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false))
+            if ((GlobalVariables.MyHouse.Rooms[1].temperature) < (GlobalVariables.MyHouse.Rooms[1].temperature_order)  && (GlobalVariables.MyHouse.Walls[0].Openings[1].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[2].isOpen == false) && (GlobalVariables.MyHouse.Walls[0].Openings[0].isOpen == false))
             {
-                if (((GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen == false)))
+                if (((GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[3].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[4].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen == false)) || ((GlobalVariables.MyHouse.Walls[2].Openings[0].isOpen == false) && (GlobalVariables.MyHouse.Walls[1].Openings[0].isOpen == false)))
                     GlobalVariables.MyHouse.Rooms[1].hot_is_active = true;
                 else
                     GlobalVariables.MyHouse.Rooms[1].hot_is_active = false;
@@ -49,7 +48,7 @@ namespace MyhouseDomotique
                     GlobalVariables.MyHouse.Rooms[3].hot_is_active = false;
             }
             else
-            GlobalVariables.MyHouse.Rooms[3].hot_is_active = false;
+                GlobalVariables.MyHouse.Rooms[3].hot_is_active = false;
         }
 
         // *-----------------------------------------------------*

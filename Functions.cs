@@ -390,7 +390,7 @@ namespace MyhouseDomotique
             // Vérification de la dernière température stockée
             double LastTemp = 0;
 
-           SqlCeCommand cn = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " ORDER BY Time ASC", GlobalVariables.conn);
+           SqlCeCommand cn = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " ORDER BY PK_id_autoIncrem ASC", GlobalVariables.conn);
            SqlCeDataReader reader = cn.ExecuteReader();
            try
            {

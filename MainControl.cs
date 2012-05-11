@@ -334,5 +334,60 @@ namespace MyhouseDomotique
             }
         }
 
+        /// <summary>
+        /// Exporting to excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtExportExcel_Click(object sender, EventArgs e)
+        {
+            int RoomChoice = 0;
+
+            //Detect which radio button is checked
+            if (RbExportOutdoor.Checked == true)
+            {
+                RoomChoice = Convert.ToInt16(RbExportOutdoor.Tag);
+            }
+
+            if (RbExportBedRoom.Checked == true)
+            {
+                RoomChoice = Convert.ToInt16(RbExportBedRoom.Tag);
+            }
+
+            if (RbExportSaloon.Checked == true)
+            {
+                RoomChoice = Convert.ToInt16(RbExportSaloon.Tag); ;
+            }
+
+            if (RbExportKitchen.Checked == true)
+            {
+                RoomChoice = Convert.ToInt16(RbExportKitchen.Tag); ;
+            }
+
+            if (RbExportAll.Checked == true)
+            {
+                RoomChoice = Convert.ToInt16(RbExportAll.Tag); ;
+            }
+
+            //Select the appropriate function to realise the exportation
+            switch (RoomChoice)
+            {
+                case 4:
+                    if ((sender as Button).Tag == "states")
+                        Export.ExportStatesToExcelAll();
+                    else
+                        Export.ExportTempToExcelAll();
+                    break;
+
+                default:
+                    if ((sender as Button).Tag == "states")
+                        Export.ExportStatesToExcel(RoomChoice);
+                    else
+                        Export.ExportTempToExcel(RoomChoice);
+                    break;
+            }
+        }
+
+
     }
 }
