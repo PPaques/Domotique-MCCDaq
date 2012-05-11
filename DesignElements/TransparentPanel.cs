@@ -83,7 +83,6 @@ public class Moonpanel : DrawingArea
         this.graphics.DrawImage(broculoImage, small);
     }
 }
-
 public class SunPanel : DrawingArea
 {
     protected override void OnDraw()

@@ -373,14 +373,14 @@ namespace MyhouseDomotique
             switch (RoomChoice)
             {
                 case 4:
-                    if ((sender as Button).Tag == "states")
+                    if (Convert.ToString((sender as Button).Tag) == "states")
                         Export.ExportStatesToExcelAll(dTPStart.Value,dTPEnd.Value);
                     else
                         Export.ExportTempToExcelAll(dTPStart.Value, dTPEnd.Value);
                     break;
 
                 default:
-                    if ((sender as Button).Tag == "states")
+                    if (Convert.ToString((sender as Button).Tag) == "states")
                         Export.ExportStatesToExcel(RoomChoice, dTPStart.Value, dTPEnd.Value);
                     else
                         Export.ExportTempToExcel(RoomChoice, dTPStart.Value, dTPEnd.Value);

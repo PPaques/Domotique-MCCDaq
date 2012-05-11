@@ -17,72 +17,85 @@ namespace MyhouseDomotique
             string Table;
             Table = "PK_id_autoIncrem" + "\t" + "FK_id_Room" + "\t" + "Time" + "\t" + "Temperature" + "\r\n";   // Each line contains time of measurement and the value of temperature (columns C & D)
 
-            SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' ORDER BY Time ASC ", GlobalVariables.conn);
-            SqlCeDataReader reader = com.ExecuteReader();
-            
-            while (reader.Read())
+            SqlCeCommand comm = new SqlCeCommand("SELECT count(*) FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " AND Time between " +
+                    " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                    " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103)", GlobalVariables.conn);
+            Int32 count = (Int32)comm.ExecuteScalar();
+
+            if (count <= 0)
+                MessageBox.Show("Il manque des données");
+            else
             {
-                string num = Convert.ToDouble(reader.GetValue(0)).ToString("g").Replace(",", ".");
-                string num3 = Convert.ToDateTime(reader.GetValue(1)).ToString("dd/MM/yyyy hh:mm:ss");
 
-                string ligne = "\t" + "\t" + num3 + "\t" + num + "\r\n";
-                Table = Table + ligne;
+                SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + IDRoom + " AND Time between " +
+                        " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                        " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103) ORDER BY Time ASC ", GlobalVariables.conn);
+                SqlCeDataReader reader = com.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string num = Convert.ToDouble(reader.GetValue(0)).ToString("g").Replace(",", ".");
+                    string num3 = Convert.ToDateTime(reader.GetValue(1)).ToString("dd/MM/yyyy hh:mm:ss");
+
+                    string ligne = "\t" + "\t" + num3 + "\t" + num + "\r\n";
+                    Table = Table + ligne;
+                }
+
+
+                //Send Table via the Clipboard
+                Clipboard.SetDataObject(Table, true);
+
+                //Excel elements
+                Excel.Application oXL;  //Excel application object
+                Excel.Workbook oWB;     //Workbook
+                Excel.Worksheet oSheet; //Sheet
+                Excel.Range oRng;       //Cell range
+                oXL = new Excel.Application(); //Open Excel
+                oXL.Visible = true;     //Show Excel
+
+                //Obtain new a Workbook
+                oWB = (Excel.Workbook)(oXL.Workbooks.Add(1));   //First Sheet
+                oSheet = (Excel.Worksheet)oWB.ActiveSheet;
+                oSheet.Name = GlobalVariables.MyHouse.Rooms[IDRoom].name;
+
+                oRng = oSheet.get_Range("A1", "A1");        // Select first cell
+                oSheet.Paste(oRng, false);                  // Copy/Paste
+
+                // Adjust cells sizes
+                oSheet.Rows.EntireRow.AutoFit();
+                oSheet.Columns.EntireColumn.AutoFit();
+
+                //Put columns C & D header in bold
+                oRng = oSheet.get_Range("C1", "D1");
+                oRng.Font.Bold = true;
+
+                // Create a chart in (400,0) size = 500x400
+                Excel.ChartObjects oCharts = (Excel.ChartObjects)oSheet.ChartObjects(Type.Missing);
+                Excel.ChartObject oChartObj = oCharts.Add(400, 0, 500, 400);
+                oChartObj.Chart.ChartType = Excel.XlChartType.xlLineMarkersStacked; //Chart type
+                oChartObj.Name = "Graphe 1";
+
+                //Select columns C & D to plot
+                oRng = oSheet.get_Range("C:C", "D:D");
+
+                //Values from columns C & D definied as datasource
+                oChartObj.Chart.SetSourceData(oRng, Excel.XlRowCol.xlColumns);
+
+
+                //Add a title for the chart
+                oChartObj.Chart.ChartTitle.Text = "Températures en fonction du temps" + "\r (" + GlobalVariables.MyHouse.Rooms[IDRoom].name + ")";
+
+                //Add axis titles
+                Excel.Axis x_axis = (Excel.Axis)oChartObj.Chart.Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary);
+                x_axis.HasTitle = true;
+                x_axis.AxisTitle.Text = "Temps";
+                Excel.Axis y_axis = (Excel.Axis)oChartObj.Chart.Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlPrimary);
+                y_axis.HasTitle = true;
+                y_axis.AxisTitle.Text = "Températures (°C)";
+
+                //Show value for each point in the chart
+                oChartObj.Chart.ApplyDataLabels(Excel.XlDataLabelsType.xlDataLabelsShowValue, false, false, false, false, false, true, false, false, false);
             }
-                
-
-            //Send Table via the Clipboard
-            Clipboard.SetDataObject(Table, true);
-
-            //Excel elements
-            Excel.Application oXL;  //Excel application object
-            Excel.Workbook oWB;     //Workbook
-            Excel.Worksheet oSheet; //Sheet
-            Excel.Range oRng;       //Cell range
-            oXL = new Excel.Application(); //Open Excel
-            oXL.Visible = true;     //Show Excel
-
-            //Obtain new a Workbook
-            oWB = (Excel.Workbook)(oXL.Workbooks.Add(1));   //First Sheet
-            oSheet = (Excel.Worksheet)oWB.ActiveSheet;
-            oSheet.Name = GlobalVariables.MyHouse.Rooms[IDRoom].name;
-
-            oRng = oSheet.get_Range("A1", "A1");        // Select first cell
-            oSheet.Paste(oRng, false);                  // Copy/Paste
-
-            // Adjust cells sizes
-            oSheet.Rows.EntireRow.AutoFit();
-            oSheet.Columns.EntireColumn.AutoFit();
-
-            //Put columns C & D header in bold
-            oRng = oSheet.get_Range("C1", "D1");
-            oRng.Font.Bold = true;
-
-            // Create a chart in (400,0) size = 500x400
-            Excel.ChartObjects oCharts = (Excel.ChartObjects)oSheet.ChartObjects(Type.Missing);
-            Excel.ChartObject oChartObj = oCharts.Add(400, 0, 500, 400);
-            oChartObj.Chart.ChartType = Excel.XlChartType.xlLineMarkersStacked; //Chart type
-            oChartObj.Name = "Graphe 1";
-
-            //Select columns C & D to plot
-            oRng = oSheet.get_Range("C:C", "D:D");
-
-            //Values from columns C & D definied as datasource
-            oChartObj.Chart.SetSourceData(oRng, Excel.XlRowCol.xlColumns);
-
-
-            //Add a title for the chart
-            oChartObj.Chart.ChartTitle.Text = "Températures en fonction du temps" + "\r (" + GlobalVariables.MyHouse.Rooms[IDRoom].name+")";
-            
-            //Add axis titles
-            Excel.Axis x_axis = (Excel.Axis)oChartObj.Chart.Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary);
-            x_axis.HasTitle = true;
-            x_axis.AxisTitle.Text = "Temps";
-            Excel.Axis y_axis = (Excel.Axis)oChartObj.Chart.Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlPrimary);
-            y_axis.HasTitle = true;
-            y_axis.AxisTitle.Text = "Températures (°C)";
-
-            //Show value for each point in the chart
-            oChartObj.Chart.ApplyDataLabels(Excel.XlDataLabelsType.xlDataLabelsShowValue, false, false, false, false, false, true, false, false, false);
         }
 
         /// <summary>
@@ -98,7 +111,9 @@ namespace MyhouseDomotique
             Boolean CanContinue = true;
             for (int i = 0; i < 3; i++)
             {
-                SqlCeCommand comm = new SqlCeCommand("SELECT COUNT(*) FROM Temperatures_History WHERE FK_id_Room=" + i + " AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' ", GlobalVariables.conn);
+                SqlCeCommand comm = new SqlCeCommand("SELECT COUNT(*) FROM Temperatures_History WHERE FK_id_Room=" + i + " AND Time between "+
+                    " convert(datetime,'"+ StartDate.Day +"/"+ StartDate.Month +"/"+ StartDate.Year + "',103) AND "+ 
+                    " convert(datetime,'"+ EndDate.Day +"/"+ EndDate.Month +"/"+ EndDate.Year + "',103)", GlobalVariables.conn);
                 Int32 count = (Int32)comm.ExecuteScalar();
                 if (count <= 0)
                     CanContinue = false;
@@ -116,7 +131,9 @@ namespace MyhouseDomotique
                 {
                     //Table's header
                     Table = "Time" + "\t" + "Temperature" + "\r\n";
-                    SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + i + " AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' ORDER BY Time ASC ", GlobalVariables.conn);
+                    SqlCeCommand com = new SqlCeCommand("SELECT Temperature, Time FROM Temperatures_History WHERE FK_id_Room=" + i + " AND Time between "+
+                    " convert(datetime,'"+ StartDate.Day +"/"+ StartDate.Month +"/"+ StartDate.Year + "',103) AND "+ 
+                    " convert(datetime,'"+ EndDate.Day +"/"+ EndDate.Month +"/"+ EndDate.Year + "',103) ORDER BY Time ASC ", GlobalVariables.conn);
                     SqlCeDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
@@ -228,135 +245,50 @@ namespace MyhouseDomotique
                     FK_id_Wall3 = 5;
                     break;
             }
-
-            SqlCeCommand com = new SqlCeCommand("SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=" + FK_id_Wall1 + " AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' OR FK_id_Wall=" + FK_id_Wall2 + " OR FK_id_Wall=" + FK_id_Wall3 + "ORDER BY Time ASC ", GlobalVariables.conn);
-            SqlCeDataReader reader = com.ExecuteReader();
-            while (reader.Read())
-            {
-                string num = Convert.ToString(reader.GetValue(0));
-                string num11 = Convert.ToString(reader.GetValue(1));
-                string num3 =  Convert.ToDateTime(reader.GetValue(2)).ToString("dd/MM/yyyy hh:mm:ss");
-                string num22 = Convert.ToString(reader.GetValue(3));
-
-                //MessageBox.Show("Valeur : " + num + "°C à la date du " + num1);
-                string ligne;
-                ligne = "\t" + num + "\t" + num11 + "\t" + num3 + "\t" + num22 + "\r\n";
-                Table1 = Table1 + ligne;
-            }
-        
-            // envoi du tableau dans le presse-papiers
-            Clipboard.SetDataObject(Table1, true);
-
-            // Eléments d'EXCEL
-            Excel.Application oXL;  // Objet Excel application
-            Excel.Workbook oWB;     // Classeur
-            Excel.Worksheet oSheet; // Feuille
-            Excel.Range oRng;       // Cellules
-            oXL = new Excel.Application(); // OUVERTURE D'EXCEL
-            oXL.Visible = true;     // excel visible
-
-            //Obtenir un nouveau classeur
-            oWB = (Excel.Workbook)(oXL.Workbooks.Add(1));
-            oSheet = (Excel.Worksheet)oWB.ActiveSheet;  // et la 1ère feuille
-            oSheet.Name = GlobalVariables.MyHouse.Rooms[IDRoom].name;
             
-            oRng = oSheet.get_Range("A1", "A1");        // sélection première cellule
-            oSheet.Paste(oRng, false);                  // Copier-Coller
+            SqlCeCommand comm = new SqlCeCommand("SELECT count(*) FROM States_History WHERE FK_id_Wall=" + FK_id_Wall1 + " AND ( Time between " +
+                    " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                    " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103)) OR FK_id_Wall=" + FK_id_Wall2 + " OR FK_id_Wall=" + FK_id_Wall3 , GlobalVariables.conn);
+            Int32 count = (Int32)comm.ExecuteScalar();
 
-            // ajuster les largeurs et hauteurs des cellules
-            oSheet.Rows.EntireRow.AutoFit();
-            oSheet.Columns.EntireColumn.AutoFit();
-
-            //oSheet.Columns.AutoFit();
-            oRng = oSheet.get_Range("A1", "B1");    // sélection première ligne
-            oRng.Font.Bold = true;                  // et passage en GRAS
-
-            // création d'un graphique en 150,0,500,400 point supérieur et largeur en pixels
-            Excel.ChartObjects oCharts = (Excel.ChartObjects)oSheet.ChartObjects(Type.Missing);
-            Excel.ChartObject oChartObj = oCharts.Add(400, 0, 500, 400);
-            oChartObj.Name = "Graphe 1";
-
-            // on prend toutes les cellules actives
-            oRng = oSheet.UsedRange.Cells;
-
-            // et on les met comme base du dessin
-            oChartObj.Chart.SetSourceData(oRng, Excel.XlRowCol.xlColumns);
-            oChartObj.Chart.ChartType = Excel.XlChartType.xl3DColumnStacked;
-        }
-
-
-        /// <summary>
-        /// Export all states to a xls
-        /// </summary>
-        public static void ExportStatesToExcelAll(DateTime StartDate, DateTime EndDate)
-        {
-            string[] Donnees = { "0", "0", "0" };
-            string Table;
-
-            for (int i = 1; i <= 3; i++)
+            if (count <= 0)
+                MessageBox.Show("Il manque des données");
+            else
             {
-                Table = "PK_id_autoIncrem" + "\t" + "FK_id_Wall" + "\t" + "FK_id_Opening" + "\t" + "Time" + "\t" + "New_State" + "\r\n";
-         
-                string sql_command = null;
-                switch (i)
-                {
-                    case 1:
-                        sql_command = "SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=0 AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' OR FK_id_Wall=3 OR FK_id_Wall=4 ORDER BY Time ASC ";
-                        break;
 
-                    case 2:
-                        sql_command = "SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=1 AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' OR FK_id_Wall=3 OR FK_id_Wall=5 ORDER BY Time ASC ";
-                        break;
-
-                    case 3:
-                        sql_command = "SELECT FK_id_Wall, FK_id_Opening, Time, New_State FROM States_History WHERE FK_id_Wall=2 AND Time between'" + StartDate.AddHours(-1).Date.ToString() + "' AND '" + EndDate.Date.ToString() + "' OR FK_id_Wall=4 OR FK_id_Wall=5 ORDER BY Time ASC ";
-                        break;
-                }
-
-                SqlCeCommand com = new SqlCeCommand(sql_command, GlobalVariables.conn);
+                SqlCeCommand com = new SqlCeCommand("SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=" + FK_id_Wall1 + " AND ( Time between " +
+                        " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                        " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103)) OR FK_id_Wall=" + FK_id_Wall2 + " OR FK_id_Wall=" + FK_id_Wall3 + "ORDER BY Time ASC ", GlobalVariables.conn);
                 SqlCeDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
                     string num = Convert.ToString(reader.GetValue(0));
                     string num11 = Convert.ToString(reader.GetValue(1));
-                    string num3 =  Convert.ToDateTime(reader.GetValue(2)).ToString("dd/MM/yyyy hh:mm:ss");
+                    string num3 = Convert.ToDateTime(reader.GetValue(2)).ToString("dd/MM/yyyy hh:mm:ss");
                     string num22 = Convert.ToString(reader.GetValue(3));
 
                     //MessageBox.Show("Valeur : " + num + "°C à la date du " + num1);
                     string ligne;
                     ligne = "\t" + num + "\t" + num11 + "\t" + num3 + "\t" + num22 + "\r\n";
-                    Table = Table + ligne;
+                    Table1 = Table1 + ligne;
+                }
 
-                 }
-                 
-                Donnees[i - 1] = Table;
+                // envoi du tableau dans le presse-papiers
+                Clipboard.SetDataObject(Table1, true);
 
-            }
+                // Eléments d'EXCEL
+                Excel.Application oXL;  // Objet Excel application
+                Excel.Workbook oWB;     // Classeur
+                Excel.Worksheet oSheet; // Feuille
+                Excel.Range oRng;       // Cellules
+                oXL = new Excel.Application(); // OUVERTURE D'EXCEL
+                oXL.Visible = true;     // excel visible
 
+                //Obtenir un nouveau classeur
+                oWB = (Excel.Workbook)(oXL.Workbooks.Add(1));
+                oSheet = (Excel.Worksheet)oWB.ActiveSheet;  // et la 1ère feuille
+                oSheet.Name = GlobalVariables.MyHouse.Rooms[IDRoom].name;
 
-            // Eléments d'EXCEL
-            Excel.Application oXL;  // Objet Excel application
-            Excel.Workbook oWB;     // Classeur
-            Excel.Worksheet oSheet; // Feuille
-            Excel.Range oRng;       // Cellules
-            oXL = new Excel.Application(); // OUVERTURE D'EXCEL
-            oXL.Visible = true;     // excel visible
-
-            //Obtenir un nouveau classeur
-            oWB = (Excel.Workbook)(oXL.Workbooks.Add(1));
-            //oSheet = (Excel.Worksheet)oWB.ActiveSheet;  // et la 1ère feuille
-            //oSheet = (Excel.Worksheet)(oWB.Sheets.Add(1));
-            oSheet = (Excel.Worksheet)oWB.Worksheets.Add(Type.Missing, (Excel.Worksheet)oWB.ActiveSheet, 2, Type.Missing);
-
-            // envoi du tableau dans le presse-papiers
-            for (int j = 1; j <= 3; j++)
-            {
-                Clipboard.SetDataObject(Donnees[j - 1], true);
-
-                oSheet = (Excel.Worksheet)oXL.Worksheets["Sheet" + j];
-                oSheet.Select(true);
-                oSheet.Name = GlobalVariables.MyHouse.Rooms[j].name;
-             
                 oRng = oSheet.get_Range("A1", "A1");        // sélection première cellule
                 oSheet.Paste(oRng, false);                  // Copier-Coller
 
@@ -379,6 +311,134 @@ namespace MyhouseDomotique
                 // et on les met comme base du dessin
                 oChartObj.Chart.SetSourceData(oRng, Excel.XlRowCol.xlColumns);
                 oChartObj.Chart.ChartType = Excel.XlChartType.xl3DColumnStacked;
+            }
+        }
+
+
+        /// <summary>
+        /// Export all states to a xls
+        /// </summary>
+        public static void ExportStatesToExcelAll(DateTime StartDate, DateTime EndDate)
+        {
+            string[] Donnees = { "0", "0", "0" };
+            string Table;
+
+            Boolean CanContinue = true;
+            for (int i = 1; i <= 3; i++)
+            {
+                Table = "PK_id_autoIncrem" + "\t" + "FK_id_Wall" + "\t" + "FK_id_Opening" + "\t" + "Time" + "\t" + "New_State" + "\r\n";
+
+                string sql_command = null;
+                string sql_verif = null;
+                switch (i)
+                {
+                    case 1:
+                        sql_verif = "SELECT count(*) FROM States_History WHERE FK_id_Wall=0 AND Time between " +
+                    " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                    " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103) OR FK_id_Wall=3 OR FK_id_Wall=4  ";
+                        sql_command = "SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=0 AND Time between " +
+                    " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                    " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103) OR FK_id_Wall=3 OR FK_id_Wall=4 ORDER BY Time ASC ";
+                        break;
+
+                    case 2:
+                        sql_verif = "SELECT count(*) FROM States_History WHERE FK_id_Wall=1 AND Time between " +
+                                    " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                                    " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103) OR FK_id_Wall=3 OR FK_id_Wall=5  ";
+                        sql_command = "SELECT FK_id_Wall, FK_id_Opening,Time, New_State FROM States_History WHERE FK_id_Wall=1 AND Time between " +
+                                        " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                                        " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103) OR FK_id_Wall=3 OR FK_id_Wall=5 ORDER BY Time ASC ";
+                        break;
+
+                    case 3:
+                        sql_verif = "SELECT count(*) FROM States_History WHERE FK_id_Wall=2 AND Time between " +
+                                    " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                                    " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103) OR FK_id_Wall=4 OR FK_id_Wall=5  ";
+                        sql_command = "SELECT FK_id_Wall, FK_id_Opening, Time, New_State FROM States_History WHERE FK_id_Wall=2 AND Time between " +
+                                    " convert(datetime,'" + StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year + "',103) AND " +
+                                    " convert(datetime,'" + EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year + "',103) OR FK_id_Wall=4 OR FK_id_Wall=5 ORDER BY Time ASC ";
+                        break;
+                }
+
+                SqlCeCommand comm = new SqlCeCommand(sql_verif, GlobalVariables.conn);
+                Int32 count = (Int32)comm.ExecuteScalar();
+
+                if (count <= 0)
+                    CanContinue = false;
+
+                SqlCeCommand com = new SqlCeCommand(sql_command, GlobalVariables.conn);
+                SqlCeDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    string num = Convert.ToString(reader.GetValue(0));
+                    string num11 = Convert.ToString(reader.GetValue(1));
+                    string num3 = Convert.ToDateTime(reader.GetValue(2)).ToString("dd/MM/yyyy hh:mm:ss");
+                    string num22 = Convert.ToString(reader.GetValue(3));
+
+                    //MessageBox.Show("Valeur : " + num + "°C à la date du " + num1);
+                    string ligne;
+                    ligne = "\t" + num + "\t" + num11 + "\t" + num3 + "\t" + num22 + "\r\n";
+                    Table = Table + ligne;
+
+                }
+
+                Donnees[i - 1] = Table;
+
+            }
+
+
+            if (!CanContinue)
+                MessageBox.Show("Il manque des données");
+            else
+            {
+
+                // Eléments d'EXCEL
+                Excel.Application oXL;  // Objet Excel application
+                Excel.Workbook oWB;     // Classeur
+                Excel.Worksheet oSheet; // Feuille
+                Excel.Range oRng;       // Cellules
+                oXL = new Excel.Application(); // OUVERTURE D'EXCEL
+                oXL.Visible = true;     // excel visible
+
+                //Obtenir un nouveau classeur
+                oWB = (Excel.Workbook)(oXL.Workbooks.Add(1));
+                //oSheet = (Excel.Worksheet)oWB.ActiveSheet;  // et la 1ère feuille
+                //oSheet = (Excel.Worksheet)(oWB.Sheets.Add(1));
+                oSheet = (Excel.Worksheet)oWB.Worksheets.Add(Type.Missing, (Excel.Worksheet)oWB.ActiveSheet, 2, Type.Missing);
+
+                // envoi du tableau dans le presse-papiers
+                for (int j = 1; j <= 3; j++)
+                {
+                    Clipboard.SetDataObject(Donnees[j - 1], true);
+
+                    oSheet = (Excel.Worksheet)oXL.Worksheets["Sheet" + j];
+                    oSheet.Select(true);
+                    oSheet.Name = GlobalVariables.MyHouse.Rooms[j].name;
+
+                    oRng = oSheet.get_Range("A1", "A1");        // sélection première cellule
+                    oSheet.Paste(oRng, false);                  // Copier-Coller
+
+                    // ajuster les largeurs et hauteurs des cellules
+                    oSheet.Rows.EntireRow.AutoFit();
+                    oSheet.Columns.EntireColumn.AutoFit();
+
+                    //oSheet.Columns.AutoFit();
+                    oRng = oSheet.get_Range("A1", "B1");    // sélection première ligne
+                    oRng.Font.Bold = true;                  // et passage en GRAS
+
+                    // création d'un graphique en 150,0,500,400 point supérieur et largeur en pixels
+                    Excel.ChartObjects oCharts = (Excel.ChartObjects)oSheet.ChartObjects(Type.Missing);
+                    Excel.ChartObject oChartObj = oCharts.Add(400, 0, 500, 400);
+                    oChartObj.Name = "Graphe 1";
+
+                    // on prend toutes les cellules actives
+                    oRng = oSheet.UsedRange.Cells;
+
+                    // et on les met comme base du dessin
+                    oChartObj.Chart.SetSourceData(oRng, Excel.XlRowCol.xlColumns);
+                    oChartObj.Chart.ChartType = Excel.XlChartType.xl3DColumnStacked;
+
+                }
             }
         }
     }
